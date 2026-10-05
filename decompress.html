@@ -9,7 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="icon" href="img/Coco/Head Logo.webp">
 
-    <title>Decompression Guide | Viva New Vegas</title>
+    <title>플러그인 압축 해제 가이드 | Viva New Vegas 한국어</title>
 
     <meta name="keywords" content="
     Mod, Modding, Mods, Guide, Mod Guide, Modding Guide, Resource, Resources,
@@ -25,7 +25,7 @@
     Skyrim Special Edition, Skyrim SE, SSE,
     Decompression, Decompress, Decompressing, Plugin Decompression, Plugin Decompressing">
 
-    <meta name="description" content="Guide on how to decompress all plugins in your load order for better performance and less stuttering.">
+    <meta name="description" content="로드 순서의 플러그인을 압축 해제해 성능을 높이고 끊김을 줄이는 방법입니다.">
     <meta http-equiv='content-language' content='ko-kr'>
     <meta name="twitter:card" value="summary_large_image">
     <meta property="og:site_name" content="ModdingLinked">
@@ -33,7 +33,7 @@
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://vivanewvegas.moddinglinked.com">
     <meta property="og:image" content="https://vivanewvegas.moddinglinked.com/img/Others/Card.webp">
-    <meta property="og:description" content="Guide on how to decompress all plugins in your load order for better performance and less stuttering.">
+    <meta property="og:description" content="로드 순서의 플러그인을 압축 해제해 성능을 높이고 끊김을 줄이는 방법입니다.">
 
     <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#333230">
     <meta name="darkreader-lock">
@@ -73,7 +73,7 @@
             </div>
             <div class="headerTitle">
                 <img src="./img/Coco/Head Logo.webp" alt="Logo" id="logo">
-                <a href="./index.html" id="headerTitle">Viva New Vegas</a>
+                <a href="./index.html" id="headerTitle">Viva New Vegas 한국어</a>
             </div>
             <div class="guideLinks" id="headerLinks">
                 <a href="https://thebestoftimes.moddinglinked.com" target="_blank" rel="nofollow">Tale of Two Wastelands</a>
@@ -203,18 +203,18 @@
         <div class="content">
 
             <span id="Decompression" class="section">
-                <h2 onclick="location.href='#Decompression'">Decompression Guide</h2>
+                <h2 onclick="location.href='#Decompression'">플러그인 압축 해제 가이드</h2>
 
                 <div class="card" id="Why?">
-                    <h3>Why?</h3>
+                    <h3>왜 필요한가요?</h3>
                     <p>
-                        The vanilla game uses zLib compression for most things, plugin records included. Unfortunately, <strong>zLib is very slow</strong> and CPU heavy (especially on SSDs), which sadly results in loading stutter, especially when using mods that add lots of NPCs and/or new landscapes.
+                        바닐라 게임은 플러그인 레코드를 포함한 여러 데이터에 zLib 압축을 사용합니다. 하지만 <strong>zLib은 처리 속도가 느리고 CPU 부하가 큰 편</strong>이라, 특히 SSD 환경에서 로딩 끊김을 유발할 수 있습니다. 많은 NPC나 새로운 지형을 추가하는 모드에서는 영향이 더 커질 수 있습니다.
                         <br>
                         <br>
-                        <a href="./utilities.html#fixedEsms">Ultimate Edition ESM Fixes Remastered</a> and <a href="https://thebestoftimes.moddinglinked.com">Tale of Two Wastelands</a> already decompress the game's base plugins for you, so <strong>all that is left to decompress is your mods</strong>. Luckily, you can very easily do this using xEdit and a simple script.
+                        <a href="./utilities.html#fixedEsms">Ultimate Edition ESM Fixes Remastered</a>와 <a href="https://thebestoftimes.moddinglinked.com">Tale of Two Wastelands</a>는 기본 게임 플러그인을 이미 압축 해제합니다. 따라서 <strong>남은 작업은 설치한 모드 플러그인을 압축 해제하는 것</strong>뿐입니다. xEdit와 간단한 스크립트로 쉽게 처리할 수 있습니다.
                     <div class="card-yellow">
                         <p>
-                            You load order should be decompressed <strong>only once it is complete</strong>, so that everything gets decompressed.
+                            로드 순서가 <strong>완전히 구성된 뒤 한 번만</strong> 압축 해제 작업을 진행하세요. 그래야 모든 대상 플러그인이 포함됩니다.
                         </p>
                     </div>
                     </p>
@@ -222,25 +222,25 @@
 
                 <div class="card" id="TheProcess">
                     <p>
-                    <h3 id="process">The Process</h3>
+                    <h3 id="process">작업 절차</h3>
                     <ol>
-                        <li>If you haven't already, read the <a href="https://moddinglinked.com/xedit.html">xEdit guide</a> to avoid confusion with the next steps.</li>
-                        <li>Download the <a href="https://www.nexusmods.com/newvegas/mods/95058">FNVToolkit - xEdit Script</a>.</li>
-                        <li>Inside the downloaded archive, drag the <b>FNVToolkit.pas</b> file into into xEdit's <b>Edit Scripts</b> folder.</li>
-                        <li>Run xEdit and load <strong>all of your mods</strong>.</li>
-                        <li>Once loaded, select all plugins on the tree-view with CTRL+A, then right-click and <b>Apply Script...</b></li>
+                        <li>아직 읽지 않았다면 다음 단계에서 헷갈리지 않도록 <a href="https://moddinglinked.com/xedit.html">xEdit 가이드</a>를 먼저 확인하세요.</li>
+                        <li><a href="https://www.nexusmods.com/newvegas/mods/95058">FNVToolkit - xEdit Script</a>를 다운로드합니다.</li>
+                        <li>다운로드한 압축 파일의 <b>FNVToolkit.pas</b>를 xEdit의 <b>Edit Scripts</b> 폴더로 옮깁니다.</li>
+                        <li>xEdit를 실행하고 <strong>모든 모드 플러그인</strong>을 불러옵니다.</li>
+                        <li>불러오기가 끝나면 트리 뷰에서 CTRL+A로 모든 플러그인을 선택한 뒤 우클릭하고 <b>Apply Script...</b>를 선택합니다.</li>
                         <div class="image-container width-40">
                             <img class="content-img" src="./img/Others/Apply Script.webp" alt="Apply a script to the entire load order">
                             <div class="resize-overlay expand"></div>
                         </div>
-                        <li>Type <span class="card-basic">FNVToolkit</span> in the filter and the script will automatically be selected.</li>
+                        <li>필터에 <span class="card-basic">FNVToolkit</span>을 입력하면 스크립트가 자동으로 선택됩니다.</li>
                         <div class="image-container width-40">
                             <img class="content-img" src="./img/Others/Decompress Script.webp" alt="Select the Decompress Records script">
                             <div class="resize-overlay expand"></div>
                         </div>
-                        <li>Uncheck every option except for <b>Decompress Records</b>.</li>
-                        <li>Click <b>OK</b> and wait for it to process everything.</li>
-                        <li><strong>Close xEdit</strong>, if it asks you to save then that means the plugins listed got decompressed.</li>
+                        <li><b>Decompress Records</b>를 제외한 모든 옵션의 체크를 해제합니다.</li>
+                        <li><b>OK</b>를 누르고 모든 작업이 끝날 때까지 기다립니다.</li>
+                        <li><strong>xEdit를 종료</strong>합니다. 저장 여부를 묻는 창이 뜬다면 목록에 표시된 플러그인이 압축 해제된 것입니다.</li>
                     </ol>
                     </p>
                 </div>
@@ -249,7 +249,7 @@
 
             <div class="navigationArrowContainer">
                 <a href="#" id="previous" rel="prev" class="navigationArrow">
-                    <img class="mirror" src="./img/UI/Arrow.svg" alt="Back Arrow">
+                    <img class="mirror" src="./img/UI/Arrow.svg" alt="이전 페이지">
                     <span class="arrowText"></span>
                 </a>
             </div>
@@ -261,11 +261,11 @@
         </div>
     </div>
 
-    <footer>ModdingLinked 2026</footer>
+    <footer>ModdingLinked 2026 · 비공식 한국어 번역</footer>
 
     <div id="image-overlay" class="overlay" hidden>
         <div class="image-container">
-            <img id="enlarged-image" class="enlarged-image" src="" alt="Enlarged Image">
+            <img id="enlarged-image" class="enlarged-image" src="" alt="확대 이미지">
             <div class="resize-overlay shrink"></div>
         </div>
     </div>
