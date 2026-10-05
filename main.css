@@ -25,3 +25,39 @@
 @import "submodule/shared/css/benchmarkCharts.css";
 @import "submodule/shared/css/cards.css";
 @import "submodule/shared/css/coco.css";
+
+/* Korean mobile header: keep the localized title readable beside the menu button. */
+@media only screen and (max-width: 700px) {
+  .header {
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    min-width: 0;
+  }
+
+  .headerMenu {
+    flex: 0 0 3.25em;
+    min-width: 3.25em;
+  }
+
+  .headerMenu img {
+    width: 3.25em;
+    height: 3.25em;
+    padding-right: 0.5em;
+  }
+
+  .headerTitle {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+
+  .headerTitle a {
+    font-size: 1.55em;
+    white-space: nowrap;
+  }
+}
+
+@media only screen and (max-width: 360px) {
+  .headerTitle a {
+    font-size: 1.4em;
+  }
+}
