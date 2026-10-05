@@ -14,7 +14,8 @@ ModdingLinked의 [Viva New Vegas](https://vivanewvegas.moddinglinked.com/)를 �
 현재 적용된 작업:
 
 - 전체 HTML 공통 한국어 메뉴
-- 한국어 패처 / KR 변경사항 / 원본 가이드 링크
+- 한국어 패치 전용 안내 페이지 / KR 변경사항 / 원본 가이드 링크
+- VNV Korean Patcher v1.0.3 다운로드 및 업데이트 대응 안내
 - 메인 페이지 번역
 - 소개 페이지 번역
 - 한국어판 전용 변경사항 페이지
