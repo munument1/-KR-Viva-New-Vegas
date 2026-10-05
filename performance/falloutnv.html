@@ -1,0 +1,1418 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+<meta charset="utf-8"/>
+<title>FNV 성능 가이드 | Viva New Vegas 한국어</title>
+<meta content="
+    Mod, Modding, Mods, Guide, Mod Guide, Modding Guide, Resource, Resources,
+    Stable, Stability, Performance, Fix, Fixes, FPS,
+    Fast, Easy, Beginner,
+    Nexus, Nexus Mods, NexusMods,
+    Mod Manager, Mod Organizer, MO2,
+    Fallout, Bethesda, Bethesda Game Studios, BGS,
+    Fallout New Vegas, Fallout NV, New Vegas, FNV,
+    Tale of Two Wastelands, TTW,
+    FPS Limit, Riva Tuner, RTSS, Stutter, Lag, Latency, Hitches, DXGI, Interop, Nvidia, AMD, HDR" name="keywords"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Fallout: New Vegas의 성능과 안정성을 개선하는 가이드입니다. DXVK, Alt+Tab, 끊김, 프레임타임 등을 다룹니다." name="description"/>
+<meta content="Fallout: New Vegas 성능 및 안정성 가이드" property="og:title"/>
+<meta content="article" property="og:type"/>
+<meta content="Fallout: New Vegas의 성능과 안정성을 개선하는 가이드입니다. DXVK, Alt+Tab, 끊김, 프레임타임 등을 다룹니다." property="og:description"/>
+<meta content="noindex, nofollow, noarchive" name="robots"/>
+<meta content="noindex, nofollow, noarchive" name="googlebot"/>
+<meta content="#292329" media="(prefers-color-scheme: dark)" name="theme-color"/>
+<meta name="darkreader-lock"/>
+<link href="img\favicon.webp" rel="icon" type="image/x-icon"/>
+<meta content="ko-KR" http-equiv="content-language"/>
+<script src="../submodule/shared/js/vramDiff.js"></script>
+<script src="../submodule/shared/js/benchmarkCharts.js"></script>
+<script src="../submodule/shared/js/download.js"></script>
+<script src="../submodule/shared/js/expanders.js"></script>
+<script src="./fpsCalculator.kr.js"></script>
+<script src="../submodule/shared/js/highlight.js"></script>
+<script src="../submodule/shared/js/imageGallery.js"></script>
+<script src="../submodule/shared/js/imageSlider.js"></script>
+<script src="../submodule/shared/js/imageViewer.js"></script>
+<script src="../submodule/shared/js/javascript.js"></script>
+<script src="../submodule/shared/js/perfguide.js"></script>
+<script src="../submodule/shared/js/popup.js"></script>
+<script src="../submodule/shared/js/recommendPreset.js"></script>
+<script src="./responsiveTitle.kr.js"></script>
+<script src="../submodule/shared/js/sidebar.js"></script>
+<link href="main.css" rel="stylesheet"/>
+</head>
+<body class="theme dark-scheme">
+<div class="progress-container">
+<div class="progress-bar"></div>
+</div>
+<div class="container">
+<div class="header">
+<div class="headerMenu" onclick="toggleNav()">
+<img id="navButton" src="./img/UI/Navigation.svg"/>
+</div>
+<div class="headerTitle">
+<a href="./falloutnv.html" id="headerTitle">FNV 성능 가이드</a>
+</div>
+</div>
+<div class="sidebar left-sidebar">
+<p class="pageLinks">
+<a href="#Introduction" title="Introduction">
+<!-- 소개 -->
+                </a>
+<a href="#Terminology" title="Terminology">
+<!-- 용어 -->
+                </a>
+<hr/>
+<a href="#PerformanceMods" title="Performance Mods">
+                    성능 모드
+                </a>
+<a href="#DriversAndOS" title="Graphics Drivers and Windows">
+                    드라이버 및 Windows
+                </a>
+<a href="#DXVK" title="DXVK">
+                    DXVK
+                </a>
+<a href="#FlipModel" title="Flip Model">
+                    Flip Model
+                </a>
+<a href="#RecommendedLimiters" title="FPS Limits">
+                    FPS 제한
+                </a>
+<a href="#FAQ" title="FAQ">
+                    FAQ
+                </a>
+<a href="#Finish" title="Finish">
+<!-- 마무리 -->
+                </a>
+</p>
+</div>
+<div class="content">
+<div class="card-yellow">
+<p><strong>비공식 한국어 번역</strong><br/>
+이 페이지는 ModdingLinked의 Fallout: New Vegas Performance Guide를 한국어로 옮긴 것입니다.
+원본 내용과 제작자는 <a href="https://performance.moddinglinked.com/falloutnv.html" target="_blank">원본 Performance Guide</a>에서 확인할 수 있습니다.
+한국어 VNV 가이드로 돌아가려면 <a href="../index.html">Viva New Vegas 한국어 가이드</a>를 이용하세요.</p>
+</div>
+
+<!-- 소개 -->
+<div class="section">
+<span id="Introduction" onclick="location.href='#Introduction'">
+<h2>소개</h2>
+</span>
+<div class="card flex logo-container">
+<div>
+<h3>환영합니다!</h3>
+<p>
+                            이 가이드의 목표는 보다 현대적인 기술과 조정을 이용해 Fallout: New Vegas의 낮은 성능을 개선하고, 엔진 특유의 문제와 주의점을 이해할 수 있게 하는 것입니다.
+                        </p>
+<p>
+                            이 가이드는 기본적으로 <a href="../utilities.html">Viva New Vegas</a>의 <b>Utilities</b> 또는
+                            <a href="https://thebestoftimes.moddinglinked.com/essentials.html" target="_blank">The Best of Times</a>의 <b>Essentials</b>를
+                            완료했다는 전제로 작성되어 있습니다. 다만 해당 가이드에 포함된 성능 관련 모드도 여기서 다시 설명합니다.
+                        </p>
+<p>
+                            이 가이드는 Fallout: New Vegas를 중심으로 하지만, 설명하는 내용 상당수는 다른 게임에도 적용할 수 있습니다.
+                        </p>
+<p>
+                            내용이 매우 길어 보일 수 있지만 질문과 혼란을 줄이기 위해 가능한 한 자세히 설명하기 때문입니다. PC 하드웨어와 설정에는 생각보다 많은 예외와 함정이 있습니다.
+                            <br/>
+                            대부분의 약어는 <a href="#Terminology">용어</a> 항목에서 설명하며 약어 위에 마우스를 올리면 전체 명칭을 확인할 수 있습니다.
+                            <br/>
+                            이해하기 어려운 부분이 있다면 <a href="https://discord.gg/S99Ary5eba" target="_blank">Discord</a>에서 질문할 수 있습니다.
+                        </p>
+</div>
+<div>
+<img alt="Logo of a Vault-Boy with glasses typing on a computer" id="logo" src="img/ui/logo.webp"/>
+</div>
+</div>
+<div class="card">
+<h3>왜 필요한가요?</h3>
+<p>
+</p>
+<p>
+                        솔직히 말해 이 엔진은 최신 환경에 잘 맞지 않습니다. 렌더러는 현재 기준으로 <span id="d3d9_year">22</span> 년이나 된 DirectX 9 기반이라 최신 GPU와 Windows 환경에 잘 맞지 않습니다. 효율이 낮고 CPU 병목이 심하며 화면 표시 방식·메모리 처리·전반적인 안정성에도 문제가 있습니다.
+                        <br/>
+                        Bethesda의 코드 역시 최신 CPU 성능을 제대로 활용하지 못하며 이런 특성은 비교적 최근 작품에서도 볼 수 있습니다.
+                        <br/>
+                        게다가 Fallout: New Vegas는 컴파일러 최적화 없이 빌드되어 엔진 모딩은 쉬워졌지만 전체 성능은 낮아졌습니다.
+                    </p>
+<p>
+                        요약하면 대부분의 성능 문제는 두 단어로 설명할 수 있습니다: <b>CPU 병목</b>.
+                    </p>
+<p>
+                        CPU 병목 자체를 완전히 해결할 수는 없지만 GPU와 화면 표시 방식을 조정하면 게임의 반응성과 체감 성능을 개선할 수 있습니다.
+                    </p>
+</div>
+</div>
+<!-- 용어 -->
+<div class="section">
+<span id="Terminology" onclick="location.href='#Terminology'">
+<h2>용어</h2>
+</span>
+<div class="card">
+<h3>알아둘 용어</h3>
+<ul>
+<li id="VSync">
+<b>Vertical Synchronization (V-Sync)</b> - 화면 출력과 주사율을 동기화해 화면 찢어짐을 없애는 기술입니다. 대신 입력 지연이 늘어날 수 있습니다.
+                            <br/>
+                            (주사율이 높을수록 지연 시간은 줄어듭니다.)
+                        </li>
+<li id="VRR">
+<b>G-Sync | FreeSync</b> - <b>Variable Refresh Rate (VRR)</b> Nvidia와 AMD가 각각 개발한 가변 주사율(VRR) 기술입니다. 모니터 주사율을 실제 프레임레이트에 맞춰 V-Sync의 지연을 줄일 수 있습니다.<sup><a href="#annotation1" title="Why?">[1]</a></sup> .
+                        </li>
+<li id="MPO">
+<b>Multiplane Overlays (MPOs)</b> - GPU의 하드웨어 출력 레이어입니다. 창을 겹쳐 표시하는 등의 화면 합성을 지연이나 성능 손실을 거의 늘리지 않고 처리하며 하드웨어 스케일링도 지원합니다. Windows 8.1부터 지원되며 GPU 제조사별 지원 수준은 다릅니다.
+                        </li>
+<li id="latency">
+<b>Input Latency (lag)</b> - 마우스 클릭이나 키 입력부터 결과가 화면에 표시되기까지 걸리는 시간입니다. 낮을수록 게임이 더 즉각적으로 반응합니다.
+                            <br/>
+                            지연은 GPU/CPU 사용률, 화면 모드, 프레임레이트 등 다양한 원인으로 발생하며 이 가이드에서 대부분을 다룹니다.
+                        </li>
+</ul>
+<span class="annotations">
+<ol>
+<li id="annotation1">
+                                흔히 알려진 것과 달리 VRR만으로 화면 찢어짐이 완전히 사라지는 것은 아닙니다. 롤링 티어를 줄일 수는 있지만 모니터마다 차이가 있습니다. 또한 지연 감소 효과는 <b>오직</b> V-Sync 범위(모니터 기본 주사율)보다 낮은 프레임레이트에서만 적용됩니다. 프레임레이트가 기본 주사율에 도달하면 VRR이 V-Sync 방식으로 동작합니다.
+                            </li>
+</ol>
+</span>
+</div>
+<div class="expander-top clickable" id="flipTalkTop" onclick="expandCard(this, flipTalk)">
+<div>
+<h3>기술적인 설명</h3>
+<p>
+                            화면 표시 모델과 디스플레이 모드의 개념을 설명합니다. 가이드를 따라가는 데 필수는 아니지만 각 설정을 왜 사용하는지 이해하는 데 도움이 됩니다.
+                        </p>
+</div>
+<img alt="UI element - Chevron" class="chevron" src="img/ui/Chevron Down.svg" style="float: right;"/>
+</div>
+<div class="expander-bottom" id="flipTalk">
+<p>
+<ul>
+<li><b>화면 표시 모델:</b></li>
+<ul>
+<li id="Flip">
+<b>Flip Model</b> - Windows 7의 D3D9Ex에서 처음 도입되고 Windows 8~10의 DXGI에서 개선된 화면 표시 모델입니다.
+                                <br/>
+                                창 모드에서도 전체 화면 수준의 성능과 지연을 제공하며 VRR을 기본 지원합니다. DXGI 버전은 창 모드 V-Sync 해제, HDR, MPO도 지원합니다.
+                                <br/>
+                                DXGI 방식은 D3D10 이상에서만 지원되며<sup><a href="#annotation2" title="Why?">[2]</a></sup>D3D12에서만 강제됩니다. Windows 8 이상에서 사용할 수 있습니다.
+                                <br/>
+                                D3D9Ex Flip Model은 DXGI 버전과 기능이 같지 않으며 DXGI의 개선 사항을 사용할 수 없습니다.
+                                <br/>
+                                자세한 내용은 <a href="https://devblogs.microsoft.com/directx/dxgi-flip-model/" target="_blank">여기</a>.
+                            </li>
+<li id="BitBlt">
+<b>BitBlt Model</b> - 오래된 화면 표시 모델입니다. 전체 화면에서는 Flip Model과 비슷하지만 창 모드에서는 소프트웨어 합성과 추가 복사 작업 때문에 지연이 늘고 성능이 떨어지며 V-Sync도 항상 적용됩니다.
+                                <br/>
+                                창 모드 D3D9 이하에서는 사실상 유일한 방식이며 D3D10/11 게임에서도 흔합니다.
+                                <p>
+                                    Vulkan and OpenGL<sup><a href="#annotation3" title="Why?">[3]</a></sup> 은 창 모드에서 BitBlt를 사용합니다.
+                                </p>
+</li>
+</ul>
+<li>
+<b>디스플레이 모드:</b>
+</li>
+<ul>
+<li id="FSE">
+<b>Fullscreen Exclusive (FSE)</b> - 프로그램이 화면을 완전히 독점하는 전통적인 전체 화면 방식입니다. 화면 소유권을 넘기는 과정 때문에 Alt+Tab이 느리고, 잘못 구현된 게임은 해상도나 주사율을 이상하게 바꾸거나 색상 프로필을 잃을 수 있습니다. 다만 Flip Model을 쓰지 않는 게임에서는 기능 호환성과 성능이 좋습니다.
+                                <br/>
+                                D3D12를 제외한 모든 주요 그래픽 API에서 지원됩니다.
+                            </li>
+<li id="FSO">
+<b>Fullscreen with Fullscreen Optimizations (Fullscreen Optimizations)</b> - <span class="abbreviation" onclick="expandCard(flipTalkTop, flipTalk, 1); location.href='#Flip'" title="Fullscreen Exclusive">FSE</span> 를 개선한 방식으로 Windows 10 1803부터 DirectX 게임에 적용됩니다.
+                                <br/>
+                                다음 모드로 실행되는 DirectX 프로그램을 <span class="abbreviation" onclick="expandCard(flipTalkTop, flipTalk, 1); location.href='#Flip'" title="Fullscreen Exclusive">FSE</span> Flip Model 기반의 유사 무테 창 모드로 바꿔 Alt+Tab 속도, 지연, 색상 프로필 처리, Xbox Game Bar 같은 오버레이 지원을 개선합니다.
+                                <br/>
+                                내부적으로 창 모드이므로 시스템 감마를 직접 바꾸는 오래된 게임에서는 밝기 조절이 제대로 작동하지 않을 수 있습니다.
+                                <br/>
+                                기본적으로 모든 프로그램에 활성화됩니다.
+                                <br/>
+                                자세한 내용은 <a href="https://devblogs.microsoft.com/directx/demystifying-full-screen-optimizations/" target="_blank">여기</a>.
+                            </li>
+<li id="Windowed">
+<b>Windowed</b> - 창으로 콘텐츠를 표시하는 방식이며 항상 <span class="abbreviation" title="Desktop Window Manager - Windows component responsible for displaying and managing windows">DWM</span>에서 관리합니다. 창 방식이라 Alt+Tab이 빠르고 색상 프로필 문제도 적습니다. 다만 Flip Model을 사용하지 않으면 Fullscreen Optimizations 또는 <span class="abbreviation" onclick="expandCard(flipTalkTop, flipTalk, 1); location.href='#Flip'" title="Fullscreen Exclusive">FSE</span>보다 성능이 낮고 VRR 기본 지원이 없으며 입력 지연이 증가하고 V-Sync가 항상 적용됩니다.
+                            </li>
+</ul>
+</ul>
+<span class="annotations">
+<ol start="2">
+<li id="annotation2">
+                                D3D10/11이 Flip Model을 지원한다고 해서 모든 게임이 실제로 사용하는 것은 아닙니다. Unity와 UE4도 출시 후 한참 뒤인 2019년경에 지원을 도입했습니다.
+                                <br/>
+                                이런 게임에서는 Special K(D3D11) 또는 Windows 11 22H2의 창 모드 게임 최적화(D3D10/11)를 사용해 Flip Model을 활성화할 수 있습니다.
+                                <br/>
+                                두 방식 모두 호환성이 좋은 편이지만 특정 게임에서는 Special K만 되거나 Windows 방식만 되는 예외가 있습니다.
+                                <br/>
+                                Special K는 안티치트 문제 때문에 싱글플레이 게임에만 권장합니다. Windows 방식은 시스템 기능이라 더 폭넓게 사용할 수 있습니다.
+                            </li>
+<li id="annotation3">
+                                Special K를 사용하면 OpenGL을 D3D11을 통해 표시해 Flip Model과 HDR의 이점을 사용할 수 있습니다.
+                                <br/>
+                                Nvidia 드라이버는 526 버전부터 Vulkan/OpenGL을 DXGI Flip Model과 연동할 수 있습니다. OpenGL interop는 기본적으로 성능을 떨어뜨릴 수 있고 DXVK 호환을 위해 Nvidia Profile Inspector 설정이 필요합니다. 방법은 <a href="#dxvk-flip">여기</a> 에서 확인하세요.
+                                <br/>
+                                AMD 드라이버는 Radeon Settings에서 트리플 버퍼링을 켜면 OpenGL을 D3D12와 연동할 수 있고, Vulkan interop는 창 모드에서 자동 활성화됩니다.
+                                <br/>
+                                구현 방식 때문에 D3D12와 OpenGL 장치를 동시에 만드는 게임이나 모드에서는 충돌이 발생할 수 있습니다.
+                            </li>
+</ol>
+</span>
+</p>
+</div>
+</div>
+<br/>
+<br/>
+<hr/>
+<br/>
+<div class="section">
+<span id="PerformanceMods" onclick="location.href='#PerformanceMods'">
+<h2>성능 모드</h2>
+</span>
+<div class="card">
+<p>
+<h3 id="StewieTweaks">Stewie Tweaks</h3>
+<a href="https://www.nexusmods.com/newvegas/users/2232669" target="_blank">lStewieAl</a> 는 로딩, 렌더링, AI 처리 등 엔진 여러 부분의 성능을 개선하는 모드를 제작했습니다.
+                    </p>
+<div class="card-green center">
+<p>
+                            이미 <a href="../utilities.html">Viva New Vegas</a> 또는 <a href="https://thebestoftimes.moddinglinked.com/essentials.html" target="_blank">The Best of Times</a>를 따라왔다면 이 구간은 건너뛰고 바로 <a href="#NVTF">NVTF 설정</a>으로 이동하세요.
+                        </p>
+</div>
+<h3>설치</h3>
+<p>
+                        다음 모드를 모드 매니저로 다운로드하고 설치합니다.
+                    <ol>
+<li><a href="https://www.nexusmods.com/newvegas/mods/66347" target="_blank" title="lStewieAl's Tweaks and Engine Fixes">lStewieAl's Tweaks and Engine Fixes</a></li>
+<li><a href="https://github.com/ModdingLinked/Stewie-Tweaks-INIs/releases/latest" target="_blank" title="Stewie Tweaks - VNV INI">Stewie Tweaks - VNV INI</a> (또는 Extended INI)</li>
+<li><a href="https://www.nexusmods.com/newvegas/mods/80993" target="_blank" title="lStewieAl's Engine Optimizations">lStewieAl's Engine Optimizations</a></li>
+<li><a href="https://www.nexusmods.com/newvegas/mods/67811" target="_blank" title="Faster Main Menu">Faster Main Menu</a></li>
+</ol>
+</p>
+<hr/>
+<p>
+<h3 id="NVTF">New Vegas Tick Fix</h3>
+                    NVTF는 게임 내부 타이머와 메모리 관리를 수정·개선해 <strong>끊김을 크게 줄입니다.</strong>.
+                    <br/>
+                    또한 <strong>60 FPS 이상</strong> 에서도 물리 시스템이 깨지지 않게 하며 권장 상한은 120 FPS 이하입니다.
+                    <br/>
+                    추가 DirectX 수정으로 <strong>성능</strong> 을 개선하고 메모리 사용량도 크게 줄입니다.
+                    </p>
+<h3>설치</h3>
+<p>
+<ol>
+<li>모드와 INI를 <a href="https://www.nexusmods.com/newvegas/mods/66537" target="_blank">여기</a>에서 설치합니다. 앞서 말했듯 VNV 또는 TBoT 사용자는 이미 설치되어 있어야 합니다.</li>
+<li>엽니다: <b>NVTF - INI</b> (모드 매니저에서)</li>
+<li>엽니다: <span class="card-basic">NVSE\Plugins\NVTF.ini</span></li>
+<li>다음 옵션을 변경합니다:</li>
+<ul>
+<li><strong>bModifyDirectXBehavior</strong>를 <b>1</b>로 설정합니다.</li>
+<li>
+                                <strong>bUseDefaultPoolForTextures</strong>를 <b>1</b>로 설정합니다.
+                                <div class="card-yellow">
+<p>
+                                        이 설정은 VRAM과 RAM 사이의 텍스처 미러링을 비활성화해 RAM 사용량을 줄이고 고해상도 텍스처 사용 여유를 늘립니다.
+                                        <br/>
+<b>이 설정을 사용하면 전체 화면 모드에서 Alt+Tab이 제대로 작동하지 않습니다.<sup><a href="#annotation4" title="Why?">[4]</a></sup></b>.
+                                        <br/>
+<br/>
+                                        다음 환경에서는 이 문제가 발생하지 않습니다: <a href="#FAQ">창 모드</a> 또는 <a href="#DXVK">DXVK</a>.
+                                    </p>
+</div>
+</li>
+</ul>
+</ol>
+<span class="annotations">
+<ol start="4">
+<li id="annotation4">
+                                D3D9은 Alt+Tab이나 절전처럼 화면 소유권을 잃으면 그래픽 장치를 잃습니다. 복구하려면 RAM에 텍스처 복사본이 있거나 메모리를 처음부터 다시 구성할 수 있어야 합니다.
+                                <br/>
+                                Fallout: New Vegas는 대부분의 D3D9 게임처럼 첫 번째 방식을 사용합니다. 이 동작을 끄면 Alt+Tab 후 게임이 정상적으로 그래픽 상태를 복구하지 못합니다.
+                                <br/>
+                                DXVK는 D3D9 자체를 대체해 문제를 피하고, 창 모드는 처음부터 게임이 화면을 독점하지 않기 때문에 문제가 발생하지 않습니다.
+                            </li>
+</ol>
+</span>
+</p>
+<hr/>
+<p>
+<h3 id="zlibUpdated">zlib Updated</h3>
+                    Fallout: New Vegas는 BSA와 플러그인(NPC 및 Landscape 레코드)을 <a href="https://www.zlib.net/" target="_blank">zlib</a>으로 압축하는데, 이 방식은 <a href="https://github.com/lz4/lz4?tab=readme-ov-file#benchmarks" target="_blank">빠른 압축 알고리즘</a>에 속하지 않으며 게임에 포함된 버전도 매우 오래되었습니다.
+                    <br/>
+                    라이브러리만 최신 버전으로 바꿔도 압축 해제 시간을 <b>절반</b>가량 줄여 로딩과 끊김을 개선할 수 있습니다.
+                    <div class="card-yellow">
+<p>
+                            이 모드는 실제로 압축된 데이터가 <b>있을 때만</b> 효과가 있습니다.
+                            <br/>
+                            2024년 이후 출시된 대부분의 모드는 플러그인 압축을 사용하지 않는 편이며 바닐라 게임 파일은 <a href="https://www.nexusmods.com/newvegas/mods/65854" target="_blank">BSA Decompressor</a> 또는 <a href="https://taleoftwowastelands.com/" target="_blank">Tale of Two Wastelands</a>.
+                            <br/>
+                            이미 압축 해제된 데이터만 있다면 처리할 것이 없으므로 효과가 없습니다.
+                        </p>
+<p>
+                            최근 모딩 환경에서는 다른 성능 모드만큼 필수적이지는 않습니다.
+                        </p>
+<hr/>
+<p>
+                            오래된 모드의 NPC/Landscape 레코드는 압축된 경우가 많아 이런 상황에서는 약간의 효과가 있습니다.
+                            <br/>
+                            다만 플러그인 자체를 압축 해제하는 것을 권장하며 방법은 <a href="../decompress.html">이 가이드</a>를 따르면 쉽게 처리할 수 있습니다. 처음부터 압축을 없애는 편이 더 낫습니다.
+                        </p>
+<hr/>
+<p>
+                            모드 BSA는 보통 압축하지 않으며 압축되어 있다면 용량 때문에 의도적으로 적용한 경우가 많습니다. 이런 경우에는 zlib Updated를 사용하는 편이 더 적절합니다.
+                        </p>
+</div>
+<h3>설치</h3>
+<p>
+<ol>
+<li>
+<p>
+                                다운로드: <a href="https://www.nexusmods.com/newvegas/mods/85267" target="_blank" title="zlib Updated - NVSE">zlib Updated - NVSE</a> 그리고 모드 매니저로 설치합니다.
+                            </p>
+</li>
+</ol>
+</p>
+<hr/>
+<p>
+<h3 id="CellOffsetGenerator">Cell Offset Generator</h3>
+                    게임 시작 시 셀 오프셋을 자동 생성해 <strong>새 셀 로딩 시 끊김을 크게 줄입니다.</strong>
+<br/>
+                    오프셋이 없으면 게임이 셀을 찾기 위해 모든 플러그인을 훑어야 하므로 모드가 많을수록 시간이 오래 걸립니다.
+                    </p>
+<h3>설치</h3>
+<ol>
+<li>
+<p>
+                                다운로드: <a href="https://www.nexusmods.com/newvegas/mods/92182" target="_blank" title="Cell Offset Generator - NVSE">Cell Offset Generator - NVSE</a> 그리고 모드 매니저로 설치합니다.
+                            </p>
+</li>
+<div class="card-green">
+<p>
+                                다음 게임 실행 시 초기 로딩 화면에서 진행 막대가 표시됩니다.
+                                <br/>
+                                첫 실행은 조금 오래 걸리지만 완료되면 셀 로딩 끊김이 대부분 줄어듭니다.
+                            </p>
+<p>
+                                생성된 오프셋은 <span class="card-basic">Data\CellOffsets</span> 폴더에 저장되므로 이후 실행은 훨씬 빨라집니다.
+                            </p>
+</div>
+</ol>
+</p>
+<hr/>
+<p>
+<h3 id="DepthResolve">Depth Resolve - NVSE</h3>
+                    수중, 대화, 킬캠 등 DoF 사용 시 가짜 깊이 버퍼를 새로 렌더링하는 대신 기존 깊이 버퍼를 resolve해 CPU와 GPU 성능을 크게 개선합니다. 다른 그래픽 효과의 필수 요구사항이기도 합니다.
+                    </p>
+<div class="card-red">
+<p>
+                            일부 최신 Intel iGPU는 D3D9on12 드라이버 때문에 resolvable depth를 제대로 지원하지 않습니다.
+                            <br/>
+                            DXVK를 사용하면 해결할 수 있습니다.
+                        </p>
+</div>
+<h3>설치</h3>
+<ol>
+<li>
+<p>
+                                먼저 다음 요구사항을 설치합니다:
+                            <ul>
+<div class="card-green">
+<p>
+<a href="../index.html">Viva New Vegas</a> 에는 이미 이 모드들이 포함되어 있으므로 VNV 사용자는 이 단계를 건너뛰어도 됩니다.
+                                    </p>
+</div>
+<li>
+<p>
+                                        다운로드: <a href="https://www.nexusmods.com/newvegas/mods/87814" target="_blank" title="Shader Loader - NVSE">Shader Loader - NVSE</a> 그리고 모드 매니저로 설치합니다.
+                                    </p>
+</li>
+<li>
+<p>
+                                        다운로드: <a href="https://www.nexusmods.com/newvegas/mods/91705" target="_blank" title="LOD Flicker Fix - NVSE">LOD Flicker Fix - NVSE</a> 그리고 모드 매니저로 설치합니다.
+                                    </p>
+</li>
+<li>
+<p>
+                                        다운로드: <a href="https://www.nexusmods.com/newvegas/mods/81200" target="_blank" title="Depth of Field Fix - NVSE">Depth of Field Fix - NVSE</a> 그리고 모드 매니저로 설치합니다.
+                                    </p>
+</li>
+</ul>
+</p>
+</li>
+<li>
+<p>
+                                다운로드: <a href="https://www.nexusmods.com/newvegas/mods/93991" target="_blank" title="Depth Resolve - NVSE">Depth Resolve - NVSE</a> 그리고 모드 매니저로 설치합니다.
+                            </p>
+</li>
+</ol>
+</div>
+</div>
+ 드라이버 및 Windows
+<div class="section">
+<span id="DriversAndOS" onclick="location.href='#DriversAndOS'">
+<h2>그래픽 드라이버 및 Windows</h2>
+</span>
+<div class="card">
+<h3>드라이버 업데이트</h3>
+<p>
+<p>
+                        최상의 호환성과 성능을 위해 그래픽 드라이버는 <b>반드시</b> 최신 버전을 사용해야 합니다.
+                        <br/>
+<br/>
+                        작업 관리자의 성능 탭에서 GPU를 확인할 수 있습니다. 왼쪽 목록의 마지막 GPU가 일반적으로 주 GPU입니다.
+                        <br/>
+                        GPU가 표시되지 않는다면 DXVK를 사용하기에는 너무 오래된 GPU일 가능성이 큽니다.
+                    <div class="card-red">
+<p>
+<b>중요 - <i>NVIDIA</i> 사용자:</b>
+<br/>
+                            50xx 시리즈 GPU에서 576.02~577.00 드라이버를 사용하면 <a href="#DXVK">DXVK</a>.
+                            <br/>
+<br/>
+                            반드시 <b>580.88</b> 이상 버전을 사용해야 <a href="#DXVK">DXVK</a>.
+                        </p>
+<hr/>
+<p>
+<b>중요 - <i>AMD</i> 사용자:</b>
+<br/>
+                            24.1.1~24.5.1 드라이버는 게임 충돌을 일으킬 수 있으므로 <a href="https://www.amd.com/en/support" target="_blank">최신 드라이버</a> 최소 <b>24.6.1</b> 이상을 사용하세요.
+                            <br/>
+<br/>
+                            또는 뒤에서 설명하는 <a href="./falloutnv.html#DXVK">DXVK</a>.
+                        </p>
+</div>
+<table class="center" style="width: 100%; height: 96px;">
+<tr>
+<th colspan="3">
+<h3 class="center">그래픽카드를 선택해 드라이버 다운로드 페이지로 이동</h3>
+</th>
+</tr>
+<tr>
+<th>
+<a href="https://www.nvidia.com/download/index.aspx" target="_blank">
+<button class="button-big" id="nvidiaButton">
+<b>
+                                            NVIDIA
+                                        </b>
+</button>
+</a>
+</th>
+<th>
+<a href="https://www.amd.com/en/support/download/drivers.html" target="_blank">
+<button class="button-big" id="amdButton">
+<b>
+                                            AMD
+                                        </b>
+</button>
+</a>
+</th>
+<th>
+<a href="https://www.intel.com/content/www/us/en/search.html#sort=relevancy&amp;f:downloadtype=[Drivers]&amp;f:@tabfilter=[Downloads]&amp;f:@stm_10385_en=[Graphics]" target="_blank">
+<button class="button-big" id="intelButton">
+<b>
+                                            INTEL
+                                        </b>
+</button>
+</a>
+</th>
+</tr>
+</table>
+</p>
+</p>
+</div>
+<div class="card">
+<h3>Multiplane Overlay와 Windows 워터마크</h3>
+<p>
+<p>
+<div class="card-yellow">
+<p>
+                            이 내용은 다음 환경에만 해당합니다: <b>D3D9 with Fullscreen Optimizations</b> 및 <b>DXVK with DXGI</b>D3D9 창 모드는 이미 <span class="abbreviation" title="Desktop Window Manager - Windows component responsible for displaying and managing windows">DWM</span> 합성 모드이고 DXVK는 <span class="abbreviation" onclick="expandCard(flipTalkTop, flipTalk, 1); location.href='#Flip'" title="Fullscreen Exclusive">FSE</span>.
+                            <br/>
+                            다음 GPU를 사용한다면 이 구간을 건너뛰어도 됩니다:
+                        <ul>
+<li>Nvidia 16 시리즈 이상</li>
+<li>AMD Vega 이상(단일 모니터)</li>
+<li>Intel 8세대 CPU 이상</li>
+</ul>
+</p>
+</div>
+</p>
+<p>
+                        Windows가 정품 인증되어 있는지 확인하세요. 워터마크가 표시되면 게임이 <span class="abbreviation" title="Desktop Window Manager - Windows component responsible for displaying and managing windows">DWM</span> 합성 모드로 전환되어 지연이 늘고 성능이 떨어지며 VRR이 비활성화될 수 있습니다.
+                        <br/>
+                        GPU가 <a href="#Terminology">MPO (Multiplane Overlay)</a> 를 지원하지 않는다면 Fullscreen Optimizations를 꺼서 일부 문제를 완화할 수 있습니다.
+                        <br/>
+                        (이 방법은 최신 D3D12 게임에는 통하지 않으므로 Windows 정품 인증을 권장합니다.)
+                        <br/>
+<br/>
+                        GPU의 MPO 지원 확인 방법:
+                    <ol>
+<li>
+                            입력: <span class="card-basic">dxdiag</span> Windows 검색창
+                        </li>
+<li>
+                            선택: <b>Save All Information</b> 을 눌러 파일을 저장합니다.
+                        </li>
+<li>
+                            파일을 엽니다: <span class="card-basic">DxDiag.txt</span> 파일에서 <span class="card-basic">Ctrl+F</span> 를 누르고 다음 항목을 찾습니다: <span class="card-basic">MPO MaxPlanes</span>
+</li>
+<li>
+                            값이 <b>1보다 크면</b>GPU가 MPO를 지원합니다.
+                        </li>
+</ol>
+</p>
+<p>
+<div class="card-red">
+<p>
+                            MPO를 지원하지 않는 환경에서 Windows 워터마크가 표시되면 VRR이 꺼지고 입력 지연과 끊김이 증가할 수 있습니다.
+                        </p>
+</div>
+</p>
+</p>
+</div>
+<div class="card">
+<h3>가상화</h3>
+<p>
+                        Windows 11은 시스템 및 프로세스 간 보안을 위해 가상화 기능을 사용합니다. 저사양 하드웨어에서는 일부 성능 손실이 생길 수 있습니다.
+                        <br/>
+                        비활성화 방법은 여기서 따로 설명하지 않습니다. <a href="https://web.archive.org/web/20250915072205/https://support.microsoft.com/en-us/windows/options-to-optimize-gaming-performance-in-windows-11-a255f612-2949-4373-a566-ff6f3f474613" target="_blank">Microsoft에서 관련 안내를 제공했습니다.</a>.
+                        <br/>
+                        (참고: 2025-11-14 기준 Microsoft가 원문을 내렸습니다. 향후 해당 기능이 강제되거나 동작이 변경될 가능성을 염두에 두세요.)
+                        <br/>
+<br/>
+                        보안과 성능 중 무엇을 우선할지는 사용자 선택이므로 필수 단계는 아닙니다. 다만 Microsoft도 성능 저하 가능성을 인정하고 있다는 점만 알아두면 됩니다.
+                    </p>
+</div>
+<div class="card">
+<h3>전원 계획과 전원 모드</h3>
+<p>
+                        Windows 10부터 Microsoft는 <a href="https://learn.microsoft.com/en-us/windows-hardware/customize/power-settings/configure-processor-power-management-options" target="_blank">전원 모드</a>를 도입해 전력 및 성능 관리에서 기존 전원 계획의 역할을 상당 부분 대체했습니다.
+                        <br/>
+                        전원 모드가 동작하려면 <b>균형 조정 전원 계획</b> 이 활성화되어 있어야 합니다. 다른 전원 계획을 사용하면 전원 모드를 사용할 수 없습니다.
+                        <br/>
+<br/>
+                        전원 모드를 바꾸려면 <a href="ms-settings:powersleep">Power</a> 설정으로 이동해 드롭다운에서 사용 가능한 가장 높은 성능 옵션을 선택합니다.
+                    <div class="card-yellow">
+<p>
+                            일부 오래된 시스템이나 커스텀 구성에서는 전원 모드를 선택할 수 없을 수 있습니다. 이 경우에는 <b>균형 조정 전원 계획</b> 만 활성화되어 있으면 됩니다.
+                        </p>
+<p>
+                            노트북에서는 배터리/충전기 연결 상태별로 전원 모드가 따로 저장됩니다.
+                        </p>
+</div>
+<div class="card-red">
+<h3>주의!</h3>
+<p>
+                            커스텀 전원 계획은 권장하지 않습니다. Windows 10/11의 저수준 전원 관리가 <b>균형 조정 전원 계획</b> 을 기준으로 동작하기 때문입니다.
+                            <br/>
+                            커스텀 전원 계획은 최신 하드웨어의 전원 관리를 깨뜨려 소비 전력을 늘리거나 성능을 낮추고 팬 제어까지 이상하게 만들 수 있습니다.
+                            <br/>
+<br/>
+                            새 계획을 만드는 것보다 <b>균형 조정 전원 계획</b> 을 원하는 값으로 조정하는 편이 안전합니다.
+                        </p>
+</div>
+</p>
+</div>
+<div class="card">
+<h3>게임 모드</h3>
+<p>
+                        Windows 10에는 <a href="ms-settings:gaming-gamemode">게임 모드</a>라는 기능이 추가되어 시스템을 게임에 더 적합한 상태로 조정합니다.
+                        <br/>
+                        Game Mode는 전원 모드 위에서 동작하므로 균형 조정 전원 계획이 활성화되어 있어야 합니다.
+                    </p>
+<p>
+                        Game Mode의 주요 기능:
+                    <ul>
+<li>
+                            DXGI 기반 게임에서 AutoHDR 활성화.
+                        </li>
+<li>
+                            Flip Model 게임의 VRR 최적화. 위에 겹친 다른 창이 아니라 게임 프레임레이트에 화면이 동기화되도록 합니다.
+                        </li>
+<li>
+                            게임 중 Windows Update 억제.
+                        </li>
+<li>
+                            알림 억제.
+                        </li>
+<li>
+                            Ryzen CPU 스케줄링 최적화 활성화.
+                        </li>
+</ul>
+</p>
+<p>
+                        Game Mode는 기본적으로 켜져 있습니다. 꺼둔 경우 <a href="ms-settings:gaming-gamemode">여기</a>.
+                    </p>
+</div>
+</div>
+<!-- DXVK -->
+<div class="section">
+<span id="DXVK" onclick="location.href='#DXVK'">
+<h2>DXVK</h2>
+</span>
+<div class="card">
+<h3>변환의 마법</h3>
+<p>
+                        DXVK는 Direct3D 9~11을 Vulkan으로 변환하는 오픈 소스 프로젝트로 <a href="https://github.com/doitsujin">Philip Rebohle (doitsujin)</a> 및 <a href="https://github.com/misyltoad">Autumn (misyltoad)</a>가 주도합니다. 주로 Linux용으로 만들어졌지만 Windows에서도 <u>비공식적으로</u> 작동합니다.
+                        <br/>
+                        쉽게 말해 Fallout을 Vulkan API로 실행하게 해줍니다. Vulkan은 D3D9보다 draw call 오버헤드가 훨씬 낮아 이 게임의 주요 성능 병목을 줄일 수 있습니다.
+                    <div class="card-green">
+<p>
+                            Linux에서 플레이한다면 이미 DXVK를 사용 중이므로 이 구간 전체를 건너뛰어도 됩니다.
+                        </p>
+</div>
+</p>
+</div>
+<div class="card">
+<h3>알아둘 점</h3>
+<p>
+                        DXVK와 Vulkan의 특성상 다음 사항을 알아두는 것이 좋습니다.
+                    <ul>
+<li>
+<p>
+                                DXVK는 주로 draw call로 인한 CPU 병목 상황(예: 시야 거리, 오브젝트 수)에서 효과가 크며 해상도처럼 GPU가 병목인 상황에서는 효과가 작을 수 있습니다.
+                            <ul>
+<li>
+<p>
+                                        환경에 따라 변화가 없거나 오히려 성능이 나빠질 수도 있습니다.
+                                    </p>
+</li>
+</ul>
+</p>
+</li>
+<li>
+<p>
+                                초반에는 셰이더 컴파일 때문에 일시적으로 끊김이 늘어날 수 있습니다.
+                            </p>
+</li>
+<li>
+<p>
+                                DXVK의 GPU 호환성은 제조사마다 다릅니다.
+                            <ul>
+<li>
+<p>
+<b>Nvidia GPU</b> 노트북은 <b>반드시</b> 다음 기능을 사용해야 합니다: <a href="#FlipModel">DXGI interop</a>.
+                                        <br/>
+                                        해당 기능은 <b>데스크톱</b> 에서는 필수는 아니지만 <b>강력히 권장됩니다.</b> 최적의 환경을 위해서입니다.
+                                    </p>
+</li>
+<li>
+<p>
+<b>AMD GPU는 반드시</b> 다음 기능을 사용해야 합니다: <a href="#FlipModel">DXGI interop</a>를 사용해야 합니다. 그렇지 않으면 큰 성능 저하가 발생하거나 게임이 실행되지 않을 수 있습니다.
+                                        <br/>
+                                        Windows에서는 셰이더 문제가 더 흔하게 발생할 수 있습니다. Linux에서는 상황이 반대입니다.
+                                        <br/>
+</p>
+</li>
+<li>
+<p>
+<b>Intel GPUs</b> 6세대 이상은 <a href="https://www.intel.com/content/www/us/en/search.html#sort=relevancy&amp;f:downloadtype=[Drivers]&amp;f:@tabfilter=[Downloads]&amp;f:@stm_10385_en=[Graphics]" target="_blank">newest drivers</a>
+                                        가 설치되어 있다면 사용할 수 있습니다.
+                                        <br/>
+                                        일부 iGPU에서는 DXVK 1.10.1 이후 버전이 제대로 작동하지 않을 수 있습니다.
+                                        <br/>
+</p>
+</li>
+</ul>
+</p>
+</li>
+<li>
+<p>
+                                DXVK는 다음과 같은 시각적 문제를 만들거나 드러낼 수 있습니다.
+                            <ul>
+<li>투명도 멀티샘플링에 디더링이 사용됩니다. Vulkan이 alpha-to-coverage를 드라이버와 다르게 처리하기 때문입니다.</li>
+<ul>
+<li>
+                                        이 효과는 MSAA 단계가 높을수록 품질이 좋아지므로 최소 4x MSAA를 권장합니다.
+                                    </li>
+<li>
+                                        AMD RADV Linux 사용자는 다음 환경 변수를 설정해 이 동작을 비활성화할 수 있습니다: <span class="card-basic">RADV_DEBUG=noatocdithering</span> 환경 변수.
+                                    </li>
+</ul>
+<li>피 데칼은 색상 오버플로로 하얗게 보일 수 있으며 다음 모드로 수정할 수 있습니다: <a href="https://www.nexusmods.com/newvegas/mods/87830" target="_blank">Blood Decal Flashing Fix</a></li>
+</ul>
+</p>
+</li>
+</ul>
+</p>
+</div>
+<div class="card" id="dxvk-HDR">
+<p>
+<div class="card-green">
+<p>
+                            이 구간은 <a href="https://youtu.be/xTX-P4mvrX8?t=938" target="_blank">실제 HDR</a> 디스플레이를 사용하는 경우에만 관련이 있으며 그 경우에도 완전히 선택 사항입니다.
+                            <br/>
+                            설정이 다소 복잡할 수 있어 고급 사용자에게만 권장합니다.
+                        </p>
+</div>
+<h3>DXVK HDR-Mod</h3>
+<a href="https://github.com/EndlesslyFlowering" target="_blank">Lilium (aka EndlesslyFlowering)</a> 및 <a href="https://github.com/WallSoGB" target="_blank">I</a> 는 D3D9 게임에 HDR 기능을 추가하기 위해 이 DXVK 변형 버전을 만들었습니다. 주요 변경점은 두 가지입니다:
+                    <ul>
+<li>게임을 HDR(10비트 또는 16비트)로 출력할 수 있습니다.</li>
+<li>게임의 색상 계산 정밀도를 높여 10비트 이상의 디스플레이에서 밴딩을 크게 줄입니다.</li>
+</ul>
+
+                    이 DXVK 버전은 다음 단계의 <b>Optional Files</b>.
+
+                    <div class="card-yellow">
+<p>
+                            DXVK <b>는 HDR 톤 매핑을 수행하지 않으므로</b>다음을 함께 사용해야 합니다: <a href="https://github.com/Filoppi/PumboAutoHDR" target="_blank">Pumbo's ReShade AutoHDR</a>.
+                            <br/>
+                            사용하지 않으면 색이 바래고 밝기가 잘못 표시됩니다.
+                            <hr/>
+                            게임 내 스크린샷 기능은 HDR을 지원하지 않으므로 Game Bar, Steam 또는 Nvidia Overlay를 사용해야 합니다.
+                        </p>
+</div>
+</p>
+</div>
+<div class="card">
+<h3>설치</h3>
+<ol>
+<li>
+<p>
+                                최신 <a href="https://www.nexusmods.com/newvegas/mods/79299?tab=files" target="_blank">DXVK version</a> 를 Nexus에서 수동으로 다운로드합니다.
+                            </p>
+<div class="card-yellow">
+<p>Vulkan 1.3을 지원하지 않거나 DXVK 2.0에 문제가 있는 GPU는 <b><a href="https://www.nexusmods.com/Core/Libs/Common/Widgets/DownloadPopUp?id=1000102854&amp;game_id=130" target="_blank">1.10.3 version</a></b>.</p>
+<p>일부 오래된 <b>Intel iGPUs</b> 에서는 <b><a href="https://www.nexusmods.com/Core/Libs/Common/Widgets/DownloadPopUp?id=1000102855&amp;game_id=130" target="_blank">1.10.1 version</a></b>.</p>
+</div>
+</li>
+<li>
+<p>
+                                압축 파일 내용을 <b>Fallout: New Vegas Root 폴더</b>.
+                            </p>
+</li>
+<li>
+                            HDR 버전을 선택했다면 다음 파일도 다운로드합니다: <a href="https://www.nexusmods.com/newvegas/mods/82985" target="_blank">HDR Save Image Patch</a> 그리고 모드 매니저로 설치합니다.
+                        </li>
+</ol>
+</div>
+</div>
+<!-- Flip Model -->
+<div class="section">
+<span id="FlipModel" onclick="location.href='#FlipModel'">
+<h2>Flip Model</h2>
+</span>
+<div class="card">
+<h3>화면 표시 방식의 문제</h3>
+<p>
+                        이 게임에서 사용할 수 있는 네 가지 화면 모드를 비교합니다. 주된 문제는 Vulkan과 D3D9이 오래된 <a href="#Flip" onclick="expandCard(flipTalkTop, flipTalk, 1)">화면 표시 모델</a>.
+                        <br/>
+<br/>
+                        이 구간에서는 성능과 지연 면에서 가장 유리한 Flip Model을 활성화합니다. D3D9과 Vulkan 모두 이를 기본 지원하지 않아 일부 우회가 필요합니다.
+                        <br/>
+<br/>
+<div class="comparison">
+<table class="comparison-table">
+<tr>
+<th>
+<h2 onclick="expandCard(flipTalkTop, flipTalk, 1); location.href='#Flip'" title="Click to see detailed explanations">
+                                        Flip Model 창 모드
+                                        <br/>
+                                        (DXVK with DXGI)
+                                    </h2>
+</th>
+<th>
+<h2 onclick="expandCard(flipTalkTop, flipTalk, 1); location.href='#Flip'" title="Click to see detailed explanations">
+                                        Flip Model 창 모드
+                                        <br/>
+                                        (NVTF's D3D9 Patch)
+                                    </h2>
+</th>
+<th>
+<h2 onclick="expandCard(flipTalkTop, flipTalk, 1); location.href='#Flip'" title="Click to see detailed explanations">
+                                        레거시/최적화 전체 화면
+                                    </h2>
+</th>
+<th>
+<h2 onclick="expandCard(flipTalkTop, flipTalk, 1); location.href='#Flip'" title="Click to see detailed explanations">
+                                        BitBlt Model 창 모드
+                                        <br/>
+                                        (D3D9, DXVK)
+                                    </h2>
+</th>
+</tr>
+<tr>
+<td class="card-green">
+<ul>
+<li>가장 낮은 지연과 좋은 성능</li>
+<li>VRR 기본 지원</li>
+<li>V-Sync 해제 지원</li>
+<li>
+                                            빠른 Alt+Tab
+                                        </li>
+<li>
+                                            색상 프로필 기본 지원
+                                        </li>
+<li>
+                                            HDR 출력
+                                        </li>
+</ul>
+</td>
+<td class="card-green">
+<ul>
+<li>가장 낮은 지연과 좋은 성능</li>
+<li>VRR 기본 지원</li>
+<li>V-Sync 해제 지원</li>
+<li>
+                                            빠른 Alt+Tab
+                                        </li>
+<li>
+                                            색상 프로필 기본 지원
+                                        </li>
+</ul>
+</td>
+<td class="card-green">
+<ul>
+<li>특히 다음 기능과 함께 사용할 때 지연과 성능이 가장 좋음: <span onclick="expandCard(flipTalkTop, flipTalk, 1); location.href='#Flip'">Fullscreen Optimizations</span></li>
+<li>VRR 기본 지원</li>
+<li>V-Sync 해제 지원</li>
+</ul>
+</td>
+<td class="card-green">
+<ul>
+<li>
+                                            빠른 Alt+Tab
+                                        </li>
+<li>
+                                            색상 프로필 지원은 보통 수준
+                                        </li>
+</ul>
+</td>
+</tr>
+<tr>
+<td class="card-red">
+<ul>
+<li>
+                                            인게임 밝기 설정이 작동하지 않음
+                                        </li>
+<li>
+                                            Nvidia interop는 메모리 사용량을 약 150~170MB 늘리며
+                                            <br/>
+                                            DXVK와 함께 사용하려면 수동 설정이 필요합니다.
+                                        </li>
+<li>
+                                            DXGI와 Vulkan surface를 구분하지 못하는 오버레이와 호환성 문제가 있을 수 있습니다.
+                                        </li>
+<li>
+                                            Intel 또는 Qualcomm GPU에서는 지원되지 않습니다.
+                                        </li>
+</ul>
+</td>
+<td class="card-red">
+<ul>
+<li>
+                                            인게임 밝기 설정이 작동하지 않음
+                                        </li>
+<li>
+                                            창 해상도는 모니터가 지원하는 해상도 중 하나여야 합니다.
+                                        </li>
+<li>
+                                            HDR 미지원
+                                        </li>
+</ul>
+</td>
+<td class="card-red">
+<ul>
+<li>
+                                            특히 다음 기능이 없으면 Alt+Tab이 느리고 불안정합니다: <span onclick="expandCard(flipTalkTop, flipTalk, 1); location.href='#Flip'">Fullscreen Optimizations</span>
+</li>
+<div class="card-yellow">
+<p>
+                                                Alt-Tab <b>전혀 작동하지 않습니다.</b> if <b><a href="#NVTF" title="New Vegas Tick Fix">NVTF</a>의 메모리 풀 변경이</b>
+                                                is <b>활성화된 경우</b>단, 다음을 사용하면 예외입니다: <b><a href="#DXVK" title="Vulkan - DXVK">DXVK</a></b>
+</p>
+</div>
+<li>
+                                            특히 다음 기능이 없으면 색상 프로필이 해제될 수 있습니다: <span onclick="expandCard(flipTalkTop, flipTalk, 1); location.href='#Flip'">Fullscreen Optimizations</span>
+</li>
+<li>
+                                            DXVK 사용 시 Nvidia 노트북과 AMD GPU에서 성능이 떨어질 수 있습니다.
+                                            <br/>
+                                            대신 Flip Model의 DXGI Interop를 사용해야 합니다.
+                                        </li>
+<li>
+                                            HDR이 불안정할 수 있으며 특히 AMD GPU에서 색공간 오류나 Alt+Tab 문제가 생길 수 있습니다.
+                                        </li>
+</ul>
+</td>
+<td class="card-red">
+<ul>
+<li>
+                                            FPS 제한기를 쓰지 않거나 노트북 환경에서는 입력 지연과 성능 저하가 특히 큽니다.
+                                        </li>
+<li>
+                                            V-Sync가 항상 켜짐<sup><a href="#annotation5" title="Why?">[5]</a></sup>
+</li>
+<li>
+                                            VRR을 기본 지원하지 않음
+                                        </li>
+<ul>
+<li>
+                                                AMD는 전체 화면 BitBlt 창에서 FreeSync를 지원하지만 지연과 성능 손실은 남습니다.
+                                            </li>
+<li>
+                                                Nvidia의 BitBlt 창 G-Sync 지원은 문제가 있습니다.<sup><a href="#annotation6" title="Why?">[6]</a></sup>
+</li>
+</ul>
+<li>
+                                            인게임 밝기 설정이 작동하지 않음
+                                        </li>
+<li>
+                                            더 높은 메모리 대역폭과 사용량
+                                        </li>
+<li>
+                                            HDR 미지원
+                                        </li>
+</ul>
+</td>
+</tr>
+</table>
+</div>
+<span class="annotations">
+<ol start="5">
+<li id="annotation5">
+                                V-Sync를 꺼 프레임 제한이 풀려도 창 자체는 V-Sync되므로 실질적인 이점이 없습니다.
+                            </li>
+<li id="annotation6">
+                                AMD는 전체 화면 BitBlt 창에서 FreeSync를 지원하고, Nvidia는 G-Sync가 <i>모든</i> 창에서 작동하도록 허용합니다.
+                                <br/>
+                                이 방식은 엉뚱한 창에 주사율이 동기화되거나 다른 모니터의 프레임 동작이 깨지고 화면 끊김이 생길 수 있습니다.
+                                <br/>
+                                전역 활성화는 일반 데스크톱 사용까지 방해할 수 있으므로 권장하지 않습니다.
+                                <br/>
+                                다음을 사용하는 것을 권장합니다: <a href="https://github.com/Orbmu2k/nvidiaProfileInspector/releases/latest" target="_blank">Nvidia Profile Inspector</a> 에서 다음 설정을 지정합니다: <b>G-Sync Application Mode</b> to
+                                "<b>Fullscreen and Windowed</b>" in <b>Fallout - New Vegas</b> 프로필에 적용하면 게임 실행 중에만 Windowed G-Sync가 작동합니다.
+                                <br/>
+<b>이 방법을 사용해도 Windowed G-Sync 자체에 문제가 있을 수 있습니다. 위 증상이 나타나면 비활성화하세요.</b>
+<br/>
+<h4>Windowed G-Sync를 전역으로 활성화하지 마세요!</h4>
+</li>
+</ol>
+</span>
+</p>
+</div>
+<div class="card">
+<h3>준비</h3>
+<p>
+                        Flip Model을 문제없이 사용하려면 창 모드를 활성화해야 합니다.
+                    <ol>
+<li>
+                            엽니다: <b>FalloutCustom.ini</b> in <strong>INI Editor</strong> 그리고 다음 값을 설정합니다:
+                            <div class="card-basic">
+<p>
+                                    [Display]
+                                    <br/>
+                                    bFull Screen=0
+                                </p>
+</div>
+</li>
+<li>
+                            설치: <a href="https://www.nexusmods.com/newvegas/mods/79211" target="_blank">OneTweak</a> 를 설치해 창 테두리를 제거하고 전체 화면처럼 표시합니다.
+                        </li>
+</ol>
+</p>
+</div>
+<div class="card">
+<p>
+<h3 id="enable-flip">Flip Model 활성화</h3>
+                    Fallout: New Vegas에서 Flip Model을 활성화하는 방법은 두 가지입니다.
+                    <br/><br/>
+                    아래 항목을 펼쳐 각 방법의 절차를 확인하세요.
+                    <div class="expander-top clickable" onclick="expandCard(this)">
+<div>
+<p>
+<h3>
+                                NVTF (D3D9 Patch)
+                            </h3>
+                            New Vegas Tick Fix는 창 모드에서도 Fullscreen Optimizations 코드를 강제로 실행해 D3D9에 Flip Model을 적용할 수 있습니다. 모든 GPU에서 작동하며 D3D9에만 적용됩니다.
+                            </p>
+</div>
+<img alt="UI element - Chevron" class="chevron" src="img/ui/Chevron Down.svg" style="float: right;"/>
+</div>
+<div class="expander-bottom width-limited">
+<ol>
+<li>
+                                엽니다: <b>NVTF - INI</b> 모드를 Mod Organizer에서
+                            </li>
+<li>
+                                다음 <strong>INI Files</strong> 탭에서 엽니다: <span class="card-basic">NVSE\Plugins\NVTF.ini</span>
+</li>
+<li>
+                                다음 옵션을 변경합니다:
+                                <div class="card-basic">
+<p>
+                                        [DirectX]
+                                        <br/>
+                                        bUseFlipModel=1
+                                    </p>
+</div>
+</li>
+</ol>
+</div>
+<div class="expander-top clickable" onclick="expandCard(this)">
+<div id="dxvk-flip">
+<p>
+<h3>
+                                DXVK (DXGI Interop)
+                            </h3>
+                            Nvidia와 AMD 드라이버는 DXGI Interop를 통해 창 모드 Vulkan에서 Flip Model을 지원합니다. 이 방법은 DXVK에서만 사용할 수 있습니다.
+                            </p>
+</div>
+<img alt="UI element - Chevron" class="chevron" src="img/ui/Chevron Down.svg" style="float: right;"/>
+</div>
+<div class="expander-bottom width-limited">
+<h3>Nvidia</h3>
+<p>
+<ol>
+<li>
+                                미리 준비된 <a href="./files/FO-NvidiaProfile.nip" target="_blank">Nvidia Driver Profile</a> 를 Fallout New Vegas/Fallout 3용으로 다운로드합니다.
+                            </li>
+<li>
+                                다운로드: <a href="https://github.com/Orbmu2k/nvidiaProfileInspector/releases/latest" target="_blank">Nvidia Profile Inspector</a>.
+                            </li>
+<li>
+                                압축을 풀고 프로그램을 실행합니다.
+                            </li>
+<li>
+                                다음 버튼을 누릅니다: <b>Import</b> 버튼을 누른 뒤 <b>Merge imported profile(s)</b> 를 선택하고 다음 파일을 지정합니다: <b>FO-NvidiaProfile.nip</b> 파일.
+                            </li>
+<div class="card-red">
+<p>
+                                    Nvidia 드라이버를 업데이트하면 이 설정이 초기화됩니다. 업데이트 후 반드시 다시 적용하세요.
+                                    <br/>
+<a href="https://youtu.be/_36yNWw_07g?t=6" target="_blank">고마워요 Nvidia!</a>
+</p>
+</div>
+<li>
+                                선택: <b>Apply changes</b> 오른쪽 위에서 적용한 뒤 종료합니다.
+                            </li>
+</ol>
+</p>
+<h3>AMD</h3>
+<p>
+                            AMD 드라이버는 Vulkan이 창 모드로 실행될 때 Flip Model을 자동 활성화하므로 추가 설정이 필요하지 않습니다.
+                        </p>
+</div>
+</p>
+</div>
+</div>
+<!-- RecommendedLimiters -->
+<div class="section">
+<span id="RecommendedLimiters" onclick="location.href='#RecommendedLimiters'">
+<h2>권장 FPS 제한</h2>
+</span>
+<div class="card">
+<h3>프레임을 무작정 높이지 않기</h3>
+<p>
+                        프레임레이트 제한은 전체 안정성에 매우 중요합니다.
+                        <br/>
+                        좋은 제한기를 사용하면 올바른 프레임 페이싱을 확보할 수 있으며 이는 체감 부드러움에 가장 중요한 요소 중 하나입니다.
+                        <br/>
+                        고급 제한기는 입력 지연이나 전력 소비를 줄일 수도 있습니다. 둘을 동시에 최적화하기는 어렵습니다.
+                    <div class="card-red">
+<p>
+                            항상 실제로 유지 가능한 수준으로 프레임을 제한하세요. 달성할 수 없는 값으로 제한하면 이점이 없습니다.
+                            <br/>
+                            GPU 사용률이 계속 100%에 붙어 있으면 지연이 크게 늘 수 있으므로 GPU가 항상 100%가 되지 않는 수준으로 프레임을 제한하는 것이 좋습니다.
+                            <br/>
+                            높지만 끊기고 지연이 큰 프레임보다 낮더라도 안정적으로 부드러운 프레임이 더 낫습니다.
+                        </p>
+</div>
+</p>
+</div>
+<div class="card">
+<h3>권장 구성</h3>
+<p>
+                        디스플레이 환경에 따른 권장 설정은 다음과 같습니다.
+                    <ul>
+<li>
+<h4>V-Sync</h4>
+                            VRR 디스플레이가 없거나 약간의 지연을 감수할 수 있다면 사용하는 기본 선택지입니다.
+                            <ul>
+<li>지연을 줄이려면 프레임레이트를 모니터 주사율보다 약간 낮게 제한해야 합니다.</li>
+</ul>
+<div class="card-red">
+<p>
+                                    V-Sync 자체는 <i><u>제한기가 아닙니다.</u></i> V-Sync를 프레임 제한기처럼 사용하면 <b>매우 큰</b> 입력 지연이 생깁니다.
+                                </p>
+</div>
+</li>
+<li>
+<h4>G-Sync | FreeSync</h4>
+                            VRR 디스플레이가 있다면 지연과 화면 부드러움의 균형이 가장 좋아 이 구성을 권장합니다.
+                            <ul>
+<li>화면 찢어짐을 완전히 없애려면 V-Sync를 켜야 합니다.</li>
+<li>VRR이 해제되어 일반 V-Sync로 전환되지 않도록 프레임을 주사율보다 낮게 제한해야 합니다. 그렇지 않으면 지연이 크게 증가할 수 있습니다.</li>
+</ul>
+<div class="card-yellow">
+<p>
+<!-- TODO: INTEL -->
+                                    다음 위치에서 <strong>VRR 사용 여부를 확인할 수 있습니다.</strong> 확인 위치: <b>Nvidia Control Panel</b> Nvidia 사용자는 위 항목을, <b>Adrenalin's Display Settings</b> AMD 사용자는 Adrenalin의 Display Settings를 확인하세요.
+                                    <br/>
+                                    Nvidia Control Panel에 G-Sync 탭이 없다면 디스플레이가 지원하지 않거나 모니터 OSD에서 기능이 꺼져 있을 수 있습니다.
+                                    <br/><br/>
+                                    Nvidia 사용자는 G-Sync가 <b>Fullscreen</b> 로 설정되어 있고 <b>Display Specific settings</b> 가 활성화되어 있는지 확인해야 합니다. <b>Windowed</b> 옵션은 우회 방식이라 문제가 생길 수 있습니다.
+                                    <br/>
+                                    두 설정의 이름은 실제 화면 표시 방식과 정확히 대응하지 않으므로 이름만 보고 판단하면 안 됩니다.
+                                </p>
+</div>
+</li>
+<li>
+<h4>V-Sync 사용 안 함</h4>
+                            화면 찢어짐을 감수하고 입력 지연을 최대한 줄이고 싶을 때 선택합니다.
+                            <ul>
+<li>
+                                    특별한 선행 조건은 없습니다.
+                                </li>
+</ul>
+<div class="card-yellow">
+<p>
+                                    Bethesda의 구현 문제로 런처의 V-Sync 토글은 제대로 작동하지 않습니다.
+                                    <br/>
+                                    V-Sync를 끄려면 <b>FalloutCustom.ini</b> 에서 다음 값을 설정합니다:
+                                <div class="card-basic">
+<p>
+                                        [Display]
+                                        <br/>
+                                        iPresentInterval=0
+                                    </p>
+</div>
+                                드라이버나 DXVK에서 V-Sync를 끄는 방식도 사용할 수 있습니다.
+                                </p>
+</div>
+</li>
+</ul>
+<br/>
+                    VRR을 사용하지 않는다면 주사율을 깔끔하게 나눈 값으로 프레임을 제한하는 것이 좋습니다. 예: 60Hz에서 30FPS, 144Hz에서 72FPS.
+                    <br/>
+                    주사율을 정확히 나누지 못하는 값으로 제한하면 미세 끊김이 발생할 수 있습니다. 예: 60Hz에서 40FPS.
+                    <br/><br/>
+                    아래 계산기가 적절한 프레임 제한값을 계산해줍니다.
+                    </p>
+</div>
+<div class="card">
+<h3>RivaTuner Statistics Server</h3>
+<p>
+                        <a href="https://forums.guru3d.com/members/unwinder.30019/" target="_blank">Unwinder</a>의 RivaTuner Statistics Server는 <b>성능</b>, <b>호환성</b>, <b>다양한 OSD 기능</b> 덕분에 가장 널리 쓰이는 FPS 제한기 중 하나입니다.
+                    </p>
+<h4>설치 및 설정</h4>
+<ol>
+<li>설치 및 실행: <a href="https://www.guru3d.com/files-details/rtss-rivatuner-statistics-server-download.html" target="_blank">RTSS</a>를 설치하고 실행합니다. 작업 표시줄의 시스템 트레이에서 RTSS 아이콘을 눌러 엽니다.</li>
+<li>선택: <strong>Add</strong> 그리고 다음 파일을 선택합니다: <b>FalloutNV.exe</b>.</li>
+<li><b>Application Detection Level</b>을 <strong>Low</strong>로 설정합니다.</li>
+<li>아래 계산기를 사용해 <strong>최적 FPS 제한값</strong><sup><a href="#annotation7" title="주의">[7]</a></sup> 을 정합니다. 정확한 모니터 주사율은 <b><a href="https://www.testufo.com/refreshrate" target="_blank">여기</a></b>.</li>
+<div class="card width-auto">
+<div style="margin: 10px;">
+<button class="active" id="fixedButton" onclick="setMode('fixed')">고정 주사율</button>
+<button id="vrrButton" onclick="setMode('vrr')">VRR</button>
+<input id="refreshMode" type="hidden" value="fixed"/>
+</div>
+<div style="margin: 10px;">
+<label for="refreshRate">모니터 주사율: </label>
+<input autocomplete="off" id="refreshRate" max="120" min="60" placeholder="예: 60, 144" step="1" type="number"/>
+<button onclick="calculateFPS()">계산</button>
+</div>
+<div id="fpsResults" style="display: none;"></div>
+</div>
+<li>
+                            선택: <strong>Setup</strong> 버튼을 누른 뒤:
+                            <ul>
+<li>활성화: <b>Passive Waiting</b></li>
+<li>프레임 제한 방식을 다음으로 설정: <b>Front Edge Sync</b></li>
+</ul>
+</li>
+<li>활성화: <b>Start with Windows</b> 또는 게임을 실행하기 전에 매번 RTSS를 직접 실행합니다.</li>
+</ol>
+<br/>
+                    설정은 다음과 비슷해야 합니다:
+                    <br/>
+<div class="image-container width-40">
+<img alt="Screenshot showcasing RTSS' settings" class="content-img" src="img/limiters/RTSS.webp"/>
+<div class="resize-overlay expand"></div>
+</div>
+<br/>
+<hr/>
+<span class="annotations">
+<ol start="7">
+<li id="annotation7">
+                                FPS는 항상 <strong>하드웨어 한계가 아니라 제한기로 제어</strong>하는 것이 좋습니다. 지연을 줄이고 전력 효율을 높이며 장면별 체감 부드러움도 더 일정해집니다.
+                            </li>
+</ol>
+</span>
+</div>
+</div>
+<!-- FAQ -->
+<div class="section">
+<span id="FAQ" onclick="location.href='#FAQ'">
+<h2>FAQ</h2>
+</span>
+<div class="card">
+<h3>정말 자주 묻는 질문인가요?</h3>
+<p>
+<ul class="faq">
+<li>
+<h4>Fake Fullscreen, Borderless Windowed, Fullscreen Windowed, Windowed Fullscreen은 서로 다른가요?</h4>
+                            아니요. 모두 화면 전체를 덮는 테두리 없는 창을 가리킵니다. 공식 명칭이 정해져 있지 않아 여러 표현이 섞여 사용됩니다.
+                            <br/>
+                            Borderless Windowed만은 반드시 전체 화면 크기라는 뜻은 아니라는 점이 조금 다릅니다.
+                        </li>
+<li>
+<h4>Windows Game Mode는 안 좋다고 들었는데 왜 권장하나요?</h4>
+                            Game Mode에 대한 부정적인 평가는 대부분 <a href="https://blogs.windows.com/windows-insider/2017/01/27/announcing-windows-10-insider-preview-build-15019-pc/">2017년 초기 구현</a>.
+                            <p>
+                                당시 Game Mode에는 현재는 제거된 두 기능이 있었습니다:
+                            <ul>
+<li>
+<b>리소스 우선순위 지정</b> - 게임에 리소스를 우선 배정하면서 백그라운드 프로그램이나 게임 자체에 문제를 일으키기도 했습니다.
+                                </li>
+<li>
+<b>창 모드 게임의 Flip Model 강제 전환</b> - 일부 D3D9/D3D11 게임을 Flip Model로 바꾸려 했지만 소프트웨어 합성에서 빠져나오지 못해 지연과 성능 저하가 생기는 경우가 있었습니다.
+                                </li>
+</ul>
+</p>
+<p>
+                                현재 Game Mode는 이런 기능을 제거하고 Windows Update나 검색 인덱싱 같은 백그라운드 작업을 줄이는 일반적인 최적화에 집중합니다.
+                                <br/>
+                                AMD 같은 제조사는 Game Mode를 게임 감지 신호로 활용해 자체 최적화(CPU 스케줄링 등)를 적용하기도 합니다.
+                            </p>
+                            Flip Model 전환 기능은 Windows 자체 기능으로 이동했고 Fullscreen Optimizations(Windows 10+, 모든 Direct3D)와 Windowed Optimizations(Windows 11+, Direct3D 10/11)로 나뉘었습니다.
+                            <br/>
+                            이 기능들은 기본적으로 활성화되며 초기 Game Mode의 문제를 그대로 갖고 있지는 않습니다.
+                        </li>
+<li>
+<h4>창 모드에서 밝기를 바꿀 수 있나요?</h4>
+                            <a href="https://reshade.me/" target="_blank">ReShade</a> 또는 <a href="https://www.nexusmods.com/newvegas/mods/51577/" target="_blank">Dynavision</a>을 사용해 밝기를 조절할 수 있습니다.
+                        </li>
+<li>
+<h4>텍스처 모드가 실제로 성능에 영향을 주나요?</h4>
+                            대부분의 경우 큰 영향은 없습니다. VRAM 한도를 넘지 않고 NVTF 메모리 풀 패치를 사용한다면 괜찮습니다. VRAM이 부족해 RAM으로 데이터가 넘어가기 시작하면 성능이 크게 떨어질 수 있습니다.
+                            <br/>
+                            고해상도 텍스처에서 확실히 늘어나는 것은 로딩 시간입니다. 셀 로딩 시 끊김 시간이 길어질 수 있습니다.
+                            <br/>
+<br/>
+                            메모리 대역폭이 낮거나 느린 GPU(예: 내장 그래픽)에서는 고해상도 텍스처가 메모리 버스를 포화시켜 성능에 영향을 줄 수 있습니다. 높은 비등방성 필터링 단계도 이런 GPU에서는 성능을 낮출 수 있습니다.
+                        </li>
+<li>
+<h4>FNV에도 HDR 설정이 있는데 여기서 말하는 HDR과 다른가요?</h4>
+                            게임 설정의 HDR은 HDR 출력이 아니라 내부 HDR 렌더링을 뜻합니다. 조명 패스를 채널당 8비트가 아닌 16비트로 렌더링한 뒤 톤매핑해 더 높은 정밀도로 빛 표현을 처리합니다.
+                            <br/>
+                            게임이 오래된 만큼 최종 출력은 다시 8비트 SDR로 변환됩니다. D3D9 자체도 HDR 출력을 지원하지 않으므로 실제 HDR 출력에는 DXGI interop가 필요합니다.
+                        </li>
+<li>
+<h4>DXVK 사용 후 게임을 종료하면 HDR이 이상해집니다!</h4>
+                            네. 안타깝게도 <span class="abbreviation" onclick="expandCard(flipTalkTop, flipTalk, 1); location.href='#Flip'" title="Fullscreen Exclusive">FSE</span> 동작 방식과 DXVK의 Windows 기본 지원 부족 때문에 HDR API가 완전히 정상 처리되지 않을 수 있습니다.
+                            <br/>
+                            GPU가 지원한다면 다음을 사용하세요: <a href="#FlipModel">DXVK with DXGI</a> 를 사용하면 이 문제를 해결할 수 있습니다.
+                        </li>
+<li>
+<h4>dgVoodoo 2를 DXVK 대신 사용할 수 있나요?</h4>
+                            권장하지 않습니다. Flip Model 창 모드와 HDR은 사용할 수 있지만 DXVK보다 변환 오버헤드가 커 성능이 낮아질 가능성이 높습니다.
+                            <br/>
+                            성능 손실을 감수할 수 있다면 사용할 수는 있습니다.
+                        </li>
+<li>
+<h4>DXVK를 사용할 때 ReShade 설치에서는 어떤 API를 선택하나요?</h4>
+                            Vulkan.
+                        </li>
+</ul>
+</p>
+</div>
+</div>
+<!-- 마무리 -->
+<div class="section">
+<span id="Finish" onclick="location.href='#Finish'">
+<h2>마무리</h2>
+</span>
+<div class="card">
+<h3>끝인가요?</h3>
+<p>
+                        축하합니다. 가이드를 끝까지 완료했습니다. Fallout: New Vegas를 더 부드럽게 플레이하는 데 도움이 되었기를 바랍니다.
+                        <br/>
+                        문제, 질문, 의견 또는 제안이 있다면 Discord에서 wall_sogb와 Ungeziefi에게 문의할 수 있습니다.
+                        <br/>
+                        다음 서버에서도 만날 수 있습니다:
+                        <a href="https://discord.gg/S99Ary5eba" target="_blank">ModdingLinked</a>,
+                        <a href="https://discord.gg/EebN93s" target="_blank">xNVSE</a>,
+                        <a href="https://discord.gg/taleoftwowastelands" target="_blank">Tale of Two Wastelands</a>
+<p>
+                        이 가이드는 계속 갱신될 수 있으니 가끔 다시 확인하는 것을 권장합니다.
+                    </p>
+<p>
+                        이 가이드가 도움이 되었다면 다른 사람에게 공유하거나 원작자를 <a href="https://ko-fi.com/wall_sogb" target="_blank">Ko-Fi</a> 또는 <a href="https://patreon.com/WallSoGB" target="_blank">Patreon</a>에서 후원할 수 있습니다.
+</p>
+</p>
+</div>
+<div class="card">
+<h3>함께 읽어볼 자료</h3>
+<p>
+                        함께 확인해볼 만한 자료입니다:
+                    <ul>
+<li>
+<a href="https://salamand3r.fail/new-vegas-visual-renewal" target="_blank">New Vegas Visual Renewal</a> - Salamand3r가 작성한 따라가기 쉬운 그래픽 가이드입니다.
+                        </li>
+<li>
+<a href="https://www.pcgamingwiki.com/wiki/Home" target="_blank">PCGamingWiki</a> - 게임, 패치, 수정법 등 PC 게임 관련 유용한 정보를 제공하는 사이트입니다.
+                        </li>
+<li>
+<a href="https://blurbusters.com/" target="_blank">BlurBusters</a> - 디스플레이, 지연, 화질을 전문적으로 다루는 Mark Rejhon의 사이트입니다.
+                        </li>
+<li>
+<a href="https://discord.gg/tX79HQaVDJ" target="_blank">HDR Den</a> - HDR 사용자와 개발자를 위한 Discord 서버입니다. HDR을 더 깊게 배우고 싶다면 유용합니다.
+                        </li>
+</ul>
+</p>
+</div>
+<div class="card">
+<h3>제작 기여</h3>
+<p>
+                        원본 가이드 제작에 도움을 준 사람들입니다.
+                    <ul>
+<li>
+                            xNVSE 커뮤니티 전체, 특히:
+                            <ul>
+<li>
+<a href="https://next.nexusmods.com/profile/Ungeziefi/about-me" target="_blank">Ungeziefi</a> - 테스트 및 벤치마크 지원.
+                                </li>
+<li>
+<a href="https://c6-dev.github.io/" target="_blank">c6</a> - 테스트를 돕기 위한 엔진 함수 수정.
+                                </li>
+<li>
+<a href="https://www.nexusmods.com/newvegas/users/53377026" target="_blank">LOC (aka ItsMeJesusHChrist)</a> - 가이드 로고 제작.
+                                </li>
+<li>
+                                    아쉽지만 <a href="https://www.nexusmods.com/newvegas/users/31254295" target="_blank">karut</a>은 이번에도 크레딧이 없습니다.
+                                </li>
+</ul>
+</li>
+<li>
+                            <a href="http://discord.gg/specialk">Special K 서버</a>는 전문 지식이 풍부한 훌륭한 커뮤니티를 제공했습니다. 원본 가이드는 이들의 도움 없이는 만들어지기 어려웠습니다.
+                        </li>
+<li>
+<a href="https://www.nexusmods.com/site/users/16367674" target="_blank">Glaceon575</a> - 벤치마크와 AMD GPU 스크린샷 제공.
+                        </li>
+<li>
+                            그리고 이 글을 읽는 당신. <img alt="Image of Pepe the frog happily smiling and looking at the viewer" src="img/ui/pepestare.webp" style="width: 1.5em;"/>
+</li>
+</ul>
+</p>
+</div>
+<div class="card">
+<h3>변경사항</h3>
+<p>
+                        변경 내역은 원본 저장소의 <a href="https://github.com/WallSoGB/FalloutNV-Performance-Guide/commits/main" target="_blank">커밋 기록</a>에서 확인할 수 있습니다.
+                    </p>
+</div>
+</div>
+</div>
+</div>
+<footer>ModdingLinked 2026 · 비공식 한국어 번역</footer>
+<div class="overlay" hidden="" id="image-overlay">
+<div class="image-container">
+<img alt="Enlarged Image" class="enlarged-image" id="enlarged-image" src=""/>
+<div class="resize-overlay shrink"></div>
+</div>
+</div>
+</body>
+</html>

@@ -16,6 +16,7 @@ ModdingLinked의 [Viva New Vegas](https://vivanewvegas.moddinglinked.com/)를 �
 - 전체 HTML 공통 한국어 메뉴
 - 한국어 패치 전용 안내 페이지 / KR 변경사항 / 원본 가이드 링크
 - VNV Korean Patcher v1.0.3 다운로드 및 업데이트 대응 안내
+- Fallout: New Vegas Performance Guide 한국어 통합 (`performance/falloutnv.html`)
 - 메인 페이지 번역
 - 소개 페이지 번역
 - 한국어판 전용 변경사항 페이지
@@ -24,4 +25,4 @@ ModdingLinked의 [Viva New Vegas](https://vivanewvegas.moddinglinked.com/)를 �
 
 ## 저작권 및 출처
 
-원본 Viva New Vegas의 저작권 및 라이선스 고지는 그대로 유지합니다. 이 저장소의 한국어 번역은 공식 ModdingLinked 배포판이 아닙니다.
+원본 Viva New Vegas의 저작권 및 라이선스 고지는 그대로 유지합니다. `performance/`에는 ModdingLinked의 FalloutNV Performance Guide를 바탕으로 한 한국어 번역과 해당 원본의 MIT 라이선스 고지를 함께 보존합니다. 이 저장소의 한국어 번역은 공식 ModdingLinked 배포판이 아닙니다.
