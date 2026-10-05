@@ -9,7 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="icon" href="img/Coco/Head Logo.webp">
 
-    <title>Base Finish | Viva New Vegas</title>
+    <title>기본 구성 마무리 | Viva New Vegas 한국어 가이드</title>
 
     <meta name="keywords" content="
     Mod, Modding, Mods, Guide, Mod Guide, Modding Guide, Resource, Resources,
@@ -24,7 +24,7 @@
     Tale of Two Wastelands, TTW,
     Skyrim Special Edition, Skyrim SE, SSE">
 
-    <meta name="description" content="Final steps necessary before playing the game.">
+    <meta name="description" content="게임을 시작하기 전 필요한 마지막 설정과 로드 순서를 적용합니다.">
     <meta http-equiv='content-language' content='ko-kr'>
     <meta name="twitter:card" value="summary_large_image">
     <meta property="og:site_name" content="ModdingLinked">
@@ -32,7 +32,7 @@
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://vivanewvegas.moddinglinked.com">
     <meta property="og:image" content="https://vivanewvegas.moddinglinked.com/img/Others/Card.webp">
-    <meta property="og:description" content="Final steps necessary before playing the game.">
+    <meta property="og:description" content="게임을 시작하기 전 필요한 마지막 설정과 로드 순서를 적용합니다.">
 
     <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#333230">
     <meta name="darkreader-lock">
@@ -72,7 +72,7 @@
             </div>
             <div class="headerTitle">
                 <img src="./img/Coco/Head Logo.webp" alt="Logo" id="logo">
-                <a href="./index.html" id="headerTitle">Viva New Vegas</a>
+                <a href="./index.html" id="headerTitle">Viva New Vegas 한국어</a>
             </div>
             <div class="guideLinks" id="headerLinks">
                 <a href="https://thebestoftimes.moddinglinked.com" target="_blank" rel="nofollow">Tale of Two Wastelands</a>
@@ -202,40 +202,40 @@
         <div class="content">
 
             <span id="BaseFinish" class="section">
-                <h2 onclick="location.href='#BaseFinish'">Base Finish</h2>
+                <h2 onclick="location.href='#BaseFinish'">기본 구성 마무리</h2>
 
                 <div class="card" id="LoadOrder">
-                    <h3>Applying the Load Order</h3>
+                    <h3>로드 순서 적용</h3>
                     <p>
-                        The final step is to apply the load order of installed plugins. The guide comes with a premade load order file, which ensures all mods are being loaded in correct order, with all conflicts accounted for.
+                        마지막 단계는 설치된 플러그인의 로드 순서를 적용하는 것입니다. 가이드에는 미리 준비된 loadorder.txt가 포함되어 있으며, 충돌 관계를 고려해 모드가 올바른 순서로 불러와지도록 구성되어 있습니다.
                     <ol>
-                        <li><strong>Download</strong> the VNV Load Order from <a onclick="downloadFile('https:\/\/raw.githubusercontent.com/ModdingLinked/Viva-New-Vegas/refs/heads/main/files/loadorder.txt')" style="cursor:pointer" title="loadorder.txt">here</a>.
-                        <li>In MO2, click the <img class="mo2-icon" src="./img/MO2/Folders.webp" alt="MO2 folders"> button at the top of MO2 and click <strong>Open Profile folder</strong>.</li>
-                        <li><strong>Move loadorder.txt</strong> to the MO2 profile folder. You should get a popup message asking if you want to overwrite the existing file - click <strong>Yes</strong>.</li>
-                        <li>Press <strong>F5</strong> while you are on MO2 without any menu open.</li>
+                        <li><a onclick="downloadFile('https:\/\/raw.githubusercontent.com/ModdingLinked/Viva-New-Vegas/refs/heads/main/files/loadorder.txt')" style="cursor:pointer" title="loadorder.txt">여기</a>에서 VNV Load Order 파일을 <strong>다운로드</strong>합니다.
+                        <li>MO2 상단의 <img class="mo2-icon" src="./img/MO2/Folders.webp" alt="MO2 folders"> 버튼을 누르고 <strong>Open Profile folder</strong>를 선택합니다.</li>
+                        <li><strong>loadorder.txt</strong>를 MO2 프로필 폴더로 옮깁니다. 기존 파일을 덮어쓸지 묻는 창이 뜨면 <strong>Yes</strong>를 누릅니다.</li>
+                        <li>MO2에서 메뉴가 열려 있지 않은 상태로 <strong>F5</strong>를 누릅니다.</li>
                     </ol>
 
                     <div class="card-red">
                         <p>
-                            Your load order (found under the <b>Plugins</b> tab in the <b>right</b> pane of MO2) should match the <b>loadorder.txt</b> file you just downloaded. You can ignore any plugins from mods that you may have skipped, but the order the remaining plugins are in should match the file.
+                            MO2 오른쪽 패널의 <b>Plugins</b> 탭에 표시되는 로드 순서는 방금 받은 <b>loadorder.txt</b>와 일치해야 합니다. 설치하지 않은 모드의 플러그인은 없어도 되지만, 남아 있는 플러그인의 순서는 파일과 같아야 합니다.
                             <br>
                             <br>
-                            If that isn't the case, make sure to <strong>sort the load order by priority</strong> by clicking the <b>Priority</b> column header at the top.
+                            순서가 다르다면 상단의 <b>Priority</b> 열 제목을 눌러 <strong>우선순위 기준으로 정렬</strong>했는지 확인하세요.
                             <br>
                             <br>
-                            Join our <a href="https://discord.gg/S99Ary5eba" target="_blank">Discord</a> server for support, if needed.
+                            필요하다면 <a href="https://discord.gg/S99Ary5eba" target="_blank">ModdingLinked Discord</a>에서 지원을 받을 수 있습니다.
                         </p>
                     </div>
                     </p>
                 </div>
 
                 <div class="card" id="RunningTheGame">
-                    <h3>Running the Game</h3>
+                    <h3>게임 실행</h3>
                     <p>
-                        Due to the way Mod Organizer 2 works, running programs through it is a requirement in order to load mods. This is done in the <strong>top-right corner</strong> of the manager, where the program to run is chosen. Here, <strong>select New Vegas</strong>.
+                        Mod Organizer 2의 동작 방식상 모드를 불러오려면 게임을 MO2를 통해 실행해야 합니다. 오른쪽 위 실행 항목에서 <strong>New Vegas</strong>를 선택하세요.
                         <br>
                         <br>
-                        For the sake of convenience you may also <strong>create a shortcut</strong> (right below the <b>Run</b> button) so that you won't have to manually open MO2 each time before playing.
+                        편의를 위해 <b>Run</b> 버튼 아래에서 <strong>바로가기를 생성</strong>하면 매번 MO2를 직접 열지 않고도 게임을 실행할 수 있습니다.
                         <br>
                     <div class="image-container width-60">
                         <img class="content-img" src="./img/Others/Start Game.webp" alt="Launching the game">
@@ -245,18 +245,18 @@
 
                     <div class="card-yellow">
                         <p>
-                            <b>Q: Aren't you supposed to launch through NVSE?</b>
+                            <b>Q: NVSE로 실행해야 하는 것 아닌가요?</b>
                             <br>
                             <br>
-                            A: The 4GB Patcher and the Epic Games Patcher both allow the game's main executable to automatically load the script extender.
+                            A: 4GB Patcher와 Epic Games Patcher는 게임의 기본 실행 파일이 스크립트 익스텐더를 자동으로 불러오도록 해줍니다.
                             <br>
                             <hr>
-                            Refer to the <a href="./faq.html" target="_blank">FAQ</a> section for more information and solutions to possible problems you might encounter at this stage of the guide.
+                            이 단계에서 문제가 생기면 <a href="./faq.html" target="_blank">FAQ</a>에서 추가 설명과 해결 방법을 확인하세요.
                         </p>
                     </div>
 
                     <br>
-                    You have now completed the basic section of Viva New Vegas. If you don't want to mod your game further, <strong>you can now start playing</strong>. Have fun!
+                    이제 Viva New Vegas의 기본 구성이 완료되었습니다. 추가 모드를 원하지 않는다면 <strong>이제 바로 플레이해도 됩니다.</strong> 즐겁게 플레이하세요!
                     </p>
                 </div>
             </span>
@@ -265,20 +265,20 @@
                 <h2 onclick="location.href='#VNVExtended'">VNV Extended</h2>
                 <div class="card flex logo-container" style="justify-content: space-between; align-items: center;" id="BeyondVanilla">
                     <div>
-                        <h3>Going beyond Vanilla</h3>
+                        <h3>바닐라를 넘어 확장하기</h3>
                         <p>
-                            The next pages are part of the Viva New Vegas Extended portion of the guide, which is <strong>not required in order to play</strong>. This section includes:
+                            다음 페이지부터는 Viva New Vegas Extended 구간입니다. 이 구간은 <strong>게임 플레이에 필수는 아닙니다.</strong> 다음과 같은 내용을 포함합니다.
                         <ul>
-                            <li>UI and QoL improvements.</li>
-                            <li>More gameplay features and improvements to get the game up to speed with more recent titles.</li>
-                            <li>New and restored content, along with enhancements to the DLCs.</li>
-                            <li>Overhauled balance and game mechanics.</li>
-                            <li>Improvements to NPC faces, new animations, visual fixes, and overhauled lighting and weathers.</li>
+                            <li>UI와 편의 기능 개선.</li>
+                            <li>보다 현대적인 게임에 가까운 게임플레이 기능과 개선 사항.</li>
+                            <li>신규 및 복원 콘텐츠와 DLC 개선.</li>
+                            <li>밸런스 및 게임 시스템 개편.</li>
+                            <li>NPC 외형 개선, 새로운 애니메이션, 그래픽 수정, 조명과 날씨 개편.</li>
                         </ul>
                         <br>
                         <div class="card-yellow">
                             <p>
-                                Note that VNV Extended is <strong>completely modular</strong>! You can skip any of its mods as long as you do the same for any other mod or patch tied to it.
+                                VNV Extended는 <strong>완전히 모듈식</strong>입니다. 특정 모드를 건너뛰어도 되지만, 그 모드에 의존하는 다른 모드나 패치도 함께 제외해야 합니다.
                             </p>
                         </div>
                         </p>
@@ -316,13 +316,13 @@
 
             <div class="navigationArrowContainer">
                 <a href="#" id="previous" rel="prev" class="navigationArrow">
-                    <img class="mirror" src="./img/UI/Arrow.svg" alt="Back Arrow">
+                    <img class="mirror" src="./img/UI/Arrow.svg" alt="이전 페이지">
                     <span class="arrowText"></span>
                 </a>
 
                 <a href="#" id="next" rel="next" class="navigationArrow">
                     <span class="arrowText"></span>
-                    <img src="./img/UI/Arrow.svg" alt="Forward Arrow">
+                    <img src="./img/UI/Arrow.svg" alt="다음 페이지">
                 </a>
             </div>
         </div>
@@ -333,11 +333,11 @@
         </div>
     </div>
 
-    <footer>ModdingLinked 2026</footer>
+    <footer>ModdingLinked 2026 · 비공식 한국어 번역</footer>
 
     <div id="image-overlay" class="overlay" hidden>
         <div class="image-container">
-            <img id="enlarged-image" class="enlarged-image" src="" alt="Enlarged Image">
+            <img id="enlarged-image" class="enlarged-image" src="" alt="확대 이미지">
             <div class="resize-overlay shrink"></div>
         </div>
     </div>
