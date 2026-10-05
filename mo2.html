@@ -9,7 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="icon" href="img/Coco/Head Logo.webp">
 
-    <title>Mod Organizer 2 | Viva New Vegas</title>
+    <title>Mod Organizer 2 | Viva New Vegas 한국어 가이드</title>
 
     <meta name="keywords" content="
     Mod, Modding, Mods, Guide, Mod Guide, Modding Guide, Resource, Resources,
@@ -24,7 +24,7 @@
     Tale of Two Wastelands, TTW,
     Skyrim Special Edition, Skyrim SE, SSE">
 
-    <meta name="description" content="Installing and configuring Mod Organizer 2.">
+    <meta name="description" content="Mod Organizer 2를 설치하고 Viva New Vegas용으로 구성하는 방법입니다.">
     <meta http-equiv='content-language' content='ko-kr'>
     <meta name="twitter:card" value="summary_large_image">
     <meta property="og:site_name" content="ModdingLinked">
@@ -32,7 +32,7 @@
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://vivanewvegas.moddinglinked.com">
     <meta property="og:image" content="https://vivanewvegas.moddinglinked.com/img/Others/Card.webp">
-    <meta property="og:description" content="Installing and configuring Mod Organizer 2.">
+    <meta property="og:description" content="Mod Organizer 2를 설치하고 Viva New Vegas용으로 구성하는 방법입니다.">
 
     <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#333230">
     <meta name="darkreader-lock">
@@ -72,7 +72,7 @@
             </div>
             <div class="headerTitle">
                 <img src="./img/Coco/Head Logo.webp" alt="Logo" id="logo">
-                <a href="./index.html" id="headerTitle">Viva New Vegas</a>
+                <a href="./index.html" id="headerTitle">Viva New Vegas 한국어</a>
             </div>
             <div class="guideLinks" id="headerLinks">
                 <a href="https://thebestoftimes.moddinglinked.com" target="_blank" rel="nofollow">Tale of Two Wastelands</a>
@@ -205,48 +205,48 @@
                 <h2 onclick="location.href='#MO2'">Mod Organizer 2</h2>
 
                 <div class="card" id="WhatIsMO2" title="What is MO2?">
-                    <h3>What is Mod Organizer 2?</h3>
+                    <h3>Mod Organizer 2란?</h3>
                     <p>
-                        Mod Organizer 2 (MO2) is an open source game mod manager, mainly used for Bethesda games. Its main features are:
+                        Mod Organizer 2(MO2)는 Bethesda 게임에서 주로 사용하는 오픈 소스 모드 관리자입니다. 주요 특징은 다음과 같습니다.
                     <ul>
                         <li>
-                            <strong>Virtual Filesystem (USVFS)</strong>: MO2 does not install mods directly into the game's folder, but rather creates a virtual filesystem that the game reads from. This allows for:
+                            <strong>가상 파일 시스템(USVFS)</strong>: MO2는 모드를 게임 폴더에 직접 설치하지 않고, 게임이 읽을 수 있는 가상 파일 시스템을 만듭니다. 이를 통해 다음과 같은 장점이 생깁니다.
                             <ul>
-                                <li>Safe mod installation and uninstallation,</li>
-                                <li>Being able to modify mod install order at any point,</li>
-                                <li>Having multiple profiles with different mod setups,</li>
-                                <li>Keeping original game files clean.</li>
+                                <li>안전한 모드 설치 및 제거,</li>
+                                <li>언제든지 모드 설치 순서를 변경할 수 있음,</li>
+                                <li>서로 다른 모드 구성을 가진 여러 프로필 사용,</li>
+                                <li>원본 게임 파일을 깨끗하게 유지.</li>
                             </ul>
-                            The <b>downsides</b> to USVFS are:
+                            USVFS의 <b>단점</b>은 다음과 같습니다.
                             <ul>
-                                <li>Mods installed through MO2 are "visible" only to programs launched using MO2,</li>
-                                <li>Some programs may not work properly with MO2's virtual filesystem,</li>
-                                <li>USVFS can cause performance overhead if you have tons of loose (not-BSA/BA2) files,</li>
-                                <li>USVFS works by "hooking" into the game (similarly to mods such as NVSE plugins, ReShade, etc.). This method can be considered as unsafe by some antivirus software due to its memory-invasive nature.</li>
+                                <li>MO2로 설치한 모드는 MO2를 통해 실행한 프로그램에서만 "보임",</li>
+                                <li>일부 프로그램은 MO2의 가상 파일 시스템과 정상적으로 동작하지 않을 수 있음,</li>
+                                <li>BSA/BA2로 묶이지 않은 loose 파일이 매우 많으면 USVFS의 성능 오버헤드가 발생할 수 있음,</li>
+                                <li>USVFS는 NVSE 플러그인이나 ReShade처럼 게임 프로세스에 "후킹"하는 방식으로 작동합니다. 메모리에 개입하는 특성 때문에 일부 백신이 위험 요소로 오탐할 수 있습니다.</li>
                             </ul>
                         </li>
                         <li>
-                            <strong>Profile System</strong>: MO2 allows you to create multiple profiles with different mod setups, saves, and settings.
+                            <strong>프로필 시스템</strong>: 서로 다른 모드 구성, 세이브, 설정을 가진 여러 프로필을 만들 수 있습니다.
                         </li>
                         <li>
-                            <strong>Two pane interface</strong>: MO2 is split into two sides, the left side is the modlist and the right side is the plugin list. This allows for easy conflict resolution and mod management.
+                            <strong>양쪽 패널 인터페이스</strong>: 왼쪽은 모드 목록, 오른쪽은 플러그인 목록으로 나뉘어 있어 충돌 확인과 모드 관리가 쉽습니다.
                         </li>
                         <li>
-                            <strong>Portability</strong>: Thanks to the use of USVFS, MO2 has a "portable" mode that allows you to move the entire MO2 folder to another location with minimal setup.
+                            <strong>이동성</strong>: USVFS 덕분에 MO2는 "포터블" 모드를 지원하며, 최소한의 재설정만으로 MO2 폴더 전체를 다른 위치로 옮길 수 있습니다.
                         </li>
                         <li>
-                            <strong>Modding Community Integration</strong>: MO2 has built-in support for Nexus Mods, allowing you to download mods directly from the Nexus.
+                            <strong>모딩 커뮤니티 연동</strong>: Nexus Mods를 기본 지원하므로 Nexus에서 모드를 MO2로 직접 다운로드할 수 있습니다.
                             <br>
-                            It also has a plugin system that allows for creation of custom plugins to extend its functionality.
+                            또한 자체 플러그인 시스템을 통해 기능을 확장할 수 있습니다.
                             <div class="card-yellow">
                                 <p>
-                                    Mod Organizer 2 has <b>NO</b> support for Nexus' Collections feature, so you will have to download mods one by one.
+                                    Mod Organizer 2는 Nexus의 Collections 기능을 <b>지원하지 않으므로</b> 모드를 하나씩 내려받아야 합니다.
                                     <br>
-                                    This is not a big issue, as the guide will provide direct links to the mods you need, and most collections are low quality and not curated.
+                                    이 가이드가 필요한 모드의 직접 링크를 제공하므로 큰 문제는 아닙니다. 또한 Collections는 품질 관리가 충분하지 않은 경우가 많습니다.
                                     <hr>
-                                    The closest alternative to Collections is <a href="https://www.wabbajack.org/">Wabbajack</a>, which is a community-made modlist installer that can install entire modlists with a single click. Due to its higher bar of entry for modlist creators, Wabbajack lists tend to be of higher quality compared to Collections.
+                                    Collections와 가장 비슷한 대안은 <a href="https://www.wabbajack.org/">Wabbajack</a>입니다. 커뮤니티에서 만든 모드 리스트 설치기로 전체 모드 리스트를 자동으로 설치할 수 있으며, 제작자에게 요구되는 진입 장벽이 더 높아 Collections보다 품질 관리가 잘 되는 편입니다.
                                     <br><br>
-                                    You can find all instructions on how to install the official Viva New Vegas Wabbajack list <a href="./wabbajack.html" target="_blank">here</a>.
+                                    공식 Viva New Vegas Wabbajack 리스트 설치 방법은 <a href="./wabbajack.html" target="_blank">여기</a>에서 확인할 수 있습니다.
                                 </p>
                             </div>
                         </li>
@@ -255,31 +255,31 @@
                 </div>
 
                 <div class="card" id="WhyMO2" title="Why MO2?">
-                    <h3>Why Mod Organizer 2?</h3>
+                    <h3>왜 Mod Organizer 2를 사용하나요?</h3>
                     <p>
-                        Mod Organizer 2 has been chosen for our guides due to its <strong>ease of use</strong> and its ability to keep the <strong>game's folder clean</strong>. This is important because it allows for easy conflict resolution and mod management, and makes correcting mistakes trivial - installed mods in the wrong order? Just drag them into the correct position!
+                        이 가이드에서 Mod Organizer 2를 사용하는 이유는 <strong>사용하기 쉽고</strong>, <strong>게임 폴더를 깨끗하게 유지</strong>할 수 있기 때문입니다. 충돌 해결과 모드 관리가 쉬우며, 설치 순서를 잘못 잡아도 원하는 위치로 드래그해 바로 수정할 수 있습니다.
                         <br>
                         <br>
-                        Compared to Vortex, MO2 doesn't hide the most important parts of modding from the user, making it easier to understand what is happening and why, albeit at the cost of potentially looking scary at first.
+                        Vortex와 비교하면 MO2는 모딩의 핵심 구조를 사용자에게 숨기지 않기 때문에 처음에는 복잡해 보일 수 있지만, 무엇이 왜 일어나는지 이해하기가 더 쉽습니다.
                         <br>
                         <br>
-                        That said, we are well aware that MO2 is not perfect, and it has its own set of issues and limitations, but it is the best tool for the job.
+                        물론 MO2도 완벽한 도구는 아니며 자체적인 문제와 한계가 있습니다. 그래도 이 작업에는 가장 적합한 도구입니다.
                     </p>
                 </div>
             </span>
 
             <span id="Installation" class="section">
-                <h2 onclick="location.href='#Installation'">Installation</h2>
+                <h2 onclick="location.href='#Installation'">설치</h2>
 
                 <div class="card" id="InstallingMO2" title="Installing MO2">
-                    <h3>Installing Mod Organizer 2</h3>
+                    <h3>Mod Organizer 2 설치</h3>
                     <p>
                     <ol>
-                        <li><strong>Download Mod Organizer 2</strong> from <a href="https://www.nexusmods.com/site/mods/874" target="_blank">here</a>.</li>
-                        <li>Once the download has finished, run the installer.</li>
-                        <li>Accept the license, click <b>Next</b>.</li>
+                        <li><a href="https://www.nexusmods.com/site/mods/874" target="_blank">여기</a>에서 <strong>Mod Organizer 2</strong>를 다운로드합니다.</li>
+                        <li>다운로드가 끝나면 설치 프로그램을 실행합니다.</li>
+                        <li>라이선스에 동의하고 <b>Next</b>를 누릅니다.</li>
                         <li>
-                            When asked about the install location, change <span class="card-basic">MO2</span> to <span class="card-basic">Viva New Vegas</span> and click <b>Next</b>.
+                            설치 위치를 묻는 화면에서 <span class="card-basic">MO2</span>를 <span class="card-basic">Viva New Vegas</span>로 바꾸고 <b>Next</b>를 누릅니다.
                             <br>
                             <div class="image-container width-40">
                                 <img class="content-img" src="img/MO2/Install Path.webp" alt="Change folder name to Viva New Vegas">
@@ -287,31 +287,31 @@
                             </div>
                             <div class="card-green">
                                 <p>
-                                    If you wish to install Mod Organizer 2 in a different location, you can do so by clicking the <b>Browse</b> button and selecting a different folder.
+                                    다른 위치에 설치하려면 <b>Browse</b> 버튼을 눌러 원하는 폴더를 선택하면 됩니다.
                                     <br><br>
-                                    The folder <u>MUST</u> be outside of the default Windows folders (such as <span class="card-basic">Program Files x86</span>) and outside of the game's <b>Root</b> folder.
+                                    설치 폴더는 <span class="card-basic">Program Files x86</span> 같은 Windows 기본 폴더와 게임의 <b>Root</b> 폴더 <u>밖</u>에 있어야 합니다.
                                     <br><br>
-                                    It's discouraged to store MO2 on Desktop or Documents if you use OneDrive or similar cloud providers, due to potential issues and degraded performance.
+                                    OneDrive 같은 클라우드 동기화를 사용한다면 바탕 화면이나 문서 폴더에 MO2를 두지 않는 것을 권장합니다. 문제나 성능 저하가 생길 수 있습니다.
                                 </p>
                             </div>
                         </li>
-                        <li>On the install components page, use defaults.</li>
+                        <li>설치 구성 요소 화면에서는 기본값을 그대로 사용합니다.</li>
                         <li>
-                            When asked about the Start Menu folder, change <span class="card-basic">Mod Organizer</span> to <span class="card-basic">Viva New Vegas</span> and click <b>Next</b>.
+                            시작 메뉴 폴더 이름을 묻는 화면에서 <span class="card-basic">Mod Organizer</span>를 <span class="card-basic">Viva New Vegas</span>로 바꾸고 <b>Next</b>를 누릅니다.
                             <br>
                             <div class="image-container width-40">
                                 <img class="content-img" src="img/MO2/Start Menu.webp" alt="Change the name to Viva New Vegas">
                                 <div class="resize-overlay expand"></div>
                             </div>
                         </li>
-                        <li>Don't create a Desktop shortcut - we will create our own later.</li>
-                        <li>On the final page, click <b>Install</b>.</li>
-                        <li>Once the installation is complete, ensure that <strong>Launch Mod Organizer</strong> is ticked and click <b>Finish</b>.</li>
+                        <li>바탕 화면 바로가기는 만들지 마세요. 나중에 별도로 만들 예정입니다.</li>
+                        <li>마지막 화면에서 <b>Install</b>을 누릅니다.</li>
+                        <li>설치가 끝나면 <strong>Launch Mod Organizer</strong>가 체크되어 있는지 확인하고 <b>Finish</b>를 누릅니다.</li>
                     </ol>
 
                     <div class="card-red">
                         <p>
-                            MO2 refuses to open? Try <a href="./faq.html#troubleshootingquestion15">these steps</a> in the FAQ.
+                            MO2가 실행되지 않는다면 FAQ의 <a href="./faq.html#troubleshootingquestion15">문제 해결 단계</a>를 확인하세요.
                         </p>
                     </div>
 
@@ -320,87 +320,87 @@
             </span>
 
             <span id="Setup" class="section">
-                <h2 onclick="location.href='#Setup'">Setup</h2>
+                <h2 onclick="location.href='#Setup'">설정</h2>
 
                 <div class="card" id="Configuration">
-                    <h3>Configuring Mod Organizer 2</h3>
+                    <h3>Mod Organizer 2 구성</h3>
                     <p>
                     <ol>
-                        <li>On the instance creation page, select <strong>Create a portable instance</strong>, click <b>Next</b>.</li>
+                        <li>인스턴스 생성 화면에서 <strong>Create a portable instance</strong>를 선택하고 <b>Next</b>를 누릅니다.</li>
                         <div class="image-container width-40">
                             <img class="content-img" src="./img/MO2/Instance.webp" alt="Select Portable Instance option">
                             <div class="resize-overlay expand"></div>
                         </div>
-                        <li>Select <strong>New Vegas</strong>, click <b>Next</b>.</li>
-                        <li>Select the store where you bought the game, click <b>Next</b>.</li>
-                        <li>When asked about profile settings, <strong>enable all options</strong> and click <b>Next</b>.</li>
-                        <li>Keep the <strong>default location</strong> file path.</li>
-                        <li>On the next page, click <strong>Connect to Nexus</strong>.</li>
+                        <li><strong>New Vegas</strong>를 선택하고 <b>Next</b>를 누릅니다.</li>
+                        <li>게임을 구매한 스토어를 선택하고 <b>Next</b>를 누릅니다.</li>
+                        <li>프로필 설정 화면에서는 <strong>모든 옵션을 활성화</strong>하고 <b>Next</b>를 누릅니다.</li>
+                        <li>파일 경로는 <strong>기본 위치</strong>를 그대로 사용합니다.</li>
+                        <li>다음 화면에서 <strong>Connect to Nexus</strong>를 누릅니다.</li>
                         <ol>
-                            <li>MO2 will open your browser and prompt you to <strong>authorize</strong> the connection.</li>
-                            <li>Once you authorize it, you can close the browser page and click <b>Next</b> in MO2.</li>
+                            <li>브라우저가 열리면 연결을 <strong>승인</strong>합니다.</li>
+                            <li>승인이 끝나면 브라우저를 닫고 MO2에서 <b>Next</b>를 누릅니다.</li>
                         </ol>
                     </ol>
 
                     <div class="card-yellow">
                         <p>
-                            If you have MO2 installed on an SSD or a HDD with little space, you can check the <strong>Show advanced options</strong> box and change the <strong>Downloads</strong> file path to a different drive with more space.
+                            MO2가 여유 공간이 적은 SSD/HDD에 설치되어 있다면 <strong>Show advanced options</strong>를 체크하고 <strong>Downloads</strong> 경로를 여유 공간이 많은 다른 드라이브로 바꿀 수 있습니다.
                             <br>
-                            This will not affect the game's performance, the downloaded files can be deleted after the mods have been installed.
+                            다운로드 경로는 게임 성능에 영향을 주지 않으며, 모드 설치가 끝난 뒤 다운로드 파일을 삭제해도 됩니다.
                         </p>
                     </div>
 
                     <ol start="7">
-                        <li>On the last page, select <b>Finish</b>.</li>
-                        <li>If you see a pop-up called <strong>Show tutorial?</strong>, select <b>No</b>.</li>
-                        <li>If you see a pop-up called <strong>Register?</strong>, select <b>Yes</b>.</li>
-                        <li>If you see a pop-up called <strong>INI file is read-only</strong>, select <b>Remember my choice</b> from the drop-down at the bottom then click <b>Clear the read-only flag</b>.</li>
-                        <li>If you see a pop-up called <strong>FalloutNV_lang.esp was found</strong>, select <b>Yes</b>.</li>
+                        <li>마지막 화면에서 <b>Finish</b>를 선택합니다.</li>
+                        <li><strong>Show tutorial?</strong> 팝업이 뜨면 <b>No</b>를 선택합니다.</li>
+                        <li><strong>Register?</strong> 팝업이 뜨면 <b>Yes</b>를 선택합니다.</li>
+                        <li><strong>INI file is read-only</strong> 팝업이 뜨면 아래 드롭다운에서 <b>Remember my choice</b>를 고른 뒤 <b>Clear the read-only flag</b>를 누릅니다.</li>
+                        <li><strong>FalloutNV_lang.esp was found</strong> 팝업이 뜨면 <b>Yes</b>를 선택합니다.</li>
                     </ol>
                     </p>
                 </div>
 
                 <div class="card" id="GameSettings">
-                    <h3>Game Settings</h3>
+                    <h3>게임 설정</h3>
                     <p>
                     <ol>
-                        <li>Open the game launcher using the <strong>Fallout Launcher</strong> option in MO2.</li>
+                        <li>MO2에서 <strong>Fallout Launcher</strong>를 선택해 게임 런처를 엽니다.</li>
                         <div class="image-container width-60">
                             <img class="content-img" src="./img/Others/Start Launcher.webp" alt="Run the launcher through MO2">
                             <div class="resize-overlay expand"></div>
                         </div>
                         <li>
-                            Inside the launcher, click <b>Options</b> and do the following:
+                            런처에서 <b>Options</b>를 누른 뒤 다음과 같이 설정합니다.
                             <ol>
                                 <li>
-                                    Select the <strong>Ultra Preset</strong>.
+                                    <strong>Ultra Preset</strong>을 선택합니다.
                                     <div class="card-yellow">
                                         <p>
-                                            If you have a very weak PC, you can select the <b>Medium Preset</b> instead.
+                                            PC 성능이 매우 낮다면 대신 <b>Medium Preset</b>을 선택해도 됩니다.
                                         </p>
                                     </div>
                                 </li>
                                 <li>
-                                    Set <strong>Resolution</strong> to your monitor's native resolution.
+                                    <strong>Resolution</strong>을 모니터의 기본 해상도로 설정합니다.
                                     <div class="card-yellow">
                                         <p>
-                                            If you can't find the right resolution in the launcher's list, do the following:
+                                            런처 목록에 원하는 해상도가 없다면 다음 단계를 따르세요.
                                         <ol>
-                                            <li>Close the launcher.</li>
-                                            <li>Click the <img class="mo2-icon" src="./img/MO2/Tools.webp" alt="Tools drop-down"> button at the top of MO2 and select <strong>INI Editor</strong>.</li>
-                                            <li>Select the <strong>FalloutPrefs.ini</strong> tab.</li>
-                                            <li>Change the following settings in the <span class="card-basic">Display</span> section:
+                                            <li>런처를 닫습니다.</li>
+                                            <li>MO2 상단의 <img class="mo2-icon" src="./img/MO2/Tools.webp" alt="Tools drop-down"> 버튼을 누르고 <strong>INI Editor</strong>를 선택합니다.</li>
+                                            <li><strong>FalloutPrefs.ini</strong> 탭을 선택합니다.</li>
+                                            <li><span class="card-basic">Display</span> 항목에서 다음 값을 변경합니다.
                                                 <br>
-                                                <span class="card-basic">iSize W</span> = your screen width.
+                                                <span class="card-basic">iSize W</span> = 화면 가로 해상도.
                                                 <br>
-                                                <span class="card-basic">iSize H</span> = your screen height.
+                                                <span class="card-basic">iSize H</span> = 화면 세로 해상도.
                                             </li>
                                         </ol>
                                         </p>
                                     </div>
                                 </li>
                             </ol>
-                        <li>Close the launcher.</li>
+                        <li>런처를 닫습니다.</li>
                         </li>
                     </ol>
                     </p>
@@ -408,18 +408,18 @@
             </span>
 
             <span id="Instructions" class="section">
-                <h2 onclick="location.href='#Instructions'">Mod Installation Instructions</h2>
+                <h2 onclick="location.href='#Instructions'">모드 설치 방법</h2>
 
                 <div class="card" id="HowToUse?">
-                    <h3>How to use Nexus and MO2?</h3>
+                    <h3>Nexus와 MO2 사용 방법</h3>
                     <p>
-                        When the guide says to install a mod, it will be formatted as <strong>Main File - Example 1.5</strong>, this is referring to the mod's category on Nexus and file name.
+                        가이드에서 모드 설치 파일은 <strong>Main File - Example 1.5</strong>처럼 표시됩니다. 앞부분은 Nexus의 파일 분류, 뒷부분은 실제 파일 이름을 뜻합니다.
 
                     <div class="card-yellow">
                         <p>
-                            <b>IMPORTANT</b>:
+                            <b>중요</b>:
                             <br>
-                            Unless otherwise specified, always use <b>Mod Manager Download</b>.
+                            별도 지시가 없다면 항상 <b>Mod Manager Download</b>를 사용하세요.
                         </p>
                     </div>
 
@@ -428,27 +428,27 @@
                         <div class="resize-overlay expand"></div>
                     </div>
                     <br><br>
-                    <strong>Standard procedure</strong> through the manager:
+                    모드 매니저를 이용한 <strong>기본 설치 절차</strong>:
                     <ol>
-                        <li>Download the indicated file(s).</li>
-                        <li>Open the <b>Downloads</b> tab in MO2 (below the executable selector on the right).</li>
-                        <li>Double-click on the mod to install it.</li>
-                        <li>Enable the mod on the left pane by ticking its checkbox.</li>
+                        <li>지정된 파일을 다운로드합니다.</li>
+                        <li>MO2 오른쪽 실행 파일 선택 영역 아래의 <b>Downloads</b> 탭을 엽니다.</li>
+                        <li>모드를 더블클릭해 설치합니다.</li>
+                        <li>왼쪽 패널에서 모드의 체크박스를 켜 활성화합니다.</li>
                     </ol>
                     <br>
-                    If downloading through the manager is not an option, do the following:
+                    모드 매니저로 다운로드할 수 없는 경우에는 다음과 같이 합니다.
                     <ol>
-                        <li>Click the <strong>Manual Download</strong> button (or whatever the download button is for the respective site).</li>
-                        <li>Once the download has finished, click the <img class="mo2-icon" src="./img/MO2/Install Archive.webp" alt="MO2 archive button"> button at the top of MO2.</li>
-                        <li>From the new window, navigate to where the file was downloaded to and double-click it.</li>
-                        <li>Finish the install as you would with a <b>Mod Manager Download</b> mod.</li>
+                        <li><strong>Manual Download</strong> 버튼 또는 해당 사이트의 수동 다운로드 버튼을 누릅니다.</li>
+                        <li>다운로드가 끝나면 MO2 상단의 <img class="mo2-icon" src="./img/MO2/Install Archive.webp" alt="MO2 archive button"> 버튼을 누릅니다.</li>
+                        <li>새 창에서 다운로드한 파일 위치로 이동해 파일을 더블클릭합니다.</li>
+                        <li><b>Mod Manager Download</b>로 받은 모드와 동일하게 설치를 마칩니다.</li>
                     </ol>
                     <br>
-                    When <strong>installing a mod</strong>, MO2 might prompt you with multiple choices:
+                    <strong>모드를 설치</strong>할 때 MO2가 다음 선택지를 표시할 수 있습니다.
                     <ul>
-                        <li><strong>Rename</strong> appears when you are trying to install a file with the same name as an existing one. If you are installing, for example, a secondary file necessary for the mod to work, then rename it accordingly with the name drop-down list or by typing the name manually.</li>
-                        <li>If you are updating from an old version of a mod, you should select <strong>Replace</strong>, this will automatically delete all the files from the old version of the mod and replace them with the ones from the new version.</li>
-                        <li><strong>Merge</strong> should only be used when you are sure the mod will not be updated and in situations where a hotfix is uploaded as separate file. Avoid it if you can, for maximum modularity.</li>
+                        <li><strong>Rename</strong>: 기존 모드와 같은 이름의 파일을 설치하려 할 때 표시됩니다. 예를 들어 모드 작동에 필요한 추가 파일을 별도로 설치하는 경우 드롭다운이나 직접 입력으로 구분 가능한 이름을 붙이세요.</li>
+                        <li><strong>Replace</strong>: 기존 모드를 새 버전으로 업데이트할 때 사용합니다. 이전 버전 파일을 삭제하고 새 버전으로 교체합니다.</li>
+                        <li><strong>Merge</strong>: 업데이트될 가능성이 없고 별도 핫픽스를 기존 모드에 합쳐야 하는 경우에만 사용하세요. 관리 편의성을 위해 가능하면 피하는 것이 좋습니다.</li>
                     </ul>
                     </p>
                 </div>
@@ -456,13 +456,13 @@
 
             <div class="navigationArrowContainer">
                 <a href="#" id="previous" rel="prev" class="navigationArrow">
-                    <img class="mirror" src="./img/UI/Arrow.svg" alt="Back Arrow">
+                    <img class="mirror" src="./img/UI/Arrow.svg" alt="이전 페이지">
                     <span class="arrowText"></span>
                 </a>
 
                 <a href="#" id="next" rel="next" class="navigationArrow">
                     <span class="arrowText"></span>
-                    <img src="./img/UI/Arrow.svg" alt="Forward Arrow">
+                    <img src="./img/UI/Arrow.svg" alt="다음 페이지">
                 </a>
             </div>
         </div>
@@ -473,11 +473,11 @@
         </div>
     </div>
 
-    <footer>ModdingLinked 2026</footer>
+    <footer>ModdingLinked 2026 · 비공식 한국어 번역</footer>
 
     <div id="image-overlay" class="overlay" hidden>
         <div class="image-container">
-            <img id="enlarged-image" class="enlarged-image" src="" alt="Enlarged Image">
+            <img id="enlarged-image" class="enlarged-image" src="" alt="확대 이미지">
             <div class="resize-overlay shrink"></div>
         </div>
     </div>
