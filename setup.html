@@ -9,7 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="icon" href="img/Coco/Head Logo.webp">
 
-    <title>Initial Setup | Viva New Vegas</title>
+    <title>초기 설정 | Viva New Vegas 한국어 가이드</title>
 
     <meta name="keywords" content="
     Mod, Modding, Mods, Guide, Mod Guide, Modding Guide, Resource, Resources,
@@ -24,7 +24,7 @@
     Tale of Two Wastelands, TTW,
     Skyrim Special Edition, Skyrim SE, SSE">
 
-    <meta name="description" content="Clean install and initial launch of the vanilla game.">
+    <meta name="description" content="Fallout: New Vegas를 깨끗하게 설치하고 첫 실행을 준비하는 방법입니다.">
     <meta http-equiv='content-language' content='ko-kr'>
     <meta name="twitter:card" value="summary_large_image">
     <meta property="og:site_name" content="ModdingLinked">
@@ -32,7 +32,7 @@
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://vivanewvegas.moddinglinked.com">
     <meta property="og:image" content="https://vivanewvegas.moddinglinked.com/img/Others/Card.webp">
-    <meta property="og:description" content="Clean install and initial launch of the vanilla game.">
+    <meta property="og:description" content="Fallout: New Vegas를 깨끗하게 설치하고 첫 실행을 준비하는 방법입니다.">
 
     <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#333230">
     <meta name="darkreader-lock">
@@ -72,7 +72,7 @@
             </div>
             <div class="headerTitle">
                 <img src="./img/Coco/Head Logo.webp" alt="Logo" id="logo">
-                <a href="./index.html" id="headerTitle">Viva New Vegas</a>
+                <a href="./index.html" id="headerTitle">Viva New Vegas 한국어</a>
             </div>
             <div class="guideLinks" id="headerLinks">
                 <a href="https://thebestoftimes.moddinglinked.com" target="_blank" rel="nofollow">Tale of Two Wastelands</a>
@@ -203,43 +203,43 @@
         <div class="content">
 
             <span id="Preparation" class="section">
-                <h2 onclick="location.href='#Preparation'">Preparation</h2>
+                <h2 onclick="location.href='#Preparation'">준비</h2>
 
                 <div class="card" id="CPPRedists" title="Installing Redistributables">
-                    <h3>Installing VC++ Redistributables</h3>
-                    <p>Most engine mods and tools require latest Visual C++ Redistributables to be installed. Windows' official package manager, <strong>Winget</strong>, provides a quick and safe way to update all of them. We use the Microsoft Store to update it to the latest version and to make sure that the script works.</p>
+                    <h3>VC++ 재배포 패키지 설치</h3>
+                    <p>대부분의 엔진 모드와 도구는 최신 Visual C++ 재배포 패키지가 필요합니다. Windows 공식 패키지 관리자인 <strong>Winget</strong>을 사용하면 필요한 패키지를 빠르고 안전하게 최신 상태로 맞출 수 있습니다. 먼저 Microsoft Store를 통해 Winget 자체를 최신 버전으로 업데이트해 스크립트가 정상 작동하도록 합니다.</p>
 
                     <div class="card-red">
                         <p>
-                            Failure to have latest versions installed will result in an immediate crash when launching the game or modding tools.
+                            최신 버전이 설치되어 있지 않으면 게임이나 모딩 도구를 실행하자마자 종료될 수 있습니다.
                             <br>
                             <br>
-                            Please install the redistributables even if you have them installed already, as they are often outdated.
+                            이미 설치되어 있더라도 오래된 버전일 가능성이 있으므로 재배포 패키지를 다시 설치해 주세요.
                         </p>
                     </div>
 
                     <ol>
-                        <li>Open the <a href="ms-windows-store://home" target="_blank">Microsoft Store</a>.</li>
-                        <li>Head to the <b>Updates & downloads</b> section.</li>
-                        <li><b>Check for updates</b>, then let everything update.</li>
-                        <li>Once finished, open the Command Prompt as administrator and enter the following:</li>
+                        <li><a href="ms-windows-store://home" target="_blank">Microsoft Store</a>를 엽니다.</li>
+                        <li><b>업데이트 및 다운로드</b> 항목으로 이동합니다.</li>
+                        <li><b>업데이트 확인</b>을 누르고 모든 항목의 업데이트를 완료합니다.</li>
+                        <li>완료되면 명령 프롬프트를 관리자 권한으로 열고 다음 명령을 입력합니다.</li>
                         <textarea readonly="readonly" style="height: 14em; width: 95%;" onclick="this.focus();this.select()">
 winget install --id=Microsoft.VCRedist.2005.x86 -e --force -h --accept-package-agreements  && winget install --id=Microsoft.VCRedist.2005.x64 -e --force -h --accept-package-agreements  && winget install --id=Microsoft.VCRedist.2008.x86 -e --force -h --accept-package-agreements  && winget install --id=Microsoft.VCRedist.2008.x64 -e --force -h --accept-package-agreements  && winget install --id=Microsoft.VCRedist.2010.x86 -e --force -h --accept-package-agreements  && winget install --id=Microsoft.VCRedist.2010.x64 -e --force -h --accept-package-agreements  && winget install --id=Microsoft.VCRedist.2012.x86 -e --force -h --accept-package-agreements  && winget install --id=Microsoft.VCRedist.2012.x64 -e --force -h --accept-package-agreements  && winget install --id=Microsoft.VCRedist.2013.x86 -e --force -h --accept-package-agreements  && winget install --id=Microsoft.VCRedist.2013.x64 -e --force -h --accept-package-agreements  && winget install --id=Microsoft.VCRedist.2015+.x86 -e --force -h --accept-package-agreements  && winget install --id=Microsoft.VCRedist.2015+.x64 -e --force -h --accept-package-agreements</textarea>
-                        <li>Restart your PC.</li>
+                        <li>PC를 재부팅합니다.</li>
                     </ol>
                 </div>
 
                 <div class="card" id="FileExtensions" title="Enabling File Extensions">
-                    <h3>Enabling File Extensions</h3>
+                    <h3>파일 확장자 표시 켜기</h3>
                     <p>
-                        Before we start, it is important to enable file extensions in Windows.
+                        작업을 시작하기 전에 Windows에서 파일 확장자가 보이도록 설정해야 합니다.
                     </p>
                     <p>
-                        By default, File Explorer will not show file extensions (such as .exe, .dll, or .esp). These extensions are very important when going through the guide, so it is highly recommended to enable visible file extensions:
+                        기본 설정에서는 파일 탐색기가 .exe, .dll, .esp 같은 확장자를 숨깁니다. 이 가이드에서는 확장자를 구분해야 하는 경우가 많으므로 반드시 표시하는 것을 권장합니다.
                     <ol>
-                        <li>Open File Explorer.</li>
-                        <li>Select the <b>View</b> tab at the top.</li>
-                        <li>Enable <strong>File name extensions</strong> in the <b>Show</b> section.</li>
+                        <li>파일 탐색기를 엽니다.</li>
+                        <li>상단의 <b>보기</b> 메뉴를 선택합니다.</li>
+                        <li><b>표시</b> 항목에서 <strong>파일 확장명</strong>을 켭니다.</li>
                         <div class="image-container width-90">
                             <img class="content-img" src="./img/Others/File Extensions.webp" alt="Show file extensions">
                             <div class="resize-overlay expand"></div>
@@ -249,28 +249,28 @@ winget install --id=Microsoft.VCRedist.2005.x86 -e --force -h --accept-package-a
                 </div>
 
                 <div class="card" id="BaseAddressRandomization">
-                    <h3>Disabling Base Address Randomization</h3>
+                    <h3>기본 주소 강제 랜덤화 비활성화</h3>
                     <p>
-                        Base Address Randomization is a security feature in Windows that allows program's starting address to be randomized, which is not the expected behavior in 32-bit programs like Fallout: New Vegas. This <strong>leads to crashes</strong> in a modded game.
+                        기본 주소 랜덤화는 프로그램의 시작 주소를 무작위로 배치하는 Windows 보안 기능입니다. Fallout: New Vegas 같은 32비트 프로그램에서는 예상되지 않은 동작을 만들 수 있으며, 모드 환경에서 <strong>충돌의 원인</strong>이 될 수 있습니다.
                         <br>
                         <br>
-                        While the feature should be disabled by default, it is still recommended to sanity check if it is disabled:
+                        기본적으로 꺼져 있어야 하지만 실제로 비활성화되어 있는지 확인하는 것을 권장합니다.
                     <ol>
-                        <li>Open <strong>Windows Security</strong> from your <b>Start Menu</b>.</li>
-                        <li>Click on <b>App & browser control</b> in the left sidebar.</li>
-                        <li>Click on <b>Exploit protection settings</b> under <b>Exploit protection</b>.</li>
-                        <li>Ensure <strong>Force randomization for images (Mandatory ASLR)</strong> is set to <strong>Use default (Off)</strong>.</li>
+                        <li><b>시작 메뉴</b>에서 <strong>Windows 보안</strong>을 엽니다.</li>
+                        <li>왼쪽 메뉴에서 <b>앱 및 브라우저 컨트롤</b>을 선택합니다.</li>
+                        <li><b>Exploit Protection</b> 아래의 <b>Exploit Protection 설정</b>을 엽니다.</li>
+                        <li><strong>이미지에 대한 강제 임의 지정(Mandatory ASLR)</strong>이 <strong>기본값 사용(끔)</strong>으로 설정되어 있는지 확인합니다.</li>
                         <div class="card-green">
                             <p>
-                                If you don't want to change the global setting, you can add an exception just for the game:
+                                시스템 전체 설정을 바꾸고 싶지 않다면 Fallout: New Vegas만 예외로 추가할 수 있습니다.
                             <ol>
-                                <li>Click on <b>Program settings</b>.</li>
-                                <li>Click on <b>Add program to customize</b>.</li>
-                                <li>Select <b>Add program by name</b>.</li>
-                                <li>Enter <span class="card-basic">FalloutNV.exe</span> in the box and save.</li>
-                                <li>Find the newly created entry on the list and click <b>Edit</b>.</li>
-                                <li>Find <b>Force randomization for images (Mandatory ASLR)</b>.</li>
-                                <li>Check <b>Override system settings</b>, and set the toggle to <b>Off</b>.</li>
+                                <li><b>프로그램 설정</b>을 선택합니다.</li>
+                                <li><b>사용자 지정할 프로그램 추가</b>를 선택합니다.</li>
+                                <li><b>프로그램 이름으로 추가</b>를 선택합니다.</li>
+                                <li>입력란에 <span class="card-basic">FalloutNV.exe</span>를 입력하고 저장합니다.</li>
+                                <li>목록에서 새로 만든 항목을 찾아 <b>편집</b>을 누릅니다.</li>
+                                <li><b>이미지에 대한 강제 임의 지정(Mandatory ASLR)</b>을 찾습니다.</li>
+                                <li><b>시스템 설정 재정의</b>를 체크하고 스위치를 <b>끔</b>으로 설정합니다.</li>
                             </ol>
                             </p>
                         </div>
@@ -280,40 +280,40 @@ winget install --id=Microsoft.VCRedist.2005.x86 -e --force -h --accept-package-a
             </span>
 
             <span id="Installation" class="section">
-                <h2 onclick="location.href='#Installation'">Installation</h2>
+                <h2 onclick="location.href='#Installation'">설치</h2>
 
                 <div class="card" id="InstallLocation">
-                    <h3>Choosing a Location</h3>
+                    <h3>설치 위치 선택</h3>
                     <p>
-                        <strong>A clean installation</strong> is not only required to get rid of any potential leftover mod files, but also to make sure the game is installed in a safe location. Here is what you need to know when choosing where to install your game:
+                        <strong>깨끗한 재설치</strong>는 이전 모드 파일의 잔재를 없애기 위해서뿐 아니라 게임을 안전한 위치에 설치하기 위해서도 필요합니다. 설치 위치를 고를 때 다음 사항을 확인하세요.
                         <br>
                     <ul>
                         <li>
-                            <b>Avoid any default Windows folders</b>: This includes but is not limited to <span class="card-basic">C:\Program Files</span>, <span class="card-basic">C:\Program Files x86</span>, your <span class="card-basic">Desktop</span> and your <span class="card-basic">Documents</span> folders.
+                            <b>Windows 기본 폴더를 피하세요</b>: <span class="card-basic">C:\Program Files</span>, <span class="card-basic">C:\Program Files x86</span>, <span class="card-basic">바탕 화면</span>, <span class="card-basic">문서</span> 등이 포함됩니다.
                             <br>
-                            This is because users lack write access to Program Files, while Desktop and Documents are often managed by OneDrive. This can cause many issues with the game and any modding tools.
+                            Program Files는 쓰기 권한 제한이 있고, 바탕 화면과 문서 폴더는 OneDrive가 관리하는 경우가 많아 게임과 모딩 도구에서 여러 문제를 일으킬 수 있습니다.
                             <br>
                             <br>
-                            An example of a safe location is <span class="card-basic">C:\Games</span>
+                            안전한 위치의 예: <span class="card-basic">C:\Games</span>
                         </li>
                         <li>
-                            <b>Install on an SSD if possible</b>: Having the game on an SSD will drastically improve loading times and decrease stuttering.
+                            <b>가능하면 SSD에 설치하세요</b>: 로딩 시간이 크게 줄고 끊김 현상도 감소합니다.
                         </li>
                     </ul>
                     </p>
                 </div>
 
                 <div class="card" id="Uninstall">
-                    <h3>Uninstalling the Games</h3>
+                    <h3>기존 게임 제거</h3>
                     <p>
 
                     <div class="card-green">
                         <p>
-                            If you never installed the games before, go directly to the next section.
+                            이전에 게임을 설치한 적이 없다면 다음 항목으로 바로 넘어가세요.
                         </p>
                     </div>
 
-                    As the games are available on Steam, GOG, and Epic Games, there are separate instructions for each version. You obviously only need to follow the directions for the versions you have.
+                    Steam, GOG, Epic Games 버전별로 제거 방법이 다릅니다. 본인이 사용하는 버전에 해당하는 설명만 따르면 됩니다.
                     <div class="expander-top colors-steam clickable width-90" onclick="expandCard(this, uninstallSteamExpander)" id="uninstallSteam">
                         <h3>Steam</h3>
                         <img class="chevron" style="transform: rotateX(0deg);" src="img/UI/Chevron Down.svg" alt="UI element - Chevron">
@@ -323,16 +323,16 @@ winget install --id=Microsoft.VCRedist.2005.x86 -e --force -h --accept-package-a
 
                         <div class="card-red">
                             <p>
-                                If you already uninstalled the games, make sure to follow step 4 and 5 to ensure there are no leftovers.
+                                이미 게임을 제거했다면 잔여 파일을 없애기 위해 4번과 5번 단계는 반드시 확인하세요.
                             </p>
                         </div>
 
                         <ol>
-                            <li>Open Steam and go to your <strong>Library</strong>.</li>
-                            <li>Find <strong>Fallout: New Vegas</strong> in the list.</li>
-                            <li>Right-click on it and select <strong>Manage</strong> -> <strong>Uninstall</strong>.</li>
-                            <li>Navigate to <span class="card-basic">Steam\steamapps\common</span> and, if present, delete the <strong>Fallout New Vegas</strong> folder.</li>
-                            <li>Navigate to <span class="card-basic">Documents\My Games\FalloutNV</span> and delete all INI files inside it.</li>
+                            <li>Steam을 열고 <strong>라이브러리</strong>로 이동합니다.</li>
+                            <li>목록에서 <strong>Fallout: New Vegas</strong>를 찾습니다.</li>
+                            <li>우클릭한 뒤 <strong>관리</strong> → <strong>제거</strong>를 선택합니다.</li>
+                            <li><span class="card-basic">Steam\steamapps\common</span>으로 이동해 <strong>Fallout New Vegas</strong> 폴더가 남아 있다면 삭제합니다.</li>
+                            <li><span class="card-basic">Documents\My Games\FalloutNV</span>로 이동해 내부의 INI 파일을 모두 삭제합니다.</li>
                         </ol>
                     </div>
 
@@ -343,13 +343,13 @@ winget install --id=Microsoft.VCRedist.2005.x86 -e --force -h --accept-package-a
 
                     <div class="expander-bottom colors-gog width-90" id="uninstallGogExpander">
                         <ol>
-                            <li>Open GOG and go to your <strong>Library</strong>.</li>
-                            <li>Find <strong>Fallout: New Vegas</strong> in the list.</li>
-                            <li>Right-click on it and select <strong>Manage Installation -> Uninstall</strong>.</li>
+                            <li>GOG를 열고 <strong>라이브러리</strong>로 이동합니다.</li>
+                            <li>목록에서 <strong>Fallout: New Vegas</strong>를 찾습니다.</li>
+                            <li>우클릭한 뒤 <strong>Manage Installation → Uninstall</strong>을 선택합니다.</li>
                             <ul>
-                                <li>If you used an offline installer then run the <strong>unins000.exe</strong> file in the game's <b>Root</b> folder.</li>
+                                <li>오프라인 설치 프로그램을 사용했다면 게임 <b>Root</b> 폴더의 <strong>unins000.exe</strong>를 실행합니다.</li>
                             </ul>
-                            <li>Navigate to <span class="card-basic">Documents\My Games\FalloutNV</span> and delete all INI files inside it.</li>
+                            <li><span class="card-basic">Documents\My Games\FalloutNV</span>로 이동해 내부의 INI 파일을 모두 삭제합니다.</li>
                         </ol>
                     </div>
 
@@ -362,15 +362,15 @@ winget install --id=Microsoft.VCRedist.2005.x86 -e --force -h --accept-package-a
 
                         <div class="card-red">
                             <p>
-                                If you already uninstalled the games, make sure to follow step 4 to ensure there are no leftovers.
+                                이미 게임을 제거했다면 잔여 파일을 없애기 위해 4번 단계는 반드시 확인하세요.
                             </p>
                         </div>
 
                         <ol>
-                            <li>Open the Epic Games Launcher and go to your <strong>Library</strong>.</li>
-                            <li>Find <strong>Fallout: New Vegas</strong> in the list.</li>
-                            <li>Click on 3 dots and select uninstall from the menu.</li>
-                            <li>Navigate to <span class="card-basic">Documents\My Games\FalloutNV_Epic</span> and delete all INI files inside it.</li>
+                            <li>Epic Games Launcher를 열고 <strong>라이브러리</strong>로 이동합니다.</li>
+                            <li>목록에서 <strong>Fallout: New Vegas</strong>를 찾습니다.</li>
+                            <li>점 3개 메뉴를 누른 뒤 제거를 선택합니다.</li>
+                            <li><span class="card-basic">Documents\My Games\FalloutNV_Epic</span>으로 이동해 내부의 INI 파일을 모두 삭제합니다.</li>
                         </ol>
                     </div>
 
@@ -378,50 +378,50 @@ winget install --id=Microsoft.VCRedist.2005.x86 -e --force -h --accept-package-a
                 </div>
 
                 <div class="card" id="Install">
-                    <h3>Installing the Games</h3>
+                    <h3>게임 설치</h3>
                     <p>
-                        As mentioned before, only follow the directions for the versions you have.
+                        앞서 설명했듯 본인이 사용하는 스토어 버전에 해당하는 지침만 따르면 됩니다.
                     <div class="expander-top colors-steam clickable width-90" onclick="expandCard(this, installSteamExpander)" id="installSteam">
                         <h3>Steam</h3>
                         <img class="chevron" style="transform: rotateX(0deg);" src="img/UI/Chevron Down.svg" alt="UI element - Chevron">
                     </div>
 
                     <div class="expander-bottom colors-steam width-90" id="installSteamExpander">
-                        <h3>Creating a new Steam library</h3>
+                        <h3>새 Steam 라이브러리 만들기</h3>
 
                         <div class="card-red">
                             <p>
-                                It is strongly recommended to install the games outside of any default Windows folders (such as <span class="card-basic">Program Files (x86)</span>), as the the strict Windows file protections of these folders can break certain mods/tools. Instead, we will use a tool called Steam Library Setup Tool to create a new Steam library folder outside of any default Windows folders.
+                                게임은 <span class="card-basic">Program Files (x86)</span> 같은 Windows 기본 폴더 밖에 설치하는 것을 강력히 권장합니다. 해당 폴더의 엄격한 파일 보호 기능 때문에 일부 모드나 도구가 정상 작동하지 않을 수 있습니다. 여기서는 Steam Library Setup Tool을 사용해 안전한 위치에 새 Steam 라이브러리를 만듭니다.
                                 <br>
                                 <br>
-                                If you already have Steam installed outside of any default windows folders then go directly to step 1 of the next section and install the games to your custom Steam library.
+                                Steam 자체가 이미 Windows 기본 폴더 밖에 설치되어 있고 별도 라이브러리를 사용 중이라면 다음 항목의 1번 단계로 넘어가 해당 라이브러리에 게임을 설치하세요.
                             </p>
                         </div>
 
                         <ol>
-                            <li>Completely exit out of Steam using Task Manager or System Tray.</li>
-                            <li>Download the <strong>steam_library_setup_tool-3.2.exe</strong> file from <a href="https://github.com/LostDragonist/steam-library-setup-tool/releases" target="_blank">here</a>.</li>
-                            <li>Once downloaded, run the file and add a new entry by clicking <strong>Add Row</strong>.</li>
-                            <li>Type the chosen path under <strong>Path</strong>, e.g. <span class="card-basic">C:\Games\Steam</span></li>
-                            <li>Click <strong>Accept</strong> then <strong>Yes</strong> if prompted to create a new folder.</li>
-                            <li>The tool will ask to exit, select <strong>OK</strong>.</li>
+                            <li>작업 관리자나 시스템 트레이를 이용해 Steam을 완전히 종료합니다.</li>
+                            <li><a href="https://github.com/LostDragonist/steam-library-setup-tool/releases" target="_blank">여기</a>에서 <strong>steam_library_setup_tool-3.2.exe</strong>를 다운로드합니다.</li>
+                            <li>다운로드한 파일을 실행하고 <strong>Add Row</strong>를 눌러 새 항목을 추가합니다.</li>
+                            <li><strong>Path</strong>에 원하는 경로를 입력합니다. 예: <span class="card-basic">C:\Games\Steam</span></li>
+                            <li><strong>Accept</strong>를 누르고 새 폴더 생성 여부를 물으면 <strong>Yes</strong>를 선택합니다.</li>
+                            <li>도구가 종료 여부를 물으면 <strong>OK</strong>를 누릅니다.</li>
                             <div class="image-container width-90">
                                 <img class="content-img" src="./img/Others/Steam Library Tool Setup.webp" alt="Steam library setup tool">
                                 <div class="resize-overlay expand"></div>
                             </div>
                         </ol>
                         <ol>
-                            <li>Open Steam and go to your <strong>Library</strong>.</li>
-                            <li>Find <strong>Fallout: New Vegas</strong> in the list and select <strong>Install</strong>.</li>
-                            <li>Under <strong>Install to:</strong>, select the library folder created with the tool, which is the second <b>C:\</b> entry if you are installing on the main drive.</li>
+                            <li>Steam을 열고 <strong>라이브러리</strong>로 이동합니다.</li>
+                            <li>목록에서 <strong>Fallout: New Vegas</strong>를 찾아 <strong>설치</strong>를 선택합니다.</li>
+                            <li><strong>설치 위치:</strong>에서 방금 만든 라이브러리 폴더를 선택합니다. 기본 C 드라이브에 만들었다면 두 번째 <b>C:\</b> 항목으로 표시될 수 있습니다.</li>
                             <div class="image-container width-90">
                                 <img class="content-img" src="./img/Others/Steam Location Pick.webp" alt="Example Steam install locations">
                                 <div class="resize-overlay expand"></div>
                             </div>
-                            <li>Select <strong>Next</strong> then wait for the install to finish.</li>
+                            <li><strong>다음</strong>을 누르고 설치가 끝날 때까지 기다립니다.</li>
                         </ol>
                         <div class="card-yellow">
-                            <p>If you still do not see your new library, restart your PC.</p>
+                            <p>새 라이브러리가 보이지 않는다면 PC를 재부팅하세요.</p>
                         </div>
                     </div>
 
@@ -432,11 +432,11 @@ winget install --id=Microsoft.VCRedist.2005.x86 -e --force -h --accept-package-a
 
                     <div class="expander-bottom colors-gog width-90" id="installGogExpander">
                         <ol>
-                            <li>Open GOG and go to your <strong>Library</strong>.</li>
-                            <li>Find <strong>Fallout: New Vegas</strong> in the list and select <strong>Install</strong>.</li>
-                            <li>Set the <strong>Install to</strong> location to a location of your choice.</li>
+                            <li>GOG를 열고 <strong>라이브러리</strong>로 이동합니다.</li>
+                            <li>목록에서 <strong>Fallout: New Vegas</strong>를 찾아 <strong>설치</strong>를 선택합니다.</li>
+                            <li><strong>Install to</strong> 위치를 원하는 경로로 지정합니다.</li>
                             <ul>
-                                <li>It is <strong>required</strong> to install the game outside of any default Windows folders (e.g., <span class="card-basic">Program Files x86</span>).</li>
+                                <li>게임은 반드시 <span class="card-basic">Program Files x86</span> 같은 Windows 기본 폴더 <strong>밖</strong>에 설치해야 합니다.</li>
                             </ul>
                         </ol>
                     </div>
@@ -448,11 +448,11 @@ winget install --id=Microsoft.VCRedist.2005.x86 -e --force -h --accept-package-a
 
                     <div class="expander-bottom colors-epic width-90" id="installEpicExpander">
                         <ol>
-                            <li>Open the Epic Games Launcher and go to your <strong>Library</strong>.</li>
-                            <li>Find <strong>Fallout: New Vegas</strong> in the list.</li>
-                            <li>Click on the game to install it.</li>
+                            <li>Epic Games Launcher를 열고 <strong>라이브러리</strong>로 이동합니다.</li>
+                            <li>목록에서 <strong>Fallout: New Vegas</strong>를 찾습니다.</li>
+                            <li>게임을 클릭해 설치를 시작합니다.</li>
                             <ul>
-                                <li>It is <strong>required</strong> to install the game outside of any default Windows folders (e.g., <span class="card-basic">Program Files x86</span>).</li>
+                                <li>게임은 반드시 <span class="card-basic">Program Files x86</span> 같은 Windows 기본 폴더 <strong>밖</strong>에 설치해야 합니다.</li>
                             </ul>
                         </ol>
                     </div>
@@ -461,47 +461,47 @@ winget install --id=Microsoft.VCRedist.2005.x86 -e --force -h --accept-package-a
             </span>
 
             <span id="PostInstallation" class="section">
-                <h2 onclick="location.href='#PostInstallation'">Post-Installation</h2>
+                <h2 onclick="location.href='#PostInstallation'">설치 후 작업</h2>
 
                 <div class="card" id="Terminology">
-                    <h3>Key Terminology</h3>
+                    <h3>주요 용어</h3>
                     <p>
-                        Now that the game is installed, there are two folders from it that will be referred to in the guide often:
+                        게임 설치가 끝났습니다. 이후 가이드에서 자주 언급되는 두 폴더를 알아두세요.
                     <ul>
-                        <li><strong>Root</strong> folder: Where the game is installed.</li>
+                        <li><strong>Root</strong> 폴더: 게임이 설치된 최상위 폴더입니다.</li>
                         <ul>
-                            <li>For Steam:
+                            <li>Steam:
                                 <div class="card-basic">
                                     <p>Steam\steamapps\common\Fallout New Vegas</p>
                                 </div>
                             </li>
-                            <li>For GOG:
+                            <li>GOG:
                                 <div class="card-basic">
                                     <p>GOG Galaxy\Games\Fallout New Vegas</p>
-                                </div> (unless you manually changed the installation path).
+                                </div> (설치 경로를 직접 바꾸지 않은 경우).
                             </li>
-                            <li>For Epic Games:
+                            <li>Epic Games:
                                 <div class="card-basic">
                                     <p>Epic Games\FalloutNewVegas\Fallout New Vegas English</p>
-                                </div> (unless you manually changed the installation path).
+                                </div> (설치 경로를 직접 바꾸지 않은 경우).
                             </li>
                         </ul>
                     </ul>
 
                     <ul>
-                        <li><strong>Data</strong> folder: Where all of the game's assets are located.</li>
+                        <li><strong>Data</strong> 폴더: 게임의 각종 데이터와 에셋이 들어 있는 폴더입니다.</li>
                         <ul>
-                            <li>For Steam:
+                            <li>Steam:
                                 <div class="card-basic">
                                     <p>Steam\steamapps\common\Fallout New Vegas\Data</p>
                                 </div>
                             </li>
-                            <li>For GOG:
+                            <li>GOG:
                                 <div class="card-basic">
                                     <p>GOG Galaxy\Games\Fallout New Vegas\Data</p>
                                 </div>
                             </li>
-                            <li>For Epic Games:
+                            <li>Epic Games:
                                 <div class="card-basic">
                                     <p>Epic Games\FalloutNewVegas\Fallout New Vegas English\Data</p>
                                 </div>
@@ -511,35 +511,35 @@ winget install --id=Microsoft.VCRedist.2005.x86 -e --force -h --accept-package-a
                     </p>
                 </div>
                 <div class="card" id="GeneratingINIs" title="Generating INIs">
-                    <h3>Generating Fresh INI Files</h3>
+                    <h3>새 INI 파일 생성</h3>
                     <p>
                     <ol>
-                        <li>Run the game from Steam/GOG Galaxy, or through FalloutNVLauncher.exe in the game files if you are using an offline copy.</li>
-                        <li>Click OK to both pop-ups that say <b>Detecting Video Hardware</b>.</li>
+                        <li>Steam/GOG Galaxy에서 게임을 실행합니다. 오프라인판이라면 게임 폴더의 FalloutNVLauncher.exe를 실행합니다.</li>
+                        <li><b>Detecting Video Hardware</b>라고 표시되는 두 팝업에서 모두 OK를 누릅니다.</li>
                         <ul>
-                            <li>If there aren't any pop-ups, navigate to <span class="card-basic">Documents\My Games\FalloutNV</span> and delete all INI files, then retry.</li>
+                            <li>팝업이 뜨지 않는다면 <span class="card-basic">Documents\My Games\FalloutNV</span>의 INI 파일을 모두 삭제한 뒤 다시 실행합니다.</li>
                         </ul>
-                        <li>Click <b>OK</b> then <b>Exit</b>.</li>
+                        <li><b>OK</b>를 누른 뒤 <b>Exit</b>으로 종료합니다.</li>
                     </ol>
                     </p>
                 </div>
                 <div class="card-wj" id="WabbajackReturn" title="Return To The WJ Page">
-                    <h3>Wabbajack Users!</h3>
+                    <h3>Wabbajack 사용자</h3>
                     <p>
-                        You are done with the Introduction and Setup of the guide, go back to the <a href="./wabbajack.html#Installation">Wabbajack page</a> to continue installing the list with it!
+                        소개와 초기 설정 단계가 끝났습니다. <a href="./wabbajack.html#Installation">Wabbajack 페이지</a>로 돌아가 모드 리스트 설치를 계속하세요.
                     </p>
                 </div>
             </span>
 
             <div class="navigationArrowContainer">
                 <a href="#" id="previous" rel="prev" class="navigationArrow">
-                    <img class="mirror" src="./img/UI/Arrow.svg" alt="Back Arrow">
+                    <img class="mirror" src="./img/UI/Arrow.svg" alt="이전 페이지">
                     <span class="arrowText"></span>
                 </a>
 
                 <a href="#" id="next" rel="next" class="navigationArrow">
                     <span class="arrowText"></span>
-                    <img src="./img/UI/Arrow.svg" alt="Forward Arrow">
+                    <img src="./img/UI/Arrow.svg" alt="다음 페이지">
                 </a>
             </div>
         </div>
@@ -550,11 +550,11 @@ winget install --id=Microsoft.VCRedist.2005.x86 -e --force -h --accept-package-a
         </div>
     </div>
 
-    <footer>ModdingLinked 2026</footer>
+    <footer>ModdingLinked 2026 · 비공식 한국어 번역</footer>
 
     <div id="image-overlay" class="overlay" hidden>
         <div class="image-container">
-            <img id="enlarged-image" class="enlarged-image" src="" alt="Enlarged Image">
+            <img id="enlarged-image" class="enlarged-image" src="" alt="확대 이미지">
             <div class="resize-overlay shrink"></div>
         </div>
     </div>
