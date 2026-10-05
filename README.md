@@ -15,7 +15,7 @@ ModdingLinked의 [Viva New Vegas](https://vivanewvegas.moddinglinked.com/)를 �
 
 - 전체 HTML 공통 한국어 메뉴
 - 한국어 패치 전용 안내 페이지 / KR 변경사항 / 원본 가이드 링크
-- VNV Korean Patcher v1.0.3 다운로드 및 업데이트 대응 안내
+- VNV Korean Patcher v1.0.4 다운로드 및 Fast Record Index 기반 업데이트 대응 안내
 - Fallout: New Vegas Performance Guide 한국어 통합 (`performance/falloutnv.html`)
 - 메인 페이지 번역
 - 소개 페이지 번역

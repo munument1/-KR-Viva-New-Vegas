@@ -218,14 +218,22 @@
                 </div>
 
                 <div class="card" id="LatestRelease">
-                    <h3 onclick="location.href='#LatestRelease'">최신 버전 · v1.0.3</h3>
+                    <h3 onclick="location.href='#LatestRelease'">최신 버전 · v1.0.4</h3>
                     <p>
-                        VNV 업데이트에 따라 플러그인이 변경되거나 새 플러그인이 추가되어도 가능한 범위에서 기존 본편/DLC 번역을 안전하게 재사용하도록 개선된 버전입니다.
+                        v1.0.4는 업데이트된 대형 플러그인의 레코드 병합 경로를 최적화한 버전입니다.
+                        xTranslator의 빠른 레코드 인덱싱 구조를 참고해 전체 레코드의 <code>owner + FormID + signature</code> 인덱스를 검증하고,
+                        실제 번역 대상 레코드만 정밀 구조 해시를 수행합니다. GUI에도 레거시 확인 → 번역 적용 → UTF-8 검증 → 최종 검증 진행 상태가 표시됩니다.
                     </p>
+                    <div class="card-yellow">
+                        <p>
+                            현재 VNV 테스트 환경에서는 316MB <code>FalloutNV.esm</code>을 포함한 전체 Output 생성이 약 <strong>2분</strong>에 완료됐습니다.
+                            실제 시간은 PC 성능과 VNV 구성에 따라 달라질 수 있습니다.
+                        </p>
+                    </div>
                     <ul>
-                        <li><a href="https://github.com/munument1/-KR-VivaNewVegas-Patcher/releases/download/v1.0.3/VNVKoreanPatcher-v1.0.3.zip" target="_blank" rel="nofollow"><strong>VNVKoreanPatcher-v1.0.3.zip 다운로드</strong></a></li>
-                        <li><a href="https://github.com/munument1/-KR-VivaNewVegas-Patcher/releases/tag/v1.0.3" target="_blank" rel="nofollow">v1.0.3 릴리즈 노트 보기</a></li>
-                        <li>SHA-256: <code>AFE8180D1D52A11A487349F70876DA9F57F7A6B27E9DA1A8EE049F4304C3CBF7</code></li>
+                        <li><a href="https://github.com/munument1/-KR-VivaNewVegas-Patcher/releases/download/v1.0.4/VNVKoreanPatcher-v1.0.4.zip" target="_blank" rel="nofollow"><strong>VNVKoreanPatcher-v1.0.4.zip 다운로드</strong></a></li>
+                        <li><a href="https://github.com/munument1/-KR-VivaNewVegas-Patcher/releases/tag/v1.0.4" target="_blank" rel="nofollow">v1.0.4 릴리즈 노트 보기</a></li>
+                        <li>SHA-256: <code>F02C12A35FEA27B4A3C82FAB9AAAB9EF07D2261FD85DB28E820C3C084E282EBC</code></li>
                     </ul>
                 </div>
 
@@ -277,7 +285,7 @@
                 <div class="card" id="UpdateBehavior">
                     <h3 onclick="location.href='#UpdateBehavior'">VNV 업데이트 대응 방식</h3>
                     <ul>
-                        <li><strong>기존 지원 플러그인</strong>: 검증된 버전은 빠른 xdelta 경로를 사용하고, 버전이 달라지면 레코드 단위로 안전하게 기존 번역을 다시 적용합니다.</li>
+                        <li><strong>기존 지원 플러그인</strong>: 검증된 버전은 빠른 xdelta 경로를 사용하고, 버전이 달라지면 Fast Record Index 기반 레코드 병합 경로로 기존 번역을 다시 적용합니다.</li>
                         <li><strong>삭제된 플러그인</strong>: 현재 VNV에 파일이 없으면 오류로 중단하지 않고 생성 대상에서 제외한 뒤 보고서에 기록합니다.</li>
                         <li><strong>새 플러그인</strong>: FalloutNV.esm 및 공식 DLC ESM의 검증된 번역 데이터와 비교합니다. 원 소유자, FormID, 레코드 타입, 필드 경로와 현재 영문 원문이 일치하는 항목만 자동 번역합니다.</li>
                         <li><strong>원문이 변경된 레코드</strong>: 잘못된 번역을 덮어쓰지 않도록 영어를 유지하고 미대응 항목으로 보고합니다.</li>
