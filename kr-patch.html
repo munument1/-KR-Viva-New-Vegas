@@ -226,6 +226,29 @@
                     </ul>
                 </div>
 
+                <div class="card" id="tNVSE">
+                    <h3 onclick="location.href='#tNVSE'">필수 · tNVSE 71 이상 설치</h3>
+                    <p>
+                        한국어 출력에는 <strong>tNVSE Font Plugin 71 이상</strong>이 필요합니다.
+                        tNVSE는 한글을 포함한 멀티바이트 문자열 렌더링과 입력을 지원하지만, 번역 자체를 제공하는 모드는 아니므로
+                        반드시 아래 한국어 패처와 함께 사용해야 합니다.
+                    </p>
+                    <ol>
+                        <li><a href="https://www.nexusmods.com/newvegas/mods/95088" target="_blank" rel="nofollow"><strong>tNVSE Font Plugin</strong></a>에서 최신 버전 <strong>71 이상</strong>을 다운로드합니다.</li>
+                        <li>파일을 <strong>Mod Organizer 2로 일반 모드처럼 설치</strong>합니다.</li>
+                        <li>MO2 왼쪽 모드 목록에서 tNVSE가 <strong>활성화</strong>되어 있는지 확인합니다.</li>
+                        <li>VNV 가이드를 정상적으로 완료했다면 tNVSE가 요구하는 xNVSE, JIP LN NVSE, Stewie Tweaks, Shader Loader 계열 요구사항은 이미 설치되어 있어야 합니다.</li>
+                        <li>tNVSE 설치가 끝난 뒤 아래의 <strong>VNV Korean Patcher</strong>를 실행합니다.</li>
+                    </ol>
+                    <div class="card-yellow">
+                        <p>
+                            <strong>중요:</strong> 한국어 패처 ZIP에는 tNVSE 본체 DLL이 포함되어 있지 않습니다.
+                            패처가 생성하는 <code>tnvse.ini</code>, <code>tnvse_fonts.xml</code>, 한국어 폰트 및 관련 설정은
+                            이미 설치된 tNVSE 위에 적용되는 구성입니다.
+                        </p>
+                    </div>
+                </div>
+
                 <div class="card" id="WhenToApply">
                     <h3 onclick="location.href='#WhenToApply'">언제 적용하나요?</h3>
                     <p>
@@ -237,6 +260,7 @@
                 <div class="card" id="PatchInstall">
                     <h3 onclick="location.href='#PatchInstall'">설치 방법</h3>
                     <ol>
+                        <li>먼저 위의 <a href="#tNVSE"><strong>tNVSE 71 이상</strong></a> 설치와 활성화를 완료합니다.</li>
                         <li>위의 최신 ZIP을 다운로드하고 원하는 폴더에 압축을 풉니다.</li>
                         <li><strong>VNVKoreanPatcher.exe</strong>를 실행합니다.</li>
                         <li><strong>ModOrganizer.ini</strong>가 있는 Viva New Vegas MO2 폴더를 선택합니다. 일반적인 Wabbajack 설치 예시는 <code>C:\Modlists\VNV</code>입니다.</li>
