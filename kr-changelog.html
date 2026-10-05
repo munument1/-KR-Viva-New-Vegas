@@ -9,7 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="icon" href="img/Coco/Head Logo.webp">
 
-    <title>Base Finish | Viva New Vegas</title>
+    <title>KR 변경사항 | Viva New Vegas 한국어 가이드</title>
 
     <meta name="keywords" content="
     Mod, Modding, Mods, Guide, Mod Guide, Modding Guide, Resource, Resources,
@@ -24,15 +24,15 @@
     Tale of Two Wastelands, TTW,
     Skyrim Special Edition, Skyrim SE, SSE">
 
-    <meta name="description" content="Final steps necessary before playing the game.">
+    <meta name="description" content="Viva New Vegas 한국어 가이드와 한국어 패처의 변경사항을 기록합니다.">
     <meta http-equiv='content-language' content='ko-kr'>
     <meta name="twitter:card" value="summary_large_image">
-    <meta property="og:site_name" content="ModdingLinked">
-    <meta property="og:title" content="Viva New Vegas">
+    <meta property="og:site_name" content="Viva New Vegas 한국어 가이드">
+    <meta property="og:title" content="Viva New Vegas 한국어 가이드">
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://vivanewvegas.moddinglinked.com">
     <meta property="og:image" content="https://vivanewvegas.moddinglinked.com/img/Others/Card.webp">
-    <meta property="og:description" content="Final steps necessary before playing the game.">
+    <meta property="og:description" content="Viva New Vegas 한국어 가이드와 한국어 패처의 변경사항을 기록합니다.">
 
     <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#333230">
     <meta name="darkreader-lock">
@@ -60,6 +60,7 @@
     <link rel="stylesheet" href="main.css">
 </head>
 
+
 <body class="theme">
     <div class="progress-container">
         <div class="progress-bar"></div>
@@ -72,7 +73,7 @@
             </div>
             <div class="headerTitle">
                 <img src="./img/Coco/Head Logo.webp" alt="Logo" id="logo">
-                <a href="./index.html" id="headerTitle">Viva New Vegas</a>
+                <a href="./index.html" id="headerTitle">Viva New Vegas 한국어</a>
             </div>
             <div class="guideLinks" id="headerLinks">
                 <a href="https://thebestoftimes.moddinglinked.com" target="_blank" rel="nofollow">Tale of Two Wastelands</a>
@@ -201,128 +202,49 @@
 
         <div class="content">
 
-            <span id="BaseFinish" class="section">
-                <h2 onclick="location.href='#BaseFinish'">Base Finish</h2>
+            <span id="KRChangelog" class="section">
+                <h2 onclick="location.href='#KRChangelog'">KR 변경사항</h2>
 
-                <div class="card" id="LoadOrder">
-                    <h3>Applying the Load Order</h3>
+                <div class="card-red">
                     <p>
-                        The final step is to apply the load order of installed plugins. The guide comes with a premade load order file, which ensures all mods are being loaded in correct order, with all conflicts accounted for.
-                    <ol>
-                        <li><strong>Download</strong> the VNV Load Order from <a onclick="downloadFile('https:\/\/raw.githubusercontent.com/ModdingLinked/Viva-New-Vegas/refs/heads/main/files/loadorder.txt')" style="cursor:pointer" title="loadorder.txt">here</a>.
-                        <li>In MO2, click the <img class="mo2-icon" src="./img/MO2/Folders.webp" alt="MO2 folders"> button at the top of MO2 and click <strong>Open Profile folder</strong>.</li>
-                        <li><strong>Move loadorder.txt</strong> to the MO2 profile folder. You should get a popup message asking if you want to overwrite the existing file - click <strong>Yes</strong>.</li>
-                        <li>Press <strong>F5</strong> while you are on MO2 without any menu open.</li>
-                    </ol>
-
-                    <div class="card-red">
-                        <p>
-                            Your load order (found under the <b>Plugins</b> tab in the <b>right</b> pane of MO2) should match the <b>loadorder.txt</b> file you just downloaded. You can ignore any plugins from mods that you may have skipped, but the order the remaining plugins are in should match the file.
-                            <br>
-                            <br>
-                            If that isn't the case, make sure to <strong>sort the load order by priority</strong> by clicking the <b>Priority</b> column header at the top.
-                            <br>
-                            <br>
-                            Join our <a href="https://discord.gg/S99Ary5eba" target="_blank">Discord</a> server for support, if needed.
-                        </p>
-                    </div>
+                        <b>비공식 한국어 프로젝트</b>
+                        <br>
+                        이 페이지는 ModdingLinked 원본 가이드의 변경사항이 아니라, 한국어 번역판과 한국어 패처의 변경사항만 기록합니다.
+                        원본 Viva New Vegas의 변경사항은 <a href="./changelog.html">원본 변경사항</a>에서 확인하세요.
                     </p>
                 </div>
 
-                <div class="card" id="RunningTheGame">
-                    <h3>Running the Game</h3>
-                    <p>
-                        Due to the way Mod Organizer 2 works, running programs through it is a requirement in order to load mods. This is done in the <strong>top-right corner</strong> of the manager, where the program to run is chosen. Here, <strong>select New Vegas</strong>.
-                        <br>
-                        <br>
-                        For the sake of convenience you may also <strong>create a shortcut</strong> (right below the <b>Run</b> button) so that you won't have to manually open MO2 each time before playing.
-                        <br>
-                    <div class="image-container width-60">
-                        <img class="content-img" src="./img/Others/Start Game.webp" alt="Launching the game">
-                        <div class="resize-overlay expand"></div>
-                    </div>
-                    <br>
-
-                    <div class="card-yellow">
-                        <p>
-                            <b>Q: Aren't you supposed to launch through NVSE?</b>
-                            <br>
-                            <br>
-                            A: The 4GB Patcher and the Epic Games Patcher both allow the game's main executable to automatically load the script extender.
-                            <br>
-                            <hr>
-                            Refer to the <a href="./faq.html" target="_blank">FAQ</a> section for more information and solutions to possible problems you might encounter at this stage of the guide.
-                        </p>
-                    </div>
-
-                    <br>
-                    You have now completed the basic section of Viva New Vegas. If you don't want to mod your game further, <strong>you can now start playing</strong>. Have fun!
-                    </p>
+                <div class="card" id="2026-10-05">
+                    <h3 onclick="location.href='#2026-10-05'">2026-10-05</h3>
+                    <ul>
+                        <li>Viva New Vegas 비공식 한국어 가이드 작업을 시작했습니다.</li>
+                        <li>허락 및 공개 준비가 끝나기 전까지 모든 HTML 페이지에 <code>noindex, nofollow</code>를 적용했습니다.</li>
+                        <li>공통 메뉴에 <b>한국어 패치</b>, <b>KR 변경사항</b>, <b>원본 가이드</b> 링크를 추가했습니다.</li>
+                        <li>메인 페이지와 소개 페이지의 한국어 번역을 적용했습니다.</li>
+                        <li>한국어 패치는 별도 <a href="https://github.com/munument1/-KR-VivaNewVegas-Patcher/releases" target="_blank" rel="nofollow">VNV Korean Patcher Releases</a>에서 배포합니다.</li>
+                    </ul>
                 </div>
-            </span>
 
-            <span id="VNVExtended" class="section">
-                <h2 onclick="location.href='#VNVExtended'">VNV Extended</h2>
-                <div class="card flex logo-container" style="justify-content: space-between; align-items: center;" id="BeyondVanilla">
-                    <div>
-                        <h3>Going beyond Vanilla</h3>
-                        <p>
-                            The next pages are part of the Viva New Vegas Extended portion of the guide, which is <strong>not required in order to play</strong>. This section includes:
-                        <ul>
-                            <li>UI and QoL improvements.</li>
-                            <li>More gameplay features and improvements to get the game up to speed with more recent titles.</li>
-                            <li>New and restored content, along with enhancements to the DLCs.</li>
-                            <li>Overhauled balance and game mechanics.</li>
-                            <li>Improvements to NPC faces, new animations, visual fixes, and overhauled lighting and weathers.</li>
-                        </ul>
-                        <br>
-                        <div class="card-yellow">
-                            <p>
-                                Note that VNV Extended is <strong>completely modular</strong>! You can skip any of its mods as long as you do the same for any other mod or patch tied to it.
-                            </p>
-                        </div>
-                        </p>
-                    </div>
-
-                    <div>
-                        <img src="./img/Coco/Full Extended.webp" alt="Full VNVE Coco">
-                    </div>
-
-                </div>
-            </span>
-
-            <span id="Donations">
-                <div class="flex donations-flex-row">
-                    <div class="flex donations-card-row">
-                        <div class="donations-card">
-                            <a href="https://www.patreon.com/moddinglinked" target="_blank" rel="nofollow" style="text-decoration: none; width: 100%;">
-                                <div class="card-basic donations-card-basic patreon">
-                                    <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/patreon.svg" alt="Patreon">
-                                    <h3>Patreon</h3>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="donations-card">
-                            <a href="https://www.paypal.me/Ungeziefi" target="_blank" rel="nofollow" style="text-decoration: none; width: 100%;">
-                                <div class="card-basic donations-card-basic paypal">
-                                    <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/paypal.svg" alt="PayPal">
-                                    <h3>PayPal</h3>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
+                <div class="card" id="Policy">
+                    <h3 onclick="location.href='#Policy'">업데이트 원칙</h3>
+                    <ul>
+                        <li>원본 ModdingLinked 가이드의 구조와 설치 순서를 임의로 바꾸지 않습니다.</li>
+                        <li>한국어 사용자에게 필요한 설명은 원본 내용과 구분해 별도로 추가합니다.</li>
+                        <li>원본 가이드가 갱신되면 upstream 변경사항을 확인한 뒤 한국어 번역에 반영합니다.</li>
+                        <li>한국어 패처의 버전 변경사항은 패처 저장소의 Releases와 이 페이지에 함께 기록합니다.</li>
+                    </ul>
                 </div>
             </span>
 
             <div class="navigationArrowContainer">
-                <a href="#" id="previous" rel="prev" class="navigationArrow">
-                    <img class="mirror" src="./img/UI/Arrow.svg" alt="Back Arrow">
-                    <span class="arrowText"></span>
+                <a href="./changelog.html" id="previous" rel="prev" class="navigationArrow">
+                    <img class="mirror" src="./img/UI/Arrow.svg" alt="이전 페이지">
+                    <span class="arrowText">원본 변경사항</span>
                 </a>
 
-                <a href="#" id="next" rel="next" class="navigationArrow">
-                    <span class="arrowText"></span>
-                    <img src="./img/UI/Arrow.svg" alt="Forward Arrow">
+                <a href="./resources.html" id="next" rel="next" class="navigationArrow">
+                    <span class="arrowText">자료</span>
+                    <img src="./img/UI/Arrow.svg" alt="다음 페이지">
                 </a>
             </div>
         </div>
@@ -333,15 +255,7 @@
         </div>
     </div>
 
-    <footer>ModdingLinked 2026</footer>
-
-    <div id="image-overlay" class="overlay" hidden>
-        <div class="image-container">
-            <img id="enlarged-image" class="enlarged-image" src="" alt="Enlarged Image">
-            <div class="resize-overlay shrink"></div>
-        </div>
-    </div>
-
+    <footer>ModdingLinked 2026 · 비공식 한국어 번역</footer>
 </body>
 
 </html>
