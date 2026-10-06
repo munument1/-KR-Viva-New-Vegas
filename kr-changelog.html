@@ -217,6 +217,19 @@
                     </p>
                 </div>
 
+                <div class="card" id="2026-10-06">
+                    <h3 onclick="location.href='#2026-10-06'">2026-10-06</h3>
+                    <ul>
+                        <li>VNV Korean Patcher <strong>v1.0.6</strong>을 릴리즈했습니다.</li>
+                        <li>플러그인 번역 원본을 xTranslator SST로 통일하고, 전용 SST가 없는 플러그인은 본편·공식 DLC SST의 동일 레코드만 안전하게 상속하도록 변경했습니다.</li>
+                        <li>Node.js, Koffi, YesMan 런타임을 제거하고 Python <code>ctypes</code> + XEditLib 직접 백엔드로 전환했습니다.</li>
+                        <li>전체 CP1252 → UTF-8 → CP1252 반복 검증을 제거하고 UTF-8 적용 + 저장본 fresh readback 검증으로 단순화했습니다.</li>
+                        <li>MCM JSON 직접 표시 문자열과 <code>MCM/Translations/*.ini</code>, <code>config/*_Translations.ini</code> 번역을 패처에 통합했습니다.</li>
+                        <li>새 VNV 설치 구조를 기준으로 ClassicPack, MercenaryPack, TribalPack, CaravanPack을 게임 Data에서 읽되 번역본은 Output의 Fixed ESMs로 생성하도록 수정했습니다.</li>
+                        <li>SST 매핑과 번역 데이터, XEditLib 백엔드를 단일 EXE에 내장해 별도 SST 폴더나 Node 런타임 없이 실행할 수 있게 했습니다.</li>
+                    </ul>
+                </div>
+
                 <div class="card" id="2026-10-05">
                     <h3 onclick="location.href='#2026-10-05'">2026-10-05</h3>
                     <ul>
