@@ -218,23 +218,23 @@
                 </div>
 
                 <div class="card" id="LatestRelease">
-                    <h3 onclick="location.href='#LatestRelease'">최신 버전 · v1.0.6</h3>
+                    <h3 onclick="location.href='#LatestRelease'">최신 버전 · v1.0.6.1</h3>
                     <p>
-                        v1.0.6은 플러그인 번역 원본을 <strong>xTranslator SST</strong>로 통일하고,
-                        전용 SST가 없는 플러그인은 FalloutNV/공식 DLC SST의 동일 레코드·필드·영문 원문만 안전하게 상속합니다.
-                        MCM JSON의 직접 표시 문자열과 <code>MCM/Translations/*.ini</code>, <code>config/*_Translations.ini</code> 번역도 함께 생성합니다.
+                        v1.0.6.1은 v1.0.6의 SST/XEditLib 구조를 유지하면서, 여러 ESP/ESM을 연속 처리할 때
+                        XEditLib이 재사용한 파일 핸들의 메타데이터 캐시가 후순위 DLC에 잘못 이어지던 문제를 수정했습니다.
+                        Old World Blues 특성(PERK)을 포함한 DLC 번역을 다시 검증했습니다.
                     </p>
                     <div class="card-yellow">
                         <p>
-                            Node.js·Koffi·YesMan 런타임과 전체 CP1252 반복 검증을 제거했습니다.
+                            Node.js·Koffi·YesMan 런타임과 전체 CP1252 반복 검증을 제거한 v1.0.6 구조는 그대로 유지됩니다.
                             플러그인은 Python + XEditLib로 UTF-8 적용 후 저장본을 한 번 다시 열어 구조와 번역 결과를 검증합니다.
                             배포물은 약 48MB의 단일 EXE입니다.
                         </p>
                     </div>
                     <ul>
-                        <li><a href="https://github.com/munument1/-KR-VivaNewVegas-Patcher/releases/download/v1.0.6/VNVKoreanPatcher-v1.0.6.exe" target="_blank" rel="nofollow"><strong>VNVKoreanPatcher-v1.0.6.exe 다운로드</strong></a></li>
-                        <li><a href="https://github.com/munument1/-KR-VivaNewVegas-Patcher/releases/tag/v1.0.6" target="_blank" rel="nofollow">v1.0.6 릴리즈 노트 보기</a></li>
-                        <li>SHA-256: <code>708F359A9D0B7BE9F860CD6FFAB36896492E6D2229F1CD18614C5DB3F42D6575</code></li>
+                        <li><a href="https://github.com/munument1/-KR-VivaNewVegas-Patcher/releases/download/v1.0.6.1/VNVKoreanPatcher-v1.0.6.1.exe" target="_blank" rel="nofollow"><strong>VNVKoreanPatcher-v1.0.6.1.exe 다운로드</strong></a></li>
+                        <li><a href="https://github.com/munument1/-KR-VivaNewVegas-Patcher/releases/tag/v1.0.6.1" target="_blank" rel="nofollow">v1.0.6.1 릴리즈 노트 보기</a></li>
+                        <li>SHA-256: <code>E5826584FCC7AE7D4DF7F7A58B612BACA04FB1374A9D0B4582776FB96D27F247</code></li>
                     </ul>
                 </div>
 
@@ -273,7 +273,7 @@
                     <h3 onclick="location.href='#PatchInstall'">설치 방법</h3>
                     <ol>
                         <li>먼저 위의 <a href="#tNVSE"><strong>tNVSE 71 이상</strong></a> 설치와 활성화를 완료합니다.</li>
-                        <li>위의 최신 <strong>VNVKoreanPatcher-v1.0.6.exe</strong>를 다운로드합니다.</li>
+                        <li>위의 최신 <strong>VNVKoreanPatcher-v1.0.6.1.exe</strong>를 다운로드합니다.</li>
                         <li><strong>VNVKoreanPatcher.exe</strong>를 실행합니다.</li>
                         <li><strong>ModOrganizer.ini</strong>가 있는 Viva New Vegas MO2 폴더를 선택합니다. 일반적인 Wabbajack 설치 예시는 <code>C:\Modlists\VNV</code>입니다.</li>
                         <li><strong>Output 생성</strong>을 누릅니다. 패처는 원본 파일을 직접 수정하지 않고 별도의 Output을 만듭니다.</li>
