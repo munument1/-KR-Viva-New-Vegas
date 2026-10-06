@@ -218,22 +218,23 @@
                 </div>
 
                 <div class="card" id="LatestRelease">
-                    <h3 onclick="location.href='#LatestRelease'">최신 버전 · v1.0.4</h3>
+                    <h3 onclick="location.href='#LatestRelease'">최신 버전 · v1.0.6</h3>
                     <p>
-                        v1.0.4는 업데이트된 대형 플러그인의 레코드 병합 경로를 최적화한 버전입니다.
-                        xTranslator의 빠른 레코드 인덱싱 구조를 참고해 전체 레코드의 <code>owner + FormID + signature</code> 인덱스를 검증하고,
-                        실제 번역 대상 레코드만 정밀 구조 해시를 수행합니다. GUI에도 레거시 확인 → 번역 적용 → UTF-8 검증 → 최종 검증 진행 상태가 표시됩니다.
+                        v1.0.6은 플러그인 번역 원본을 <strong>xTranslator SST</strong>로 통일하고,
+                        전용 SST가 없는 플러그인은 FalloutNV/공식 DLC SST의 동일 레코드·필드·영문 원문만 안전하게 상속합니다.
+                        MCM JSON의 직접 표시 문자열과 <code>MCM/Translations/*.ini</code>, <code>config/*_Translations.ini</code> 번역도 함께 생성합니다.
                     </p>
                     <div class="card-yellow">
                         <p>
-                            현재 VNV 테스트 환경에서는 316MB <code>FalloutNV.esm</code>을 포함한 전체 Output 생성이 약 <strong>2분</strong>에 완료됐습니다.
-                            실제 시간은 PC 성능과 VNV 구성에 따라 달라질 수 있습니다.
+                            Node.js·Koffi·YesMan 런타임과 전체 CP1252 반복 검증을 제거했습니다.
+                            플러그인은 Python + XEditLib로 UTF-8 적용 후 저장본을 한 번 다시 열어 구조와 번역 결과를 검증합니다.
+                            배포물은 약 48MB의 단일 EXE입니다.
                         </p>
                     </div>
                     <ul>
-                        <li><a href="https://github.com/munument1/-KR-VivaNewVegas-Patcher/releases/download/v1.0.4/VNVKoreanPatcher-v1.0.4.zip" target="_blank" rel="nofollow"><strong>VNVKoreanPatcher-v1.0.4.zip 다운로드</strong></a></li>
-                        <li><a href="https://github.com/munument1/-KR-VivaNewVegas-Patcher/releases/tag/v1.0.4" target="_blank" rel="nofollow">v1.0.4 릴리즈 노트 보기</a></li>
-                        <li>SHA-256: <code>F02C12A35FEA27B4A3C82FAB9AAAB9EF07D2261FD85DB28E820C3C084E282EBC</code></li>
+                        <li><a href="https://github.com/munument1/-KR-VivaNewVegas-Patcher/releases/download/v1.0.6/VNVKoreanPatcher-v1.0.6.exe" target="_blank" rel="nofollow"><strong>VNVKoreanPatcher-v1.0.6.exe 다운로드</strong></a></li>
+                        <li><a href="https://github.com/munument1/-KR-VivaNewVegas-Patcher/releases/tag/v1.0.6" target="_blank" rel="nofollow">v1.0.6 릴리즈 노트 보기</a></li>
+                        <li>SHA-256: <code>708F359A9D0B7BE9F860CD6FFAB36896492E6D2229F1CD18614C5DB3F42D6575</code></li>
                     </ul>
                 </div>
 
@@ -253,7 +254,7 @@
                     </ol>
                     <div class="card-yellow">
                         <p>
-                            <strong>중요:</strong> 한국어 패처 ZIP에는 tNVSE 본체 DLL이 포함되어 있지 않습니다.
+                            <strong>중요:</strong> 한국어 패처에는 tNVSE 본체 DLL이 포함되어 있지 않습니다.
                             패처가 생성하는 <code>tnvse.ini</code>, <code>tnvse_fonts.xml</code>, 한국어 폰트 및 관련 설정은
                             이미 설치된 tNVSE 위에 적용되는 구성입니다.
                         </p>
@@ -272,7 +273,7 @@
                     <h3 onclick="location.href='#PatchInstall'">설치 방법</h3>
                     <ol>
                         <li>먼저 위의 <a href="#tNVSE"><strong>tNVSE 71 이상</strong></a> 설치와 활성화를 완료합니다.</li>
-                        <li>위의 최신 ZIP을 다운로드하고 원하는 폴더에 압축을 풉니다.</li>
+                        <li>위의 최신 <strong>VNVKoreanPatcher-v1.0.6.exe</strong>를 다운로드합니다.</li>
                         <li><strong>VNVKoreanPatcher.exe</strong>를 실행합니다.</li>
                         <li><strong>ModOrganizer.ini</strong>가 있는 Viva New Vegas MO2 폴더를 선택합니다. 일반적인 Wabbajack 설치 예시는 <code>C:\Modlists\VNV</code>입니다.</li>
                         <li><strong>Output 생성</strong>을 누릅니다. 패처는 원본 파일을 직접 수정하지 않고 별도의 Output을 만듭니다.</li>
@@ -285,11 +286,11 @@
                 <div class="card" id="UpdateBehavior">
                     <h3 onclick="location.href='#UpdateBehavior'">VNV 업데이트 대응 방식</h3>
                     <ul>
-                        <li><strong>기존 지원 플러그인</strong>: 검증된 버전은 빠른 xdelta 경로를 사용하고, 버전이 달라지면 Fast Record Index 기반 레코드 병합 경로로 기존 번역을 다시 적용합니다.</li>
-                        <li><strong>삭제된 플러그인</strong>: 현재 VNV에 파일이 없으면 오류로 중단하지 않고 생성 대상에서 제외한 뒤 보고서에 기록합니다.</li>
-                        <li><strong>새 플러그인</strong>: FalloutNV.esm 및 공식 DLC ESM의 검증된 번역 데이터와 비교합니다. 원 소유자, FormID, 레코드 타입, 필드 경로와 현재 영문 원문이 일치하는 항목만 자동 번역합니다.</li>
-                        <li><strong>원문이 변경된 레코드</strong>: 잘못된 번역을 덮어쓰지 않도록 영어를 유지하고 미대응 항목으로 보고합니다.</li>
-                        <li><strong>이미 한국어가 적용된 파일</strong>: 검증된 결과 해시와 일치하면 느린 재병합 없이 그대로 재사용합니다.</li>
+                        <li><strong>기존 지원 플러그인</strong>: 현재 MO2/VFS의 winner ESP/ESM에 전용 xTranslator SST를 우선 적용합니다.</li>
+                        <li><strong>SST가 없는 플러그인</strong>: FalloutNV.esm 및 공식 DLC SST에서 원 소유자, FormID, 레코드 타입, 필드 경로, 현재 영문 원문이 모두 같은 항목만 자동 상속합니다.</li>
+                        <li><strong>공식 미니 DLC</strong>: ClassicPack, MercenaryPack, TribalPack, CaravanPack은 stock VNV처럼 게임 Data에서 읽되, 번역본은 게임 폴더가 아니라 Output의 Fixed ESMs에 생성합니다.</li>
+                        <li><strong>MCM</strong>: JSON에 직접 들어 있는 표시 문자열은 JSON에서 병합하고, <code>$키</code> 방식은 해당 MCM/Translation INI를 번역합니다.</li>
+                        <li><strong>원문이 변경된 항목</strong>: 추측해서 덮어쓰지 않고 영어를 유지하며 미대응 항목으로 보고합니다.</li>
                     </ul>
                 </div>
 
