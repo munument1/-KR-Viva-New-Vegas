@@ -9,7 +9,7 @@ ModdingLinked의 [Viva New Vegas](https://vivanewvegas.moddinglinked.com/)를 �
 
 ## 현재 상태
 
-한국어 번역 작업 중입니다. 제작자와의 협의 및 공개 준비가 끝나기 전까지 웹 페이지에는 `noindex, nofollow`가 적용되어 있습니다.
+비공식 한국어 가이드를 공개하고 있으며, 2026년 10월 10일부터 검색엔진 색인을 허용합니다.
 
 현재 적용된 작업:
 
