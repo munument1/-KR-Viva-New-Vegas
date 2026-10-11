@@ -205,111 +205,35 @@
 
             <span id="KoreanPatch" class="section">
                 <h2 onclick="location.href='#KoreanPatch'">Viva New Vegas 한국어 패치</h2>
+                <p>Viva New Vegas 설치를 마친 뒤 한국어 패쳐로 번역 파일을 생성해 적용합니다. 비공식 한국어 패치이며, ModdingLinked의 공식 배포물이 아닙니다.</p>
 
-                <div class="card-red">
-                    <p>
-                        <b>비공식 한국어 프로젝트</b>
-                        <br>
-                        이 패처는 ModdingLinked의 공식 배포물이 아닙니다. Viva New Vegas는 <strong>영문판 게임을 기준</strong>으로 설치한 뒤,
-                        별도의 한국어 패처로 Output을 생성하고 사용자가 MO2 경로에 복사하는 방식입니다. 패처는 실제 MO2나 게임 파일을 직접 변경하지 않습니다.
-                    </p>
-                </div>
-
-                <div class="card" id="LatestRelease">
-                    <h3 onclick="location.href='#LatestRelease'">최신 버전 · v1.0.7.3</h3>
-                    <p>플러그인 전체 재저장을 중단하고 원본 바이너리의 승인된 문자열과 필요한 길이 정보만 변경합니다. 프로필은 읽기만 하며 <strong>프로필 파일은 출력하거나 변경하지 않습니다.</strong> 번역 파일만 Output에 생성합니다.</p>
-                    <p>tNVSE 수정 DLL과 기존 SST/MCM/라디오/UI 번역을 유지합니다. 단일 EXE이며 별도 Python 설치는 필요하지 않습니다.</p>
-                    <ul>
-                        <li><a href="https://github.com/munument1/-KR-VivaNewVegas-Patcher/releases/download/v1.0.7.3/VNVKoreanPatcher-v1.0.7.3.exe" target="_blank" rel="nofollow"><strong>VNVKoreanPatcher-v1.0.7.3.exe 다운로드</strong></a></li>
-                        <li><a href="https://github.com/munument1/-KR-VivaNewVegas-Patcher/releases/tag/v1.0.7.3" target="_blank" rel="nofollow">v1.0.7.3 릴리즈 노트 보기</a></li>
-                        <li>SHA-256: <code>6629765f8da4e16b89db708d069ed9a1b25fff06c43a34cc4d9b2ec4b0afba3b</code></li>
-                    </ul>
-                    <div class="card-yellow"><p><strong>1.0.7.2 이하 버전의 Output은 다시 생성하세요.</strong> 이미 ESP/ESM을 덮어썼다면 해당 파일을 원래 영문 모드 파일이나 적용 전 백업으로 복구한 뒤 새 패쳐를 실행하세요. 새 버전은 이미 변경된 비번역 데이터를 자동 복구하지 않습니다. 사용자 설정·프로필·세이브는 삭제하지 마세요.</p></div>
-                </div>
-
-                <div class="card" id="tNVSE">
-                    <h3 onclick="location.href='#tNVSE'">필수 · 원본 tNVSE 71 먼저 설치</h3>
-                    <p>
-                        한국어 출력에는 <strong>tNVSE Font Plugin 71</strong>이 필요합니다.
-                        tNVSE는 한글을 포함한 멀티바이트 문자열 렌더링과 입력을 지원하지만, 번역 자체를 제공하는 모드는 아니므로
-                        반드시 아래 한국어 패처와 함께 사용해야 합니다.
-                    </p>
-                    <ol>
-                        <li><a href="https://www.nexusmods.com/newvegas/mods/95088" target="_blank" rel="nofollow"><strong>tNVSE Font Plugin</strong></a>에서 <strong>71 버전</strong>을 다운로드합니다.</li>
-                        <li>파일을 <strong>Mod Organizer 2로 일반 모드처럼 설치</strong>합니다.</li>
-                        <li>MO2 왼쪽 모드 목록에서 tNVSE가 <strong>활성화</strong>되어 있는지 확인합니다.</li>
-                        <li>VNV 가이드를 정상적으로 완료했다면 tNVSE가 요구하는 xNVSE, JIP LN NVSE, Stewie Tweaks, Shader Loader 계열 요구사항은 이미 설치되어 있어야 합니다.</li>
-                        <li>tNVSE 설치가 끝난 뒤 아래의 <strong>VNV Korean Patcher</strong>를 실행합니다.</li>
-                    </ol>
-                    <div class="card-yellow">
-                        <p>
-                            <strong>중요:</strong> 원본 tNVSE는 기존처럼 먼저 설치해야 합니다. 패처는 기존
-                            <code>VNV Korean Fonts - tNVSE</code> 폴더에 수정 <code>NVSE/plugins/tnvse.dll</code>과 한국어 설정·폰트를 Output에 생성합니다.
-                            Output을 복사한 뒤 MO2에서 KR Font 모드를 직접 활성화하고 원본 tNVSE보다 높은 우선순위에 두세요. 원본 tNVSE의 셰이더와 UI 파일은 기존 설치를 사용합니다.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="card" id="WhenToApply">
-                    <h3 onclick="location.href='#WhenToApply'">언제 적용하나요?</h3>
-                    <p>
-                        Viva New Vegas 수동 설치 또는 Wabbajack 설치를 모두 마친 뒤 적용하는 것을 권장합니다.
-                        패처는 Viva New Vegas Extended 프로필과 설치된 플러그인을 확인하므로, VNV 업데이트 후에도 다시 실행해 새 Output을 생성해 복사할 수 있습니다.
-                    </p>
+                <div class="card" id="PatchDownload">
+                    <h3 onclick="location.href='#PatchDownload'">패쳐 다운로드</h3>
+                    <p><a href="https://github.com/munument1/-KR-VivaNewVegas-Patcher/releases/download/v1.0.7.3/VNVKoreanPatcher-v1.0.7.3.exe" target="_blank" rel="nofollow"><strong>VNV Korean Patcher v1.0.7.3 다운로드</strong></a></p>
+                    <p>별도로 Python을 설치할 필요는 없습니다.</p>
                 </div>
 
                 <div class="card" id="PatchInstall">
                     <h3 onclick="location.href='#PatchInstall'">설치 방법</h3>
                     <ol>
-                        <li>원본 tNVSE 71과 선행 모드를 기존 가이드대로 설치·활성화합니다.</li>
-                        <li>MO2에 <strong>Viva New Vegas Extended</strong> 프로필이 있는지 확인하고 <strong>MO2를 종료</strong>합니다.</li>
-                        <li><strong>VNVKoreanPatcher-v1.0.7.3.exe</strong>를 실행하고 <strong>ModOrganizer.ini</strong>가 있는 VNV 인스턴스 폴더를 선택합니다.</li>
-                        <li><strong>Output 생성</strong>을 누릅니다. 이 단계에서는 MO2나 게임 파일을 변경하지 않습니다.</li>
-                        <li>덮어쓸 기존 모드 파일을 백업합니다.</li>
-                        <li><code>Output/mods</code> 안의 모드 폴더를 실제 MO2 Mods 폴더에 복사해 병합합니다.</li>
-                        <li>MO2를 열고 <strong>VNV Korean Fonts - tNVSE</strong>, <strong>VNV Korean UI Strings</strong>, <strong>VNV Korean Radio Captions</strong>와 생성된 경우 <strong>VNV Korean Translations</strong>의 활성화 상태를 확인합니다. 한국어 폰트 모드는 원본 tNVSE보다 높은 우선순위에 둡니다.</li>
-                        <li>오른쪽 플러그인 목록에서 <strong>VNVKR UI Strings.esp</strong>도 활성화합니다. 다른 모드·플러그인의 활성화 상태와 순서는 유지하며 전체 ESP를 일괄 활성화하지 않습니다.</li>
-                        <li><code>Output/INSTALL.txt</code>에서 실제 Mods/Overwrite 경로와 수동 활성화 항목을 확인하세요. <strong>프로필 파일은 복사하지 않습니다.</strong></li>
+                        <li>Viva New Vegas 설치를 완료한 뒤 <a href="https://www.nexusmods.com/newvegas/mods/95088" target="_blank" rel="nofollow"><strong>tNVSE Font Plugin 71</strong></a>을 MO2에 설치하고 활성화합니다.</li>
+                        <li>MO2에 <strong>Viva New Vegas Extended</strong> 프로필이 있는지 확인하고 MO2를 종료합니다.</li>
+                        <li>다운로드한 패쳐를 실행하고 <code>ModOrganizer.ini</code>가 있는 MO2 인스턴스 폴더를 선택합니다.</li>
+                        <li><strong>Output 생성</strong>을 누릅니다.</li>
+                        <li>기존 파일을 백업한 후 <code>Output/mods</code> 안의 모드 폴더를 MO2의 실제 <code>mods</code> 폴더에 복사해 병합합니다.</li>
+                        <li>MO2에서 생성된 한국어 모드를 활성화하고, 오른쪽 플러그인 목록의 <code>VNVKR UI Strings.esp</code>도 활성화합니다. <strong>VNV Korean Fonts - tNVSE</strong>는 왼쪽 목록에서 원본 tNVSE보다 아래에 배치합니다.</li>
                     </ol>
-                    <p>Output의 mods 폴더 안에 있는 모드 폴더를 실제 Mods 경로로 병합합니다. 기존 MO2 Overwrite 제공 파일의 번역본이 출력된 경우에는 INSTALL.txt에 안내된 해당 경로로 파일을 복사합니다. 출력에 없는 기존 파일을 삭제하지 마세요.</p>
-                    <p>modlist.txt·plugins.txt·loadorder.txt는 생성하거나 변경하지 않습니다. 이전 버전 Output의 profiles 폴더도 복사하지 마세요.</p>
+                    <div class="card-yellow">
+                        <p><strong>복사 전 확인:</strong> <code>Output/INSTALL.txt</code>에 적힌 실제 설치 경로를 확인하세요. <code>Output/overwrite</code>가 생성되었다면 안내된 Overwrite 경로에도 해당 파일을 복사해야 합니다.</p>
+                    </div>
+                    <p>패쳐는 번역 파일을 Output에 생성할 뿐, MO2에 자동 설치하거나 프로필·로드 순서를 변경하지 않습니다. 번역된 플러그인을 모두 일괄 활성화하지 마세요.</p>
                 </div>
 
-                <div class="card" id="UpdateBehavior">
-                    <h3 onclick="location.href='#UpdateBehavior'">VNV 업데이트 대응 방식</h3>
-                    <ul>
-                        <li><strong>기존 지원 플러그인</strong>: 현재 MO2/VFS의 winner ESP/ESM에 전용 xTranslator SST를 우선 적용합니다.</li>
-                        <li><strong>SST가 없는 플러그인</strong>: FalloutNV.esm 및 공식 DLC SST에서 원 소유자, FormID, 레코드 타입, 필드 경로, 현재 영문 원문이 모두 같은 항목만 자동 상속합니다.</li>
-                        <li><strong>공식 미니 DLC</strong>: ClassicPack, MercenaryPack, TribalPack, CaravanPack은 stock VNV처럼 게임 Data에서 읽되, 번역본은 <code>Output/mods</code>의 Fixed ESMs 폴더에 생성합니다.</li>
-                        <li><strong>게임 Data의 플러그인</strong>: 별도 MO2 provider가 없으면 원본을 읽어 <code>Output/mods/VNV Korean Translations</code>에 번역본을 생성합니다. 기존 모드가 제공하는 파일은 해당 모드의 Output 경로에 생성합니다.</li>
-                        <li><strong>MCM</strong>: JSON에 직접 들어 있는 표시 문자열은 JSON에서 병합하고, <code>$키</code> 방식은 해당 MCM/Translation INI를 번역합니다.</li>
-                        <li><strong>원문이 변경된 항목</strong>: 추측해서 덮어쓰지 않고 영어를 유지하며 미대응 항목으로 보고합니다.</li>
-                    </ul>
-                </div>
-
-                <div class="card" id="PatchReport">
-                    <h3 onclick="location.href='#PatchReport'">패치 결과 확인</h3>
-                    <p>
-                        작업이 끝나면 <code>Output.report.txt</code>와 <code>Output.report.json</code>에 번역 결과와 복사할 프로필 파일 정보를 기록합니다. Output 생성 완료는 실제 설치 완료를 의미하지 않습니다.
-                        정상 패치, 이미 적용됨, 업데이트 전체/일부 적용, 업데이트 미적용, 제거됨, 신규 플러그인 번역 상속 성공/미대응을 구분해 확인할 수 있습니다.
-                    </p>
-                </div>
-
-                <div class="card" id="PatchBackup">
-                    <h3 onclick="location.href='#PatchBackup'">복사 전 백업과 업데이트</h3>
-                    <p>Output을 덮어쓰기 전에 덮어쓸 기존 모드 파일을 사용자가 백업하세요. 패처는 실제 설치 파일이나 프로필을 변경하지 않으므로 자동 설치 백업을 만들지 않습니다.</p>
-                    <p>모드팩 업데이트나 모드 변경 후에는 이전 Output을 재사용하지 말고 새로 생성하세요. 프로필은 읽기만 하며 활성화 상태와 로드 순서는 자동으로 바꾸지 않습니다.</p>
-                </div>
-
-                <div class="card" id="UpdatingPatch">
-                    <h3 onclick="location.href='#UpdatingPatch'">패처를 업데이트할 때</h3>
-                    <p>
-                        새 패처 버전은 별도 폴더에 다운로드해 실행하는 것을 권장합니다.
-                        VNV 자체가 업데이트된 경우에도 MO2를 종료하고 새 패처로 Output을 생성한 뒤 안내된 경로에 복사하면 됩니다. 이전 Output은 덮어쓰지 않습니다.
-                    </p>
-                    <p>
-                        전체 릴리즈 목록은 <a href="https://github.com/munument1/-KR-VivaNewVegas-Patcher/releases" target="_blank" rel="nofollow">GitHub Releases</a>에서 확인할 수 있습니다.
-                    </p>
+                <div class="card" id="PatchHelp">
+                    <h3 onclick="location.href='#PatchHelp'">업데이트 및 자세한 안내</h3>
+                    <p>모드팩을 업데이트했다면 패쳐를 다시 실행해 새 Output을 생성하세요. 이전 Output을 그대로 재사용하지 마세요.</p>
+                    <p><strong>v1.0.7.2 이하 패쳐를 사용한 경우</strong>, 기존에 덮어쓴 ESP/ESM은 원본 파일 또는 적용 전 백업으로 복구한 뒤 새 버전을 적용해야 합니다.</p>
+                    <p>기술 설명, 변경 이력 및 자세한 주의사항은 <a href="https://github.com/munument1/-KR-VivaNewVegas-Patcher#readme" target="_blank" rel="nofollow">패쳐 GitHub README</a>와 <a href="https://github.com/munument1/-KR-VivaNewVegas-Patcher/releases" target="_blank" rel="nofollow">릴리즈 노트</a>를 참고하세요.</p>
                 </div>
             </span>
 
