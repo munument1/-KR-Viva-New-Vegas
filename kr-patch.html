@@ -209,8 +209,18 @@
 
                 <div class="card" id="PatchDownload">
                     <h3 onclick="location.href='#PatchDownload'">패쳐 다운로드</h3>
-                    <p><a href="https://github.com/munument1/-KR-VivaNewVegas-Patcher/releases/download/v1.0.7.3/VNVKoreanPatcher-v1.0.7.3.exe" target="_blank" rel="nofollow"><strong>VNV Korean Patcher v1.0.7.3 다운로드</strong></a></p>
-                    <p>별도로 Python을 설치할 필요는 없습니다.</p>
+                    <p><a href="https://github.com/munument1/VivaNewVegas-KR-Patcher/releases/latest" target="_blank" rel="nofollow"><strong>최신 VNV Korean Patcher 다운로드</strong></a></p>
+                    <p>Assets에서 설치용 EXE를 다운로드하세요. 현재 안내 기준은 <a href="https://github.com/munument1/VivaNewVegas-KR-Patcher/releases/tag/v1.0.7.6" target="_blank" rel="nofollow">v1.0.7.6</a>입니다. 별도로 Python을 설치할 필요는 없습니다.</p>
+                </div>
+
+                <div class="card" id="PatchContents" title="배포 구성과 번역 적용 방식">
+                    <h3 onclick="location.href='#PatchContents'">배포 구성과 번역 적용 방식</h3>
+                    <ul>
+                        <li><strong>일반 모드 번역:</strong> 설치된 ESP/ESM을 읽고 레코드·필드·현재 원문이 일치하는 번역 데이터를 적용해 Output을 생성합니다. 현재 배포에는 일반 모드별 완성 번역 플러그인 캐시가 없습니다.</li>
+                        <li><strong>한국어 UI 지원:</strong> <code>VNVKR UI Strings.esp</code> 1개는 완성 플러그인으로 패쳐 EXE 안에 포함되어 Output에 복사됩니다. UI·라디오·로딩 화면 등의 표시 문자열을 지원하며, 일반 모드의 사전 번역과는 별도 경로입니다.</li>
+                        <li><strong>기타 구성요소:</strong> 한국어 폰트·수정 tNVSE·라디오 자막 구성요소와 실행에 필요한 도구가 포함됩니다.</li>
+                    </ul>
+                    <p>게임과 Viva New Vegas 모드리스트는 먼저 별도로 설치해야 합니다. 현재 패쳐는 UI용 ESP를 포함하므로, 플러그인이 전혀 없는 배포물은 아닙니다.</p>
                 </div>
 
                 <div class="card" id="PatchInstall">
@@ -231,9 +241,10 @@
 
                 <div class="card" id="PatchHelp">
                     <h3 onclick="location.href='#PatchHelp'">업데이트 및 자세한 안내</h3>
-                    <p>모드팩을 업데이트했다면 패쳐를 다시 실행해 새 Output을 생성하세요. 이전 Output을 그대로 재사용하지 마세요.</p>
+                    <p>모드팩을 업데이트했다면 최신 패쳐의 지원 범위와 릴리즈 노트를 확인한 뒤 새 Output을 생성하세요. 이전 Output을 새 버전 모드에 그대로 덮어쓰지 마세요. 사전과 현재 원문이 달라진 문구는 미번역으로 남을 수 있습니다.</p>
+                    <p>동봉된 <code>VNVKR UI Strings.esp</code>는 설치 원본에서 매번 새로 만드는 파일이 아닙니다. 모드팩 업데이트에 맞는 패쳐 버전을 사용하고, 이 UI ESP를 임의로 빼면 관련 한국어 표시가 빠질 수 있습니다.</p>
                     <p><strong>v1.0.7.2 이하 패쳐를 사용한 경우</strong>, 기존에 덮어쓴 ESP/ESM은 원본 파일 또는 적용 전 백업으로 복구한 뒤 새 버전을 적용해야 합니다.</p>
-                    <p>기술 설명, 변경 이력 및 자세한 주의사항은 <a href="https://github.com/munument1/-KR-VivaNewVegas-Patcher#readme" target="_blank" rel="nofollow">패쳐 GitHub README</a>와 <a href="https://github.com/munument1/-KR-VivaNewVegas-Patcher/releases" target="_blank" rel="nofollow">릴리즈 노트</a>를 참고하세요.</p>
+                    <p>기술 설명, 변경 이력 및 자세한 주의사항은 <a href="https://github.com/munument1/VivaNewVegas-KR-Patcher#readme" target="_blank" rel="nofollow">패쳐 GitHub README</a>와 <a href="https://github.com/munument1/VivaNewVegas-KR-Patcher/releases" target="_blank" rel="nofollow">릴리즈 노트</a>를 참고하세요.</p>
                 </div>
             </span>
 

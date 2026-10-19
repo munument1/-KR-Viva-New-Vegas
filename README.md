@@ -15,7 +15,7 @@ ModdingLinked의 [Viva New Vegas](https://vivanewvegas.moddinglinked.com/)를 �
 
 - 전체 HTML 공통 한국어 메뉴
 - 한국어 패치 전용 안내 페이지 / KR 변경사항 / 원본 가이드 링크
-- VNV Korean Patcher v1.0.7.2 다운로드, Extended 프로필의 Output 생성·수동 복사 안내
+- 최신 VNV Korean Patcher 다운로드, Extended 프로필의 Output 생성·수동 복사 안내
 - Fallout: New Vegas Performance Guide 한국어 통합 (`performance/falloutnv.html`)
 - 메인 페이지 번역
 - 소개 페이지 번역
@@ -26,3 +26,5 @@ ModdingLinked의 [Viva New Vegas](https://vivanewvegas.moddinglinked.com/)를 �
 ## 저작권 및 출처
 
 원본 Viva New Vegas의 저작권 및 라이선스 고지는 그대로 유지합니다. `performance/`에는 ModdingLinked의 FalloutNV Performance Guide를 바탕으로 한 한국어 번역과 해당 원본의 MIT 라이선스 고지를 함께 보존합니다. 이 저장소의 한국어 번역은 공식 ModdingLinked 배포판이 아닙니다.
+
+한국어 패쳐의 일반 모드 번역은 설치된 원본에 사전을 적용합니다. 현재 배포에는 한국어 UI용 `VNVKR UI Strings.esp` 1개가 별도로 동봉되어 Output에 복사됩니다. [한국어 패치 안내](kr-patch.html)에서 배포 구성과 업데이트 시 주의사항을 확인하세요.
